@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HRTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +17,23 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] init];
+    self.window.bounds = [UIScreen mainScreen].bounds;
+    
+//        UIViewController *vc = [[UIViewController alloc] init];
+//        vc.view.backgroundColor = [UIColor whiteColor];
+//        self.window.rootViewController = vc;
+    
+    
+    HRTabBarController *tabController = [[HRTabBarController alloc] init];
+    self.window.rootViewController = tabController;
+    
+    HRLog(@"%@",self.window);
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
