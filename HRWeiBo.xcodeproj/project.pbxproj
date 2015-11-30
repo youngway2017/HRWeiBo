@@ -16,6 +16,7 @@
 		44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */; };
 		44A669A91C0BE1E700432DA5 /* HRWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669A81C0BE1E700432DA5 /* HRWeiBoTests.m */; };
 		44A669B41C0BE1E700432DA5 /* HRWeiBoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669B31C0BE1E700432DA5 /* HRWeiBoUITests.m */; };
+		44A669C21C0BE34500432DA5 /* ReadMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669C11C0BE34500432DA5 /* ReadMe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		44A669AF1C0BE1E700432DA5 /* HRWeiBoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HRWeiBoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A669B31C0BE1E700432DA5 /* HRWeiBoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRWeiBoUITests.m; sourceTree = "<group>"; };
 		44A669B51C0BE1E700432DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A669C11C0BE34500432DA5 /* ReadMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadMe.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				44A6699F1C0BE1E700432DA5 /* Info.plist */,
 				44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */,
 				44A6698B1C0BE1E700432DA5 /* Supporting Files */,
+				44A669C11C0BE34500432DA5 /* ReadMe.m */,
 			);
 			path = HRWeiBo;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */,
+				44A669C21C0BE34500432DA5 /* ReadMe.m in Sources */,
 				44A669931C0BE1E700432DA5 /* ViewController.m in Sources */,
 				44A669901C0BE1E700432DA5 /* AppDelegate.m in Sources */,
 				44A6698D1C0BE1E700432DA5 /* main.m in Sources */,
