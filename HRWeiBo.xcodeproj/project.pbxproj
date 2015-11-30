@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44A6698D1C0BE1E700432DA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A6698C1C0BE1E700432DA5 /* main.m */; };
-		44A669901C0BE1E700432DA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A6698F1C0BE1E700432DA5 /* AppDelegate.m */; };
 		44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */; };
 		44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699A1C0BE1E700432DA5 /* Assets.xcassets */; };
 		44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */; };
 		44A669A91C0BE1E700432DA5 /* HRWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669A81C0BE1E700432DA5 /* HRWeiBoTests.m */; };
 		44A669B41C0BE1E700432DA5 /* HRWeiBoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669B31C0BE1E700432DA5 /* HRWeiBoUITests.m */; };
-		44A669D21C0C363C00432DA5 /* HRDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669C71C0C363C00432DA5 /* HRDiscoverViewController.m */; };
-		44A669D31C0C363C00432DA5 /* HRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669C91C0C363C00432DA5 /* HRHomeViewController.m */; };
-		44A669D41C0C363C00432DA5 /* HRMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669CB1C0C363C00432DA5 /* HRMessageCenterViewController.m */; };
-		44A669D51C0C363C00432DA5 /* HRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669CD1C0C363C00432DA5 /* HRNavigationController.m */; };
-		44A669D61C0C363C00432DA5 /* HRProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669CF1C0C363C00432DA5 /* HRProfileViewController.m */; };
-		44A669D71C0C363C00432DA5 /* HRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669D11C0C363C00432DA5 /* HRTabBarController.m */; };
+		44A66A021C0C3A4F00432DA5 /* HRDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669DC1C0C3A4F00432DA5 /* HRDiscoverViewController.m */; };
+		44A66A031C0C3A4F00432DA5 /* HRHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669E21C0C3A4F00432DA5 /* HRHomeViewController.m */; };
+		44A66A041C0C3A4F00432DA5 /* HRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669E81C0C3A4F00432DA5 /* HRNavigationController.m */; };
+		44A66A051C0C3A4F00432DA5 /* HRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669EA1C0C3A4F00432DA5 /* HRTabBarController.m */; };
+		44A66A061C0C3A4F00432DA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669EE1C0C3A4F00432DA5 /* AppDelegate.m */; };
+		44A66A071C0C3A4F00432DA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669F01C0C3A4F00432DA5 /* main.m */; };
+		44A66A081C0C3A4F00432DA5 /* HRMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669F51C0C3A4F00432DA5 /* HRMessageCenterViewController.m */; };
+		44A66A091C0C3A4F00432DA5 /* HRProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A669FB1C0C3A4F00432DA5 /* HRProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +41,6 @@
 
 /* Begin PBXFileReference section */
 		44A669881C0BE1E700432DA5 /* HRWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		44A6698C1C0BE1E700432DA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		44A6698E1C0BE1E700432DA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		44A6698F1C0BE1E700432DA5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		44A669981C0BE1E700432DA5 /* HRWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HRWeiBo.xcdatamodel; sourceTree = "<group>"; };
 		44A6699A1C0BE1E700432DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44A6699D1C0BE1E700432DA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,18 +52,21 @@
 		44A669B31C0BE1E700432DA5 /* HRWeiBoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRWeiBoUITests.m; sourceTree = "<group>"; };
 		44A669B51C0BE1E700432DA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A669C51C0C339300432DA5 /* HRWeiBo_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRWeiBo_Prefix.pch; sourceTree = "<group>"; };
-		44A669C61C0C363C00432DA5 /* HRDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRDiscoverViewController.h; sourceTree = "<group>"; };
-		44A669C71C0C363C00432DA5 /* HRDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRDiscoverViewController.m; sourceTree = "<group>"; };
-		44A669C81C0C363C00432DA5 /* HRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRHomeViewController.h; sourceTree = "<group>"; };
-		44A669C91C0C363C00432DA5 /* HRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRHomeViewController.m; sourceTree = "<group>"; };
-		44A669CA1C0C363C00432DA5 /* HRMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRMessageCenterViewController.h; sourceTree = "<group>"; };
-		44A669CB1C0C363C00432DA5 /* HRMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRMessageCenterViewController.m; sourceTree = "<group>"; };
-		44A669CC1C0C363C00432DA5 /* HRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRNavigationController.h; sourceTree = "<group>"; };
-		44A669CD1C0C363C00432DA5 /* HRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRNavigationController.m; sourceTree = "<group>"; };
-		44A669CE1C0C363C00432DA5 /* HRProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRProfileViewController.h; sourceTree = "<group>"; };
-		44A669CF1C0C363C00432DA5 /* HRProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfileViewController.m; sourceTree = "<group>"; };
-		44A669D01C0C363C00432DA5 /* HRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRTabBarController.h; sourceTree = "<group>"; };
-		44A669D11C0C363C00432DA5 /* HRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTabBarController.m; sourceTree = "<group>"; };
+		44A669DB1C0C3A4F00432DA5 /* HRDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRDiscoverViewController.h; sourceTree = "<group>"; };
+		44A669DC1C0C3A4F00432DA5 /* HRDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRDiscoverViewController.m; sourceTree = "<group>"; };
+		44A669E11C0C3A4F00432DA5 /* HRHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRHomeViewController.h; sourceTree = "<group>"; };
+		44A669E21C0C3A4F00432DA5 /* HRHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRHomeViewController.m; sourceTree = "<group>"; };
+		44A669E71C0C3A4F00432DA5 /* HRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRNavigationController.h; sourceTree = "<group>"; };
+		44A669E81C0C3A4F00432DA5 /* HRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRNavigationController.m; sourceTree = "<group>"; };
+		44A669E91C0C3A4F00432DA5 /* HRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRTabBarController.h; sourceTree = "<group>"; };
+		44A669EA1C0C3A4F00432DA5 /* HRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTabBarController.m; sourceTree = "<group>"; };
+		44A669ED1C0C3A4F00432DA5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		44A669EE1C0C3A4F00432DA5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		44A669F01C0C3A4F00432DA5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		44A669F41C0C3A4F00432DA5 /* HRMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRMessageCenterViewController.h; sourceTree = "<group>"; };
+		44A669F51C0C3A4F00432DA5 /* HRMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRMessageCenterViewController.m; sourceTree = "<group>"; };
+		44A669FA1C0C3A4F00432DA5 /* HRProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRProfileViewController.h; sourceTree = "<group>"; };
+		44A669FB1C0C3A4F00432DA5 /* HRProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,20 +117,7 @@
 		44A6698A1C0BE1E700432DA5 /* HRWeiBo */ = {
 			isa = PBXGroup;
 			children = (
-				44A6698E1C0BE1E700432DA5 /* AppDelegate.h */,
-				44A6698F1C0BE1E700432DA5 /* AppDelegate.m */,
-				44A669C61C0C363C00432DA5 /* HRDiscoverViewController.h */,
-				44A669C71C0C363C00432DA5 /* HRDiscoverViewController.m */,
-				44A669C81C0C363C00432DA5 /* HRHomeViewController.h */,
-				44A669C91C0C363C00432DA5 /* HRHomeViewController.m */,
-				44A669CA1C0C363C00432DA5 /* HRMessageCenterViewController.h */,
-				44A669CB1C0C363C00432DA5 /* HRMessageCenterViewController.m */,
-				44A669CC1C0C363C00432DA5 /* HRNavigationController.h */,
-				44A669CD1C0C363C00432DA5 /* HRNavigationController.m */,
-				44A669CE1C0C363C00432DA5 /* HRProfileViewController.h */,
-				44A669CF1C0C363C00432DA5 /* HRProfileViewController.m */,
-				44A669D01C0C363C00432DA5 /* HRTabBarController.h */,
-				44A669D11C0C363C00432DA5 /* HRTabBarController.m */,
+				44A669D81C0C3A4F00432DA5 /* Classes */,
 				44A6699A1C0BE1E700432DA5 /* Assets.xcassets */,
 				44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */,
 				44A6699F1C0BE1E700432DA5 /* Info.plist */,
@@ -144,7 +131,6 @@
 		44A6698B1C0BE1E700432DA5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				44A6698C1C0BE1E700432DA5 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -165,6 +151,236 @@
 				44A669B51C0BE1E700432DA5 /* Info.plist */,
 			);
 			path = HRWeiBoUITests;
+			sourceTree = "<group>";
+		};
+		44A669D81C0C3A4F00432DA5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				44A669D91C0C3A4F00432DA5 /* Discover(发现) */,
+				44A669DF1C0C3A4F00432DA5 /* Home(首页) */,
+				44A669E51C0C3A4F00432DA5 /* Main */,
+				44A669F21C0C3A4F00432DA5 /* MessageCenter(消息) */,
+				44A669F81C0C3A4F00432DA5 /* Profile(我) */,
+				44A669FE1C0C3A4F00432DA5 /* Temp */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		44A669D91C0C3A4F00432DA5 /* Discover(发现) */ = {
+			isa = PBXGroup;
+			children = (
+				44A669DA1C0C3A4F00432DA5 /* Controller */,
+				44A669DD1C0C3A4F00432DA5 /* Model */,
+				44A669DE1C0C3A4F00432DA5 /* View */,
+			);
+			path = "Discover(发现)";
+			sourceTree = "<group>";
+		};
+		44A669DA1C0C3A4F00432DA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44A669DB1C0C3A4F00432DA5 /* HRDiscoverViewController.h */,
+				44A669DC1C0C3A4F00432DA5 /* HRDiscoverViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44A669DD1C0C3A4F00432DA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44A669DE1C0C3A4F00432DA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44A669DF1C0C3A4F00432DA5 /* Home(首页) */ = {
+			isa = PBXGroup;
+			children = (
+				44A669E01C0C3A4F00432DA5 /* Controller */,
+				44A669E31C0C3A4F00432DA5 /* Model */,
+				44A669E41C0C3A4F00432DA5 /* View */,
+			);
+			path = "Home(首页)";
+			sourceTree = "<group>";
+		};
+		44A669E01C0C3A4F00432DA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44A669E11C0C3A4F00432DA5 /* HRHomeViewController.h */,
+				44A669E21C0C3A4F00432DA5 /* HRHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44A669E31C0C3A4F00432DA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44A669E41C0C3A4F00432DA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44A669E51C0C3A4F00432DA5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				44A669E61C0C3A4F00432DA5 /* Controller */,
+				44A669EB1C0C3A4F00432DA5 /* Model */,
+				44A669EC1C0C3A4F00432DA5 /* Other */,
+				44A669F11C0C3A4F00432DA5 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		44A669E61C0C3A4F00432DA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44A669E71C0C3A4F00432DA5 /* HRNavigationController.h */,
+				44A669E81C0C3A4F00432DA5 /* HRNavigationController.m */,
+				44A669E91C0C3A4F00432DA5 /* HRTabBarController.h */,
+				44A669EA1C0C3A4F00432DA5 /* HRTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44A669EB1C0C3A4F00432DA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44A669EC1C0C3A4F00432DA5 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				44A669ED1C0C3A4F00432DA5 /* AppDelegate.h */,
+				44A669EE1C0C3A4F00432DA5 /* AppDelegate.m */,
+				44A669EF1C0C3A4F00432DA5 /* Lib */,
+				44A669F01C0C3A4F00432DA5 /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		44A669EF1C0C3A4F00432DA5 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		44A669F11C0C3A4F00432DA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44A669F21C0C3A4F00432DA5 /* MessageCenter(消息) */ = {
+			isa = PBXGroup;
+			children = (
+				44A669F31C0C3A4F00432DA5 /* Controller */,
+				44A669F61C0C3A4F00432DA5 /* Model */,
+				44A669F71C0C3A4F00432DA5 /* View */,
+			);
+			path = "MessageCenter(消息)";
+			sourceTree = "<group>";
+		};
+		44A669F31C0C3A4F00432DA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44A669F41C0C3A4F00432DA5 /* HRMessageCenterViewController.h */,
+				44A669F51C0C3A4F00432DA5 /* HRMessageCenterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44A669F61C0C3A4F00432DA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44A669F71C0C3A4F00432DA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44A669F81C0C3A4F00432DA5 /* Profile(我) */ = {
+			isa = PBXGroup;
+			children = (
+				44A669F91C0C3A4F00432DA5 /* Controller */,
+				44A669FC1C0C3A4F00432DA5 /* Model */,
+				44A669FD1C0C3A4F00432DA5 /* View */,
+			);
+			path = "Profile(我)";
+			sourceTree = "<group>";
+		};
+		44A669F91C0C3A4F00432DA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44A669FA1C0C3A4F00432DA5 /* HRProfileViewController.h */,
+				44A669FB1C0C3A4F00432DA5 /* HRProfileViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44A669FC1C0C3A4F00432DA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44A669FD1C0C3A4F00432DA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44A669FE1C0C3A4F00432DA5 /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				44A669FF1C0C3A4F00432DA5 /* Controller */,
+				44A66A001C0C3A4F00432DA5 /* Model */,
+				44A66A011C0C3A4F00432DA5 /* View */,
+			);
+			path = Temp;
+			sourceTree = "<group>";
+		};
+		44A669FF1C0C3A4F00432DA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44A66A001C0C3A4F00432DA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		44A66A011C0C3A4F00432DA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,15 +512,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A66A031C0C3A4F00432DA5 /* HRHomeViewController.m in Sources */,
+				44A66A081C0C3A4F00432DA5 /* HRMessageCenterViewController.m in Sources */,
+				44A66A041C0C3A4F00432DA5 /* HRNavigationController.m in Sources */,
+				44A66A061C0C3A4F00432DA5 /* AppDelegate.m in Sources */,
 				44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */,
-				44A669D21C0C363C00432DA5 /* HRDiscoverViewController.m in Sources */,
-				44A669D31C0C363C00432DA5 /* HRHomeViewController.m in Sources */,
-				44A669901C0BE1E700432DA5 /* AppDelegate.m in Sources */,
-				44A6698D1C0BE1E700432DA5 /* main.m in Sources */,
-				44A669D41C0C363C00432DA5 /* HRMessageCenterViewController.m in Sources */,
-				44A669D61C0C363C00432DA5 /* HRProfileViewController.m in Sources */,
-				44A669D51C0C363C00432DA5 /* HRNavigationController.m in Sources */,
-				44A669D71C0C363C00432DA5 /* HRTabBarController.m in Sources */,
+				44A66A051C0C3A4F00432DA5 /* HRTabBarController.m in Sources */,
+				44A66A071C0C3A4F00432DA5 /* main.m in Sources */,
+				44A66A091C0C3A4F00432DA5 /* HRProfileViewController.m in Sources */,
+				44A66A021C0C3A4F00432DA5 /* HRDiscoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
