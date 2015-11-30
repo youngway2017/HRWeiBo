@@ -139,12 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				44A669D81C0C3A4F00432DA5 /* Classes */,
-				44A6699A1C0BE1E700432DA5 /* Assets.xcassets */,
-				44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */,
-				44A6699F1C0BE1E700432DA5 /* Info.plist */,
-				44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */,
 				44A6698B1C0BE1E700432DA5 /* Supporting Files */,
-				44A669C51C0C339300432DA5 /* HRWeiBo_Prefix.pch */,
 			);
 			path = HRWeiBo;
 			sourceTree = "<group>";
@@ -152,6 +147,10 @@
 		44A6698B1C0BE1E700432DA5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				44A6699F1C0BE1E700432DA5 /* Info.plist */,
+				44A6699A1C0BE1E700432DA5 /* Assets.xcassets */,
+				44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */,
+				44A669C51C0C339300432DA5 /* HRWeiBo_Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -288,6 +287,7 @@
 			children = (
 				44A669ED1C0C3A4F00432DA5 /* AppDelegate.h */,
 				44A669EE1C0C3A4F00432DA5 /* AppDelegate.m */,
+				44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */,
 				44A669EF1C0C3A4F00432DA5 /* Lib */,
 				44A669F01C0C3A4F00432DA5 /* main.m */,
 			);
@@ -612,6 +612,7 @@
 				44A6699D1C0BE1E700432DA5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
