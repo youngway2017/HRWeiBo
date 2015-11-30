@@ -7,6 +7,7 @@
 //
 
 #import "HRHomeViewController.h"
+#import "UIBarButtonItem+Extension.h"
 
 @interface HRHomeViewController ()
 
@@ -16,23 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *btnLeft = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btnLeft setImage:[UIImage imageNamed:@"navigationbar_friendsearch"] forState:UIControlStateNormal];
-    [btnLeft setImage:[UIImage imageNamed:@"navigationbar_friendsearch_highlighted"] forState:UIControlStateHighlighted];
-    btnLeft.bounds = CGRectMake(0, 0, 30, 30);
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:btnLeft];
     
-    UIButton *btnRight = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btnRight setImage:[UIImage imageNamed:@"navigationbar_pop"] forState:UIControlStateNormal];
-    [btnRight setImage:[UIImage imageNamed:@"navigationbar_pop_highlighted"] forState:UIControlStateHighlighted];
-    btnRight.bounds = CGRectMake(0, 0, 30, 30);
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:btnRight];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_friendsearch" imageHighlighted:@"navigationbar_friendsearch_highlighted"  action:@selector(btnLeftClick:)];
     
-    self.navigationItem.leftBarButtonItem = leftItem;
-    self.navigationItem.rightBarButtonItem = rightItem;
-    
-    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_pop" imageHighlighted:@"navigationbar_pop_highlighted"  action:@selector(btnRightClick:)];    
 }
+
+
+- (void)btnLeftClick:(UIButton *)sender {
+//    [self popViewControllerAnimated:YES];
+}
+
+- (void)btnRightClick:(UIButton *)sender {
+//    [self popToRootViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

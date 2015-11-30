@@ -7,6 +7,7 @@
 //
 
 #import "HRProfileViewController.h"
+#import "Test1ViewController.h"
 
 @interface HRProfileViewController ()
 
@@ -17,12 +18,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(btnLeftClick:)];
+    //文字正常颜色
+    NSMutableDictionary *dictNormal = [NSMutableDictionary dictionary];
+    [dictNormal setObject:HRRgba(255, 130, 0,1) forKey:NSForegroundColorAttributeName];
+    [dictNormal setObject:NavButtonItemFont forKey:NSFontAttributeName];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:dictNormal forState:UIControlStateNormal];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+- (void)btnLeftClick:(UIButton *)sender {
+    HRLog(@"profile leftclick!");
+    Test1ViewController *vc = [[Test1ViewController alloc] init];
+    vc.title = @"Test1";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
