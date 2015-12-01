@@ -22,7 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setNavigationItem];
+}
+
+- (void)setNavigationItem {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_friendsearch" imageHighlighted:@"navigationbar_friendsearch_highlighted"  action:@selector(btnLeftClick:)];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_pop" imageHighlighted:@"navigationbar_pop_highlighted"  action:@selector(btnRightClick:)];
@@ -33,14 +36,14 @@
     [btnTitle setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     [btnTitle setTitle:@"首页" forState:UIControlStateNormal];
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] initWithString:@"首页"];
-
+    
     [commentString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor]  range:NSMakeRange(0, [commentString length])];
     [commentString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica-Bold" size:18] range:NSMakeRange(0, [commentString length])];
     [btnTitle setAttributedTitle:commentString forState:UIControlStateNormal];
     
     NSMutableDictionary *mdict = [NSMutableDictionary dictionary];
     [mdict setObject:[UIFont fontWithName:@"Helvetica-Bold" size:18] forKey:NSFontAttributeName];
-
+    
     CGRect titleRect = [btnTitle.currentTitle boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:mdict context:nil];
     btnTitle.bounds = CGRectMake(0, 0, 150, 30);
     btnTitle.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -(titleRect.size.width + image.size.width) * 2 - 10);

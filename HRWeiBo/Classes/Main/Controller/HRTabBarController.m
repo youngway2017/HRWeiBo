@@ -12,9 +12,10 @@
 #import "HRMessageCenterViewController.h"
 #import "HRDiscoverViewController.h"
 #import "HRProfileViewController.h"
+#import "HRTabBar.h"
 
 
-@interface HRTabBarController ()
+@interface HRTabBarController ()<HRTabBarDelegate>
 
 @end
 
@@ -45,6 +46,8 @@
     HRNavigationController *navProfile = [[HRNavigationController alloc] initWithRootViewController:profileController];
     profileController.navigationItem.title = @"我";
     [self addViewController:navProfile title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    HRTabBar *hrTabBar = [HRTabBar tabBar];
+    [self setValue:hrTabBar forKeyPath:@"tabBar"];
 
 }
 
@@ -66,5 +69,10 @@
     [self addChildViewController:vc];
 }
 
+- (void)tabBarDidClickAddBtn:(HRTabBar *)tabBar {
+    UIViewController *addVc = [[UIViewController alloc] init];
+    addVc.view.backgroundColor = [UIColor blueColor];
+    [self presentViewController:addVc animated:YES completion:nil];
+}
 
 @end

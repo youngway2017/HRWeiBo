@@ -10,6 +10,7 @@
 		441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 441118F61C0D34C1005035F6 /* HRSeachBar.m */; };
 		4473E9A81C0D97B300B33F6D /* HRTitleMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473E9A71C0D97B300B33F6D /* HRTitleMenuController.m */; };
 		4473E9AB1C0D982E00B33F6D /* HRDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473E9AA1C0D982E00B33F6D /* HRDropdownMenu.m */; };
+		4473E9AE1C0DAF7300B33F6D /* HRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473E9AD1C0DAF7300B33F6D /* HRTabBar.m */; };
 		44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */; };
 		44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699A1C0BE1E700432DA5 /* Assets.xcassets */; };
 		44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */; };
@@ -57,6 +58,8 @@
 		4473E9A71C0D97B300B33F6D /* HRTitleMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTitleMenuController.m; sourceTree = "<group>"; };
 		4473E9A91C0D982E00B33F6D /* HRDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRDropdownMenu.h; sourceTree = "<group>"; };
 		4473E9AA1C0D982E00B33F6D /* HRDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRDropdownMenu.m; sourceTree = "<group>"; };
+		4473E9AC1C0DAF7300B33F6D /* HRTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRTabBar.h; sourceTree = "<group>"; };
+		4473E9AD1C0DAF7300B33F6D /* HRTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTabBar.m; sourceTree = "<group>"; };
 		44A669881C0BE1E700432DA5 /* HRWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A669981C0BE1E700432DA5 /* HRWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HRWeiBo.xcdatamodel; sourceTree = "<group>"; };
 		44A6699A1C0BE1E700432DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				441118F61C0D34C1005035F6 /* HRSeachBar.m */,
 				4473E9A91C0D982E00B33F6D /* HRDropdownMenu.h */,
 				4473E9AA1C0D982E00B33F6D /* HRDropdownMenu.m */,
+				4473E9AC1C0DAF7300B33F6D /* HRTabBar.h */,
+				4473E9AD1C0DAF7300B33F6D /* HRTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -575,6 +580,7 @@
 				44A66A121C0C3BF200432DA5 /* Test2ViewController.m in Sources */,
 				44A66A031C0C3A4F00432DA5 /* HRHomeViewController.m in Sources */,
 				44A66A171C0C3BFC00432DA5 /* Test3ViewController.m in Sources */,
+				4473E9AE1C0DAF7300B33F6D /* HRTabBar.m in Sources */,
 				44A66A081C0C3A4F00432DA5 /* HRMessageCenterViewController.m in Sources */,
 				44A66A041C0C3A4F00432DA5 /* HRNavigationController.m in Sources */,
 				44A66A061C0C3A4F00432DA5 /* AppDelegate.m in Sources */,
