@@ -1,27 +1,23 @@
 //
-//  HRDiscoverViewController.m
-//  HRWeibo
+//  HRTitleMenuController.m
+//  HRWeiBo
 //
-//  Created by yangwei on 15/11/29.
-//  Copyright © 2015年 yangwei. All rights reserved.
+//  Created by Yangwei on 15/12/1.
+//  Copyright © 2015年 Yangwei. All rights reserved.
 //
 
-#import "HRDiscoverViewController.h"
-#import "HRSeachBar.h"
+#import "HRTitleMenuController.h"
 
-@interface HRDiscoverViewController ()
+@interface HRTitleMenuController ()
 
 @end
 
-@implementation HRDiscoverViewController
+@implementation HRTitleMenuController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    HRSeachBar *seachBar = [HRSeachBar seachBar];
-    seachBar.bounds = CGRectMake(0, 0, self.view.width, 30);
-    self.navigationItem.titleView = seachBar;
-}
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -32,23 +28,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return 3;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *ID = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    // Configure the cell...
-    
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"好友分组-%ld",indexPath.row];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
