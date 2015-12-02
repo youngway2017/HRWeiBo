@@ -10,6 +10,7 @@
 #import "HRTabBarController.h"
 #import "NewFeatureViewController.h"
 #import "NewFeatureTool.h"
+#import "OAuthViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,13 +23,17 @@
     self.window = [[UIWindow alloc] init];
     self.window.bounds = [UIScreen mainScreen].bounds;
 
-    if([NewFeatureTool isShowNewFeature]) {
-        NewFeatureViewController *newFeature = [[NewFeatureViewController alloc] init];
-        self.window.rootViewController = newFeature;
-    } else {
-        HRTabBarController *tabController = [[HRTabBarController alloc] init];
-        self.window.rootViewController = tabController;
-    }
+    OAuthViewController *oAuth = [[OAuthViewController alloc] init];
+    self.window.rootViewController = oAuth;
+    
+//    if([NewFeatureTool isShowNewFeature]) {
+//        NewFeatureViewController *newFeature = [[NewFeatureViewController alloc] init];
+//        self.window.rootViewController = newFeature;
+//    } else {
+//        HRTabBarController *tabController = [[HRTabBarController alloc] init];
+//        self.window.rootViewController = tabController;
+//    }
+    
     
     HRLog(@"%@",self.window);
     
