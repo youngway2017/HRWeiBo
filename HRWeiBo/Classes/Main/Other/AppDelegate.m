@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HRTabBarController.h"
-
+#import "NewFeatureViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -25,9 +25,12 @@
 //        self.window.rootViewController = vc;
     
     
-    HRTabBarController *tabController = [[HRTabBarController alloc] init];
-    self.window.rootViewController = tabController;
+//    HRTabBarController *tabController = [[HRTabBarController alloc] init];
+//    self.window.rootViewController = tabController;
     
+    
+    NewFeatureViewController *newFeature = [[NewFeatureViewController alloc] init];
+    self.window.rootViewController = newFeature;
     HRLog(@"%@",self.window);
     
     [self.window makeKeyAndVisible];
