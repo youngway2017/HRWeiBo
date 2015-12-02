@@ -12,6 +12,7 @@
 		4473E9AB1C0D982E00B33F6D /* HRDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473E9AA1C0D982E00B33F6D /* HRDropdownMenu.m */; };
 		4473E9AE1C0DAF7300B33F6D /* HRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473E9AD1C0DAF7300B33F6D /* HRTabBar.m */; };
 		447FA2241C0EDD7B0043668B /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 447FA2231C0EDD7B0043668B /* NewFeatureViewController.m */; };
+		447FA2281C0EF67E0043668B /* NewFeatureTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 447FA2271C0EF67E0043668B /* NewFeatureTool.m */; };
 		44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */; };
 		44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699A1C0BE1E700432DA5 /* Assets.xcassets */; };
 		44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */; };
@@ -63,6 +64,8 @@
 		4473E9AD1C0DAF7300B33F6D /* HRTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTabBar.m; sourceTree = "<group>"; };
 		447FA2221C0EDD7B0043668B /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
 		447FA2231C0EDD7B0043668B /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
+		447FA2261C0EF67E0043668B /* NewFeatureTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureTool.h; sourceTree = "<group>"; };
+		447FA2271C0EF67E0043668B /* NewFeatureTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureTool.m; sourceTree = "<group>"; };
 		44A669881C0BE1E700432DA5 /* HRWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A669981C0BE1E700432DA5 /* HRWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HRWeiBo.xcdatamodel; sourceTree = "<group>"; };
 		44A6699A1C0BE1E700432DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 		447FA2201C0EDD570043668B /* NewFeature(新特性) */ = {
 			isa = PBXGroup;
 			children = (
+				447FA2251C0EF66B0043668B /* Tool */,
 				447FA2211C0EDD570043668B /* Controller */,
 			);
 			path = "NewFeature(新特性)";
@@ -145,6 +149,15 @@
 				447FA2231C0EDD7B0043668B /* NewFeatureViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		447FA2251C0EF66B0043668B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				447FA2261C0EF67E0043668B /* NewFeatureTool.h */,
+				447FA2271C0EF67E0043668B /* NewFeatureTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		44A6697F1C0BE1E700432DA5 = {
@@ -613,6 +626,7 @@
 				447FA2241C0EDD7B0043668B /* NewFeatureViewController.m in Sources */,
 				44A66A071C0C3A4F00432DA5 /* main.m in Sources */,
 				44A66A251C0C4DBD00432DA5 /* UIView+Extension.m in Sources */,
+				447FA2281C0EF67E0043668B /* NewFeatureTool.m in Sources */,
 				44A66A241C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m in Sources */,
 				4473E9A81C0D97B300B33F6D /* HRTitleMenuController.m in Sources */,
 				44A66A091C0C3A4F00432DA5 /* HRProfileViewController.m in Sources */,

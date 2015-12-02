@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "HRTabBarController.h"
 #import "NewFeatureViewController.h"
+#import "NewFeatureTool.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,18 +21,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] init];
     self.window.bounds = [UIScreen mainScreen].bounds;
+
+    if([NewFeatureTool isShowNewFeature]) {
+        NewFeatureViewController *newFeature = [[NewFeatureViewController alloc] init];
+        self.window.rootViewController = newFeature;
+    } else {
+        HRTabBarController *tabController = [[HRTabBarController alloc] init];
+        self.window.rootViewController = tabController;
+    }
     
-//        UIViewController *vc = [[UIViewController alloc] init];
-//        vc.view.backgroundColor = [UIColor whiteColor];
-//        self.window.rootViewController = vc;
-    
-    
-//    HRTabBarController *tabController = [[HRTabBarController alloc] init];
-//    self.window.rootViewController = tabController;
-    
-    
-    NewFeatureViewController *newFeature = [[NewFeatureViewController alloc] init];
-    self.window.rootViewController = newFeature;
     HRLog(@"%@",self.window);
     
     [self.window makeKeyAndVisible];
