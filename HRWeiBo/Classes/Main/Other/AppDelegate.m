@@ -11,6 +11,7 @@
 #import "NewFeatureViewController.h"
 #import "NewFeatureTool.h"
 #import "OAuthViewController.h"
+#import "AccountTool.h"
 
 @interface AppDelegate ()
 
@@ -23,21 +24,15 @@
     self.window = [[UIWindow alloc] init];
     self.window.bounds = [UIScreen mainScreen].bounds;
 
-    OAuthViewController *oAuth = [[OAuthViewController alloc] init];
-    self.window.rootViewController = oAuth;
+    Account *account = [AccountTool account];
+    if (account) {
+        [self.window switchViewController];
+    } else {
+        OAuthViewController *oAuth = [[OAuthViewController alloc] init];
+        self.window.rootViewController = oAuth;
+    }
     
-//    if([NewFeatureTool isShowNewFeature]) {
-//        NewFeatureViewController *newFeature = [[NewFeatureViewController alloc] init];
-//        self.window.rootViewController = newFeature;
-//    } else {
-//        HRTabBarController *tabController = [[HRTabBarController alloc] init];
-//        self.window.rootViewController = tabController;
-//    }
-    
-    
-//    [self.window switchViewController];
-    HRLog(@"%@",self.window);
-    
+   
     [self.window makeKeyAndVisible];
     
     return YES;

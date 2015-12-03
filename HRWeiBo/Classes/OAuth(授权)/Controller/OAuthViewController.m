@@ -11,6 +11,8 @@
 #import "NewFeatureTool.h"
 #import "HRTabBarController.h"
 #import "NewFeatureViewController.h"
+#import "AccountTool.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface OAuthViewController ()<UIWebViewDelegate>
 
@@ -26,7 +28,7 @@
     webView.delegate = self;
     
     NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=2883928079&redirect_uri=http://www.baidu.com"];
-//    client_id	true	string	申请应用时分配的AppKey。
+//    client_id     true	string	申请应用时分配的AppKey。
 //    redirect_uri	true	string	授权回调地址，站外应用需与设置的回调地址一致，站内应用需填写canvas page的地址。
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
@@ -34,10 +36,12 @@
 
 #pragma mark - webViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+    [MBProgressHUD showMessage:@"正在加载..."];
     HRLog(@"webViewDidStartLoad");
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [MBProgressHUD hideHUD];
     HRLog(@"webViewDidFinishLoad");
 }
 
@@ -56,6 +60,7 @@
 
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [MBProgressHUD hideHUD];
     HRLog(@"didFailLoadWithError--%@",error);
 }
 
@@ -81,15 +86,15 @@
     
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:dict success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         NSLog(@"JSON: %@", responseObject);
-//        "access_token" = "2.00SZEWrBB8fKJD244ef9b3f80_w7Hq";
-//        "expires_in" = 157679999;
-//        "remind_in" = 157679999;
-//        uid = 1706922700;
+        Account *account = [Account accountWithDict:responseObject];
+        [AccountTool saveAccount:account];
         
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        [MBProgressHUD hideHUD];
         [window switchViewController];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
         NSLog(@"Error: %@", error);
     }];
 

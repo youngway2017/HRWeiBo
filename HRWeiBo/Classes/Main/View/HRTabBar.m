@@ -38,7 +38,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    HRLog(@"%@",self.subviews);
     int index = 0;
     CGFloat perWidth = self.width / childCount;
     for (int i = 0; i < self.subviews.count; i++) {
@@ -50,7 +49,6 @@
                 index++;
             }
             child.frame = CGRectMake(index * perWidth, 0, perWidth, self.height);
-            HRLog(@"%@",NSStringFromCGRect(child.frame));
             index++;
         }
     }
@@ -59,7 +57,6 @@
 }
 
 - (void)addBtnClick:(UIButton *)sender {
-    HRLog(@"addBtnClick");
     if([self.delegate respondsToSelector:@selector(tabBarDidClickAddBtn:)]) {
         [self.delegate tabBarDidClickAddBtn:self];
     }
