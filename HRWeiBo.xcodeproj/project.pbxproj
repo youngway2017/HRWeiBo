@@ -51,7 +51,6 @@
 		44BC26B91C102FBA00D71126 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44BC26B51C102FBA00D71126 /* MBProgressHUD.bundle */; };
 		44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26B71C102FBA00D71126 /* MBProgressHUD.m */; };
 		44BC26BD1C10327800D71126 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26BC1C10327800D71126 /* TitleButton.m */; };
-		44BC26C31C10542A00D71126 /* xx.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26C21C10542A00D71126 /* xx.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,8 +157,6 @@
 		44BC26B71C102FBA00D71126 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		44BC26BB1C10327800D71126 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
 		44BC26BC1C10327800D71126 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
-		44BC26C11C10542A00D71126 /* xx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xx.h; sourceTree = "<group>"; };
-		44BC26C21C10542A00D71126 /* xx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xx.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -568,8 +565,6 @@
 		44A66A011C0C3A4F00432DA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				44BC26C11C10542A00D71126 /* xx.h */,
-				44BC26C21C10542A00D71126 /* xx.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -780,7 +775,6 @@
 				44A66A071C0C3A4F00432DA5 /* main.m in Sources */,
 				44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */,
 				44A66A251C0C4DBD00432DA5 /* UIView+Extension.m in Sources */,
-				44BC26C31C10542A00D71126 /* xx.m in Sources */,
 				447FA2281C0EF67E0043668B /* NewFeatureTool.m in Sources */,
 				44A66A241C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m in Sources */,
 				447FA24A1C0F030B0043668B /* AFSecurityPolicy.m in Sources */,
