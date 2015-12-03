@@ -15,6 +15,8 @@
 #endif /* HRWeiBo_Prefix_pch */
 
 #import "UIView+Extension.h"
+#import "UIWindow+Extenstion.h"
+
 #ifdef DEBUG
 #   define HRLog(...) NSLog(__VA_ARGS__)
 #else

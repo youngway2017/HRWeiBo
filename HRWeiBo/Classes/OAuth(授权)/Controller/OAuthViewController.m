@@ -86,15 +86,9 @@
 //        "remind_in" = 157679999;
 //        uid = 1706922700;
         
-        if([NewFeatureTool isShowNewFeature]) {
-            NewFeatureViewController *newFeature = [[NewFeatureViewController alloc] init];
-            UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-            window.rootViewController = newFeature;
-        } else {
-            HRTabBarController *tabController = [[HRTabBarController alloc] init];
-            UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-            window.rootViewController = tabController;
-        }
+        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        [window switchViewController];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

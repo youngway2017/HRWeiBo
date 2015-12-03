@@ -35,6 +35,7 @@
 //    }
     
     
+//    [self.window switchViewController];
     HRLog(@"%@",self.window);
     
     [self.window makeKeyAndVisible];

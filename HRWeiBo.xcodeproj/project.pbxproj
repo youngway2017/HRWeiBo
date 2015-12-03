@@ -44,6 +44,7 @@
 		44A66A181C0C3BFC00432DA5 /* Test3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A66A161C0C3BFC00432DA5 /* Test3ViewController.xib */; };
 		44A66A241C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A66A211C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m */; };
 		44A66A251C0C4DBD00432DA5 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A66A231C0C4DBD00432DA5 /* UIView+Extension.m */; };
+		44BC26A91C0FEEF800D71126 /* UIWindow+Extenstion.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26A81C0FEEF800D71126 /* UIWindow+Extenstion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,8 @@
 		44A66A211C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		44A66A221C0C4DBD00432DA5 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		44A66A231C0C4DBD00432DA5 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		44BC26A71C0FEEF800D71126 /* UIWindow+Extenstion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extenstion.h"; sourceTree = "<group>"; };
+		44BC26A81C0FEEF800D71126 /* UIWindow+Extenstion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extenstion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +554,8 @@
 				44A66A211C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m */,
 				44A66A221C0C4DBD00432DA5 /* UIView+Extension.h */,
 				44A66A231C0C4DBD00432DA5 /* UIView+Extension.m */,
+				44BC26A71C0FEEF800D71126 /* UIWindow+Extenstion.h */,
+				44BC26A81C0FEEF800D71126 /* UIWindow+Extenstion.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -689,6 +694,7 @@
 			files = (
 				447FA2311C0EFD880043668B /* OAuthViewController.m in Sources */,
 				44A66A121C0C3BF200432DA5 /* Test2ViewController.m in Sources */,
+				44BC26A91C0FEEF800D71126 /* UIWindow+Extenstion.m in Sources */,
 				44A66A031C0C3A4F00432DA5 /* HRHomeViewController.m in Sources */,
 				44A66A171C0C3BFC00432DA5 /* Test3ViewController.m in Sources */,
 				447FA24B1C0F030B0043668B /* AFURLConnectionOperation.m in Sources */,
