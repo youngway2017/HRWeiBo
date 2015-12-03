@@ -11,6 +11,9 @@
 #import "HRDropdownMenu.h"
 #import "HRTitleMenuController.h"
 #import "TitleButton.h"
+#import "AFNetworking.h"
+#import "AccountTool.h"
+
 
 @interface HRHomeViewController ()<HRDropdownMenuDelegate>
 
@@ -24,17 +27,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationItem];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    Account *account = [AccountTool account];
+    
+    if (!account) {
+        return;
+    }
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:account.access_token forKey:@"access_token" ];
+    [dict setObject:account.uid forKey:@"uid"];
+    
+    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
+        NSLog(@"JSON: %@", userInfo);
+        account.nick_name = userInfo[@"screen_name"];
+        TitleButton *btn = (TitleButton *)self.navigationItem.titleView;
+        [btn setTitle:account.nick_name forState:UIControlStateNormal];
+        [AccountTool saveAccount:account];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error);
+    }];
+
 }
 
 - (void)setNavigationItem {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_friendsearch" imageHighlighted:@"navigationbar_friendsearch_highlighted"  action:@selector(btnLeftClick:)];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_pop" imageHighlighted:@"navigationbar_pop_highlighted"  action:@selector(btnRightClick:)];
-    
+    Account *account = [AccountTool account];
     TitleButton *btnTitle = [[TitleButton alloc] init];
-    [btnTitle setTitle:@"首页" forState:UIControlStateNormal];
-    btnTitle.width = 200;
-//    btnTitle.backgroundColor = [UIColor redColor];
+    [btnTitle setTitle:account.nick_name?account.nick_name:@"首页" forState:UIControlStateNormal];
     [btnTitle addTarget:self action:@selector(btnTitleClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = btnTitle;
     _btnTitle = btnTitle;

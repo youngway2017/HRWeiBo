@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__35-[HRHomeViewController viewDidLoad]_block_invoke:HRHomeViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.account">
+            </PersistentString>
+            <PersistentString
+               value = "userInfo[@&quot;screen_name&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
