@@ -8,9 +8,12 @@
 
 #import "TitleButton.h"
 
+#define marginValue 10
+
 @implementation TitleButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
+    HRLog(@"initWithFrame=%@",NSStringFromCGRect(frame));
     if (self = [super initWithFrame:frame]) {
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:18];
@@ -23,9 +26,9 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    HRLog(@"%@",NSStringFromCGRect(self.imageView.frame));
-    self.titleLabel.x = (self.width - (self.titleLabel.width + self.imageView.width)) *0.5;
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
+    self.titleLabel.x = (self.width - (self.titleLabel.width + self.imageView.width + marginValue)) *0.5;
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + marginValue;
+    HRLog(@"frame=%@",NSStringFromCGRect(self.frame));
 }
 
 - (void)setImage:(UIImage *)image forState:(UIControlState)state {
@@ -38,6 +41,9 @@
     [self sizeToFit];
 }
 
-
+- (void)sizeToFit {
+    [super sizeToFit];
+    self.bounds = CGRectMake(0, 0, self.width+marginValue, self.height);
+}
 
 @end

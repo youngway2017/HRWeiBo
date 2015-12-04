@@ -17,6 +17,7 @@
     account.remind_in = dict[@"remind_in"];
     account.uid = dict[@"uid"];
     account.create_time = [NSDate date];
+    
     return account;
 }
 
