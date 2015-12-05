@@ -13,12 +13,18 @@
 #import "TitleButton.h"
 #import "AFNetworking.h"
 #import "AccountTool.h"
+#import "MJExtension.h"
+#import "User.h"
+#import "Status.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface HRHomeViewController ()<HRDropdownMenuDelegate>
 
 @property (nonatomic, strong) HRDropdownMenu *menu;
 @property (nonatomic, strong) TitleButton *btnTitle;
+@property (nonatomic, strong) NSMutableArray *statues;
+
 
 @end
 
@@ -28,6 +34,21 @@
     [super viewDidLoad];
     [self setNavigationItem];
     
+//    [self getNickName];
+    
+    [self getStatues];
+    
+}
+
+- (NSMutableArray *)statues {
+    if (_statues == nil) {
+        _statues = [NSMutableArray array];
+    }
+    return _statues;
+}
+
+//获取昵称
+- (void)getNickName {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     Account *account = [AccountTool account];
@@ -49,8 +70,40 @@
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"Error: %@", error);
     }];
-
 }
+
+
+/**
+ *  获取当前登录用户及其所关注（授权）用户的最新微博
+ *  access_token		string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+ *  since_id            int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
+ *  max_id              int64	若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
+ *  count               int     单页返回的记录条数，最大不超过100，默认为20。
+ */
+- (void)getStatues {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    Account *account = [AccountTool account];
+    
+    if (!account) {
+        return;
+    }
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:account.access_token forKey:@"access_token" ];
+    [dict setObject:@20 forKey:@"count" ];
+    
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
+        
+        NSArray *statuses = [Status mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
+        [self.statues addObjectsFromArray:statuses];
+        [self.tableView reloadData];
+
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 
 - (void)setNavigationItem {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_friendsearch" imageHighlighted:@"navigationbar_friendsearch_highlighted"  action:@selector(btnLeftClick:)];
@@ -107,25 +160,30 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.statues.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *ID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    Status *status = self.statues[indexPath.row];
+    User *user = status.user;
     
-    // Configure the cell...
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]
+                      placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    
+    cell.textLabel.text = status.text;
+    
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

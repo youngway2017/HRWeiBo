@@ -21,7 +21,6 @@
     return account;
 }
 
-
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.access_token forKey:@"access_token"];
     [coder encodeObject:self.expires_in forKey:@"expires_in"];
