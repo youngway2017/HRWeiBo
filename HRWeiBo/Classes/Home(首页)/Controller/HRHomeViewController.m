@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSMutableArray *statues;
 
 
+
 @end
 
 @implementation HRHomeViewController
@@ -36,8 +37,20 @@
     
 //    [self getNickName];
     
-    [self getStatues];
+    [self addRefreshControl];
     
+    
+}
+
+- (void)addRefreshControl {
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl beginRefreshing];
+    [self refreshData:self.refreshControl];
+}
+
+- (void)refreshData:(UIRefreshControl *)sender{
+    [self getNewStatues];
 }
 
 - (NSMutableArray *)statues {
@@ -80,7 +93,7 @@
  *  max_id              int64	若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
  *  count               int     单页返回的记录条数，最大不超过100，默认为20。
  */
-- (void)getStatues {
+- (void)getNewStatues {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     Account *account = [AccountTool account];
@@ -97,14 +110,46 @@
         
         NSArray *statuses = [Status mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
         [self.statues addObjectsFromArray:statuses];
+        
+        [self showStatuesCount:(int)statuses.count];
+        
         [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
 
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"Error: %@", error);
+        [self.refreshControl endRefreshing];
     }];
 }
 
+- (void)showStatuesCount:(int)count {
+    UILabel *showLabel = [[UILabel alloc] init];
+    showLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    showLabel.textAlignment = NSTextAlignmentCenter;
+    showLabel.font = [UIFont systemFontOfSize:14];
+    showLabel.textColor = [UIColor whiteColor];
+    if (count <= 0) {
+        showLabel.text = @"没有新的微博数据，请稍后再试";
+    } else {
+        showLabel.text = [NSString stringWithFormat:@"共有%d条新的微博数据",count];
+    }
+    CGFloat showLabelW = self.navigationController.view.width;
+    CGFloat showLabelH = 35;
+    showLabel.frame = CGRectMake(0, 64 - showLabelH, showLabelW, showLabelH);
+    [self.navigationController.view insertSubview:showLabel belowSubview:self.navigationController.navigationBar];
+    CGFloat duration = 1;
+    [UIView animateWithDuration:duration animations:^{
+        showLabel.transform = CGAffineTransformMakeTranslation(0, showLabelH);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:duration delay:duration options:(UIViewAnimationOptionCurveLinear) animations:^{
+            showLabel.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [showLabel removeFromSuperview];
+        }];
+    }];
+}
 
+#pragma mark - 设置导航栏
 - (void)setNavigationItem {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_friendsearch" imageHighlighted:@"navigationbar_friendsearch_highlighted"  action:@selector(btnLeftClick:)];
     
@@ -117,12 +162,18 @@
     _btnTitle = btnTitle;
 }
 
+#pragma mark - 导航栏事件
 - (HRDropdownMenu *)menu {
     if(_menu == nil) {
         _menu = [HRDropdownMenu menu];
     }
     return _menu;
 }
+
+- (void)dropdownMenuDiddismiss:(HRDropdownMenu *)menu {
+    _btnTitle.selected = NO;
+}
+
 - (void)btnLeftClick:(UIButton *)sender {
 //    [self popViewControllerAnimated:YES];
 }
@@ -149,16 +200,9 @@
     sender.selected = !sender.isSelected;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-- (void)dropdownMenuDiddismiss:(HRDropdownMenu *)menu {
-    _btnTitle.selected = NO;
-}
 
-#pragma mark - Table view data source
+#pragma mark - 表格数据相关
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
@@ -184,49 +228,5 @@
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
