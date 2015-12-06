@@ -10,19 +10,20 @@
 #import "UIBarButtonItem+Extension.h"
 #import "HRDropdownMenu.h"
 #import "HRTitleMenuController.h"
-#import "TitleButton.h"
+#import "HRTitleButton.h"
 #import "AFNetworking.h"
 #import "AccountTool.h"
 #import "MJExtension.h"
-#import "User.h"
-#import "Status.h"
+#import "HRUser.h"
+#import "HRStatus.h"
 #import "UIImageView+WebCache.h"
+#import "HRLoadMoreFooter.h"
 
 
 @interface HRHomeViewController ()<HRDropdownMenuDelegate>
 
 @property (nonatomic, strong) HRDropdownMenu *menu;
-@property (nonatomic, strong) TitleButton *btnTitle;
+@property (nonatomic, strong) HRTitleButton *btnTitle;
 @property (nonatomic, strong) NSMutableArray *statues;
 
 
@@ -38,7 +39,9 @@
 //    [self getNickName];
     
     [self addRefreshControl];
-    
+    HRLoadMoreFooter *footer = [HRLoadMoreFooter footerView];
+    footer.hidden = YES;
+    self.tableView.tableFooterView = footer;
     
 }
 
@@ -64,7 +67,7 @@
 - (void)getNickName {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    Account *account = [AccountTool account];
+    HRAccount *account = [AccountTool account];
     
     if (!account) {
         return;
@@ -77,7 +80,7 @@
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
         NSLog(@"JSON: %@", userInfo);
         account.nick_name = userInfo[@"screen_name"];
-        TitleButton *btn = (TitleButton *)self.navigationItem.titleView;
+        HRTitleButton *btn = (HRTitleButton *)self.navigationItem.titleView;
         [btn setTitle:account.nick_name forState:UIControlStateNormal];
         [AccountTool saveAccount:account];
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
@@ -96,7 +99,7 @@
 - (void)getNewStatues {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    Account *account = [AccountTool account];
+    HRAccount *account = [AccountTool account];
     
     if (!account) {
         return;
@@ -104,14 +107,18 @@
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:account.access_token forKey:@"access_token" ];
-    [dict setObject:@20 forKey:@"count" ];
+    
+    HRStatus *fristStatus = [self.statues firstObject];
+    NSString *since_id = fristStatus.idstr ? fristStatus.idstr : @"0";
+    [dict setObject:since_id forKey:@"since_id" ];
+    
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
         
-        NSArray *statuses = [Status mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
-        [self.statues addObjectsFromArray:statuses];
+        NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, statuses.count)];
+        [self.statues insertObjects:statuses atIndexes:indexSet];
         
-        [self showStatuesCount:(int)statuses.count];
         
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
@@ -122,9 +129,56 @@
     }];
 }
 
+/**
+ *  获取当前登录用户及其所关注（授权）用户的最新微博
+ *  access_token		string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+ *  since_id            int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
+ *  max_id              int64	若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
+ *  count               int     单页返回的记录条数，最大不超过100，默认为20。
+ */
+- (void)loadMoreStatues {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    HRAccount *account = [AccountTool account];
+    
+    if (!account) {
+        return;
+    }
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:account.access_token forKey:@"access_token" ];
+    
+    HRStatus *lastStatus = [self.statues lastObject];
+
+    long long maxID = [lastStatus.idstr ? lastStatus.idstr : @"0" longLongValue] - 1;
+    NSString *max_id = [NSString stringWithFormat:@"%lld",maxID];
+    [dict setObject:max_id forKey:@"max_id" ];
+    
+    
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
+        
+        
+        NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
+        [self.statues addObjectsFromArray:statuses];
+        
+        [self showStatuesCount:(int)statuses.count];
+        
+        [self.tableView reloadData];
+        self.tableView.tableFooterView.hidden = YES;
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error);
+        self.tableView.tableFooterView.hidden = YES;
+    }];
+}
+
+
 - (void)showStatuesCount:(int)count {
     UILabel *showLabel = [[UILabel alloc] init];
     showLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    HRLog(@"%@",NSStringFromCGRect(showLabel.frame));
+    
     showLabel.textAlignment = NSTextAlignmentCenter;
     showLabel.font = [UIFont systemFontOfSize:14];
     showLabel.textColor = [UIColor whiteColor];
@@ -154,8 +208,8 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_friendsearch" imageHighlighted:@"navigationbar_friendsearch_highlighted"  action:@selector(btnLeftClick:)];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"navigationbar_pop" imageHighlighted:@"navigationbar_pop_highlighted"  action:@selector(btnRightClick:)];
-    Account *account = [AccountTool account];
-    TitleButton *btnTitle = [[TitleButton alloc] init];
+    HRAccount *account = [AccountTool account];
+    HRTitleButton *btnTitle = [[HRTitleButton alloc] init];
     [btnTitle setTitle:account.nick_name?account.nick_name:@"首页" forState:UIControlStateNormal];
     [btnTitle addTarget:self action:@selector(btnTitleClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = btnTitle;
@@ -201,6 +255,33 @@
 }
 
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if (self.statues.count <= 0 || (self.tableView.tableFooterView.isHidden == NO)) {
+        return;
+    }
+    // 当最后一个cell完全显示在眼前时，contentOffset的y值
+    CGFloat judgeBottomY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY >= judgeBottomY) {
+        HRLog(@"该显示了");
+        self.tableView.tableFooterView.hidden = NO;
+        [self loadMoreStatues];
+    }
+    
+//    NSLog(@"self.tableView.frame=%@",NSStringFromCGRect(self.tableView.frame));
+//    NSLog(@"self.tableView.bounds=%@",NSStringFromCGRect(self.tableView.bounds));
+//    NSLog(@"scrollView.contentOffset.x=%f",scrollView.contentOffset.x);
+//    NSLog(@"scrollView.contentOffset.y=%f",scrollView.contentOffset.y);
+//    NSLog(@"scrollView.contentSize.width=%f",scrollView.contentSize.width);
+//    NSLog(@"scrollView.contentSize.height=%f",scrollView.contentSize.height);
+//    NSLog(@"scrollView.contentInset.left=%f",scrollView.contentInset.left);
+//    NSLog(@"scrollView.contentInset.right=%f",scrollView.contentInset.right);
+//    NSLog(@"scrollView.contentInset.top=%f",scrollView.contentInset.top);
+//    NSLog(@"scrollView.contentInset.bottom=%f",scrollView.contentInset.bottom);
+//    NSLog(@"scrollView.height=%f",scrollView.height);
+//    NSLog(@"self.tableView.tableFooterView.height=%f",self.tableView.tableFooterView.height);
+}
 
 #pragma mark - 表格数据相关
 
@@ -216,8 +297,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    Status *status = self.statues[indexPath.row];
-    User *user = status.user;
+    HRStatus *status = self.statues[indexPath.row];
+    HRUser *user = status.user;
     
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]
                       placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];

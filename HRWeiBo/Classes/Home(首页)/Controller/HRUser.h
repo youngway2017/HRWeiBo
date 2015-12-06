@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface HRUser : NSObject
 
 /*id字符串*/
 @property (nonatomic, copy) NSString *idstr;

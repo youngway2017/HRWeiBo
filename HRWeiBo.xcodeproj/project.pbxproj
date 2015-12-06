@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 441118F61C0D34C1005035F6 /* HRSeachBar.m */; };
 		4469B3141C1285A000F6CA68 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3131C1285A000F6CA68 /* Foundation+Log.m */; };
-		4469B3171C128FE800F6CA68 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3161C128FE800F6CA68 /* Status.m */; };
-		4469B31A1C12909500F6CA68 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3191C12909500F6CA68 /* User.m */; };
+		4469B3171C128FE800F6CA68 /* HRStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3161C128FE800F6CA68 /* HRStatus.m */; };
+		4469B31A1C12909500F6CA68 /* HRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3191C12909500F6CA68 /* HRUser.m */; };
 		4469B3331C1298E800F6CA68 /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B31D1C1298E800F6CA68 /* MJDictionaryCache.m */; };
 		4469B3341C1298E800F6CA68 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3201C1298E800F6CA68 /* MJExtensionConst.m */; };
 		4469B3351C1298E800F6CA68 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3221C1298E800F6CA68 /* MJFoundation.m */; };
@@ -53,6 +53,8 @@
 		447FA24C1C0F030B0043668B /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 447FA2411C0F030B0043668B /* AFURLRequestSerialization.m */; };
 		447FA24D1C0F030B0043668B /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 447FA2431C0F030B0043668B /* AFURLResponseSerialization.m */; };
 		447FA24E1C0F030B0043668B /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447FA2451C0F030B0043668B /* AFURLSessionManager.m */; };
+		4480BE981C14263E003E5DC6 /* HRLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480BE971C14263E003E5DC6 /* HRLoadMoreFooter.m */; };
+		4480BE9A1C142659003E5DC6 /* HRLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */; };
 		44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */; };
 		44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699A1C0BE1E700432DA5 /* Assets.xcassets */; };
 		44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */; };
@@ -75,12 +77,12 @@
 		44A66A241C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A66A211C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m */; };
 		44A66A251C0C4DBD00432DA5 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A66A231C0C4DBD00432DA5 /* UIView+Extension.m */; };
 		44BC26A91C0FEEF800D71126 /* UIWindow+Extenstion.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26A81C0FEEF800D71126 /* UIWindow+Extenstion.m */; };
-		44BC26AD1C10151600D71126 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26AC1C10151600D71126 /* Account.m */; };
+		44BC26AD1C10151600D71126 /* HRAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26AC1C10151600D71126 /* HRAccount.m */; };
 		44BC26B11C1025AD00D71126 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26B01C1025AD00D71126 /* AccountTool.m */; };
 		44BC26B81C102FBA00D71126 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26B41C102FBA00D71126 /* MBProgressHUD+MJ.m */; };
 		44BC26B91C102FBA00D71126 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44BC26B51C102FBA00D71126 /* MBProgressHUD.bundle */; };
 		44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26B71C102FBA00D71126 /* MBProgressHUD.m */; };
-		44BC26BD1C10327800D71126 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26BC1C10327800D71126 /* TitleButton.m */; };
+		44BC26BD1C10327800D71126 /* HRTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26BC1C10327800D71126 /* HRTitleButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,10 +106,10 @@
 		441118F51C0D34C1005035F6 /* HRSeachBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSeachBar.h; sourceTree = "<group>"; };
 		441118F61C0D34C1005035F6 /* HRSeachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSeachBar.m; sourceTree = "<group>"; };
 		4469B3131C1285A000F6CA68 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
-		4469B3151C128FE800F6CA68 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Status.h; path = "HRWeiBo/Classes/Home(首页)/Controller/Status.h"; sourceTree = SOURCE_ROOT; };
-		4469B3161C128FE800F6CA68 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Status.m; path = "HRWeiBo/Classes/Home(首页)/Controller/Status.m"; sourceTree = SOURCE_ROOT; };
-		4469B3181C12909500F6CA68 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "HRWeiBo/Classes/Home(首页)/Controller/User.h"; sourceTree = SOURCE_ROOT; };
-		4469B3191C12909500F6CA68 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "HRWeiBo/Classes/Home(首页)/Controller/User.m"; sourceTree = SOURCE_ROOT; };
+		4469B3151C128FE800F6CA68 /* HRStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRStatus.h; path = "HRWeiBo/Classes/Home(首页)/Controller/HRStatus.h"; sourceTree = SOURCE_ROOT; };
+		4469B3161C128FE800F6CA68 /* HRStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRStatus.m; path = "HRWeiBo/Classes/Home(首页)/Controller/HRStatus.m"; sourceTree = SOURCE_ROOT; };
+		4469B3181C12909500F6CA68 /* HRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRUser.h; path = "HRWeiBo/Classes/Home(首页)/Controller/HRUser.h"; sourceTree = SOURCE_ROOT; };
+		4469B3191C12909500F6CA68 /* HRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRUser.m; path = "HRWeiBo/Classes/Home(首页)/Controller/HRUser.m"; sourceTree = SOURCE_ROOT; };
 		4469B31C1C1298E800F6CA68 /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
 		4469B31D1C1298E800F6CA68 /* MJDictionaryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDictionaryCache.m; sourceTree = "<group>"; };
 		4469B31E1C1298E800F6CA68 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -195,6 +197,9 @@
 		447FA2431C0F030B0043668B /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		447FA2441C0F030B0043668B /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		447FA2451C0F030B0043668B /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		4480BE961C14263E003E5DC6 /* HRLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLoadMoreFooter.h; sourceTree = "<group>"; };
+		4480BE971C14263E003E5DC6 /* HRLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRLoadMoreFooter.m; sourceTree = "<group>"; };
+		4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRLoadMoreFooter.xib; sourceTree = "<group>"; };
 		44A669881C0BE1E700432DA5 /* HRWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A669981C0BE1E700432DA5 /* HRWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HRWeiBo.xcdatamodel; sourceTree = "<group>"; };
 		44A6699A1C0BE1E700432DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -237,8 +242,8 @@
 		44A66A231C0C4DBD00432DA5 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		44BC26A71C0FEEF800D71126 /* UIWindow+Extenstion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extenstion.h"; sourceTree = "<group>"; };
 		44BC26A81C0FEEF800D71126 /* UIWindow+Extenstion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extenstion.m"; sourceTree = "<group>"; };
-		44BC26AB1C10151600D71126 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
-		44BC26AC1C10151600D71126 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		44BC26AB1C10151600D71126 /* HRAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRAccount.h; sourceTree = "<group>"; };
+		44BC26AC1C10151600D71126 /* HRAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRAccount.m; sourceTree = "<group>"; };
 		44BC26AF1C1025AD00D71126 /* AccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTool.h; sourceTree = "<group>"; };
 		44BC26B01C1025AD00D71126 /* AccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTool.m; sourceTree = "<group>"; };
 		44BC26B31C102FBA00D71126 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
@@ -246,8 +251,8 @@
 		44BC26B51C102FBA00D71126 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		44BC26B61C102FBA00D71126 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		44BC26B71C102FBA00D71126 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		44BC26BB1C10327800D71126 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
-		44BC26BC1C10327800D71126 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
+		44BC26BB1C10327800D71126 /* HRTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRTitleButton.h; sourceTree = "<group>"; };
+		44BC26BC1C10327800D71126 /* HRTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTitleButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,10 +552,10 @@
 		44A669E31C0C3A4F00432DA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4469B3151C128FE800F6CA68 /* Status.h */,
-				4469B3161C128FE800F6CA68 /* Status.m */,
-				4469B3181C12909500F6CA68 /* User.h */,
-				4469B3191C12909500F6CA68 /* User.m */,
+				4469B3151C128FE800F6CA68 /* HRStatus.h */,
+				4469B3161C128FE800F6CA68 /* HRStatus.m */,
+				4469B3181C12909500F6CA68 /* HRUser.h */,
+				4469B3191C12909500F6CA68 /* HRUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -558,8 +563,11 @@
 		44A669E41C0C3A4F00432DA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				44BC26BB1C10327800D71126 /* TitleButton.h */,
-				44BC26BC1C10327800D71126 /* TitleButton.m */,
+				44BC26BB1C10327800D71126 /* HRTitleButton.h */,
+				44BC26BC1C10327800D71126 /* HRTitleButton.m */,
+				4480BE961C14263E003E5DC6 /* HRLoadMoreFooter.h */,
+				4480BE971C14263E003E5DC6 /* HRLoadMoreFooter.m */,
+				4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -753,8 +761,8 @@
 		44BC26AA1C10148200D71126 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				44BC26AB1C10151600D71126 /* Account.h */,
-				44BC26AC1C10151600D71126 /* Account.m */,
+				44BC26AB1C10151600D71126 /* HRAccount.h */,
+				44BC26AC1C10151600D71126 /* HRAccount.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -883,6 +891,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4480BE9A1C142659003E5DC6 /* HRLoadMoreFooter.xib in Resources */,
 				44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */,
 				44A66A131C0C3BF200432DA5 /* Test2ViewController.xib in Resources */,
 				44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */,
@@ -920,8 +929,9 @@
 				4469B3921C12C25800F6CA68 /* UIView+WebCacheOperation.m in Sources */,
 				4469B3891C12C25800F6CA68 /* SDWebImageDownloaderOperation.m in Sources */,
 				44BC26A91C0FEEF800D71126 /* UIWindow+Extenstion.m in Sources */,
-				4469B3171C128FE800F6CA68 /* Status.m in Sources */,
+				4469B3171C128FE800F6CA68 /* HRStatus.m in Sources */,
 				44A66A031C0C3A4F00432DA5 /* HRHomeViewController.m in Sources */,
+				4480BE981C14263E003E5DC6 /* HRLoadMoreFooter.m in Sources */,
 				44A66A171C0C3BFC00432DA5 /* Test3ViewController.m in Sources */,
 				447FA24B1C0F030B0043668B /* AFURLConnectionOperation.m in Sources */,
 				4473E9AE1C0DAF7300B33F6D /* HRTabBar.m in Sources */,
@@ -944,13 +954,13 @@
 				4469B3911C12C25800F6CA68 /* UIImageView+WebCache.m in Sources */,
 				447FA2491C0F030B0043668B /* AFNetworkReachabilityManager.m in Sources */,
 				441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */,
-				44BC26BD1C10327800D71126 /* TitleButton.m in Sources */,
+				44BC26BD1C10327800D71126 /* HRTitleButton.m in Sources */,
 				4469B3361C1298E800F6CA68 /* MJProperty.m in Sources */,
 				4469B3341C1298E800F6CA68 /* MJExtensionConst.m in Sources */,
 				4469B3871C12C25800F6CA68 /* SDWebImageDecoder.m in Sources */,
 				4469B3371C1298E800F6CA68 /* MJPropertyKey.m in Sources */,
 				447FA24E1C0F030B0043668B /* AFURLSessionManager.m in Sources */,
-				44BC26AD1C10151600D71126 /* Account.m in Sources */,
+				44BC26AD1C10151600D71126 /* HRAccount.m in Sources */,
 				44A66A0D1C0C3B6A00432DA5 /* Test1ViewController.m in Sources */,
 				4469B3861C12C25800F6CA68 /* SDWebImageCompat.m in Sources */,
 				4469B3331C1298E800F6CA68 /* MJDictionaryCache.m in Sources */,
@@ -958,7 +968,7 @@
 				447FA2471C0F030B0043668B /* AFHTTPRequestOperationManager.m in Sources */,
 				447FA2481C0F030B0043668B /* AFHTTPSessionManager.m in Sources */,
 				447FA2241C0EDD7B0043668B /* NewFeatureViewController.m in Sources */,
-				4469B31A1C12909500F6CA68 /* User.m in Sources */,
+				4469B31A1C12909500F6CA68 /* HRUser.m in Sources */,
 				447FA24D1C0F030B0043668B /* AFURLResponseSerialization.m in Sources */,
 				447FA24C1C0F030B0043668B /* AFURLRequestSerialization.m in Sources */,
 				4469B3881C12C25800F6CA68 /* SDWebImageDownloader.m in Sources */,

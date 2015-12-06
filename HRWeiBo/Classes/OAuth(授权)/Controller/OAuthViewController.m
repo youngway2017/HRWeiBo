@@ -86,7 +86,7 @@
     
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:dict success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         NSLog(@"JSON: %@", responseObject);
-        Account *account = [Account accountWithDict:responseObject];
+        HRAccount *account = [HRAccount accountWithDict:responseObject];
         [AccountTool saveAccount:account];
         
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];

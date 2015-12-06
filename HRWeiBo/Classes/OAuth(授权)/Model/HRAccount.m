@@ -6,12 +6,12 @@
 //  Copyright © 2015年 Yangwei. All rights reserved.
 //
 
-#import "Account.h"
+#import "HRAccount.h"
 
-@implementation Account
+@implementation HRAccount
 
 + (instancetype)accountWithDict:(NSDictionary *)dict {
-    Account *account = [[Account alloc] init];
+    HRAccount *account = [[HRAccount alloc] init];
     account.access_token = dict[@"access_token"];
     account.expires_in = dict[@"expires_in"];
     account.remind_in = dict[@"remind_in"];

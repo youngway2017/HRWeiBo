@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Account : NSObject<NSCoding>
+@interface HRAccount : NSObject<NSCoding>
 
 @property (nonatomic, copy) NSString *access_token;
 @property (nonatomic, copy) NSString *expires_in;

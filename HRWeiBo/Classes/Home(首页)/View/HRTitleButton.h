@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TitleButton : UIButton
+@interface HRTitleButton : UIButton
 
 @end

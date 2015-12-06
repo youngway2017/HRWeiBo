@@ -16,12 +16,12 @@
     return [filePath stringByAppendingPathComponent:@"account.data"];
 }
 
-+ (void)saveAccount:(Account *)account {
++ (void)saveAccount:(HRAccount *)account {
     [NSKeyedArchiver archiveRootObject:account toFile:[self path]];
 }
 
-+ (Account *)account {
-    Account *account = (Account *)[NSKeyedUnarchiver unarchiveObjectWithFile:[self path]];
++ (HRAccount *)account {
+    HRAccount *account = (HRAccount *)[NSKeyedUnarchiver unarchiveObjectWithFile:[self path]];
     long long expires_in = [account.expires_in longLongValue];
     NSDate *createTime = account.create_time;
 

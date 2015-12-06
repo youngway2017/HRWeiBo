@@ -24,7 +24,7 @@
     self.window = [[UIWindow alloc] init];
     self.window.bounds = [UIScreen mainScreen].bounds;
 
-    Account *account = [AccountTool account];
+    HRAccount *account = [AccountTool account];
     if (account) {
         [self.window switchViewController];
     } else {

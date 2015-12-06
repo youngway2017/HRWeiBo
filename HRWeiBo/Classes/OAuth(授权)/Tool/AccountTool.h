@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Account.h"
+#import "HRAccount.h"
 
 @interface AccountTool : NSObject
 
-+ (Account *)account;
++ (HRAccount *)account;
 
-+ (void)saveAccount:(Account *)account;
++ (void)saveAccount:(HRAccount *)account;
 
 @end

@@ -6,11 +6,11 @@
 //  Copyright © 2015年 Yangwei. All rights reserved.
 //
 
-#import "TitleButton.h"
+#import "HRTitleButton.h"
 
 #define marginValue 10
 
-@implementation TitleButton
+@implementation HRTitleButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
     HRLog(@"initWithFrame=%@",NSStringFromCGRect(frame));

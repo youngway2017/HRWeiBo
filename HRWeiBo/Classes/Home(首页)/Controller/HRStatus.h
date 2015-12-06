@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
+#import "HRUser.h"
 
-@interface Status : NSObject
+@interface HRStatus : NSObject
 
 /*id字符串*/
 @property (nonatomic, copy) NSString *idstr;
@@ -21,7 +21,7 @@
 @property (nonatomic, copy) NSString *text;
 
 /*用户*/
-@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) HRUser *user;
 //
 //"created_at": "Sat Dec 05 11:17:17 +0800 2015",
 //"id": 3916649357300690,
