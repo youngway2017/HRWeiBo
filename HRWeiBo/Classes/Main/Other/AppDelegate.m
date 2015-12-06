@@ -12,6 +12,7 @@
 #import "NewFeatureTool.h"
 #import "OAuthViewController.h"
 #import "AccountTool.h"
+#import "SDWebImageManager.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //iOS8以后需要设置以下代码
+    UIUserNotificationType type = UIUserNotificationTypeBadge |UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:type categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
     self.window = [[UIWindow alloc] init];
     self.window.bounds = [UIScreen mainScreen].bounds;
 
@@ -32,16 +38,9 @@
         self.window.rootViewController = oAuth;
     }
     
-   
     [self.window makeKeyAndVisible];
     
-    //iOS8以后需要设置以下代码
-    UIUserNotificationType type = UIUserNotificationTypeBadge |UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:type categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    
     return YES;
-
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -50,8 +49,10 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    // 向操作系统申请后台运行的资格，能维持多久，是不确定的
+    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+        [application endBackgroundTask:task];
+    }];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -146,6 +147,14 @@
             abort();
         }
     }
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+    SDWebImageManager *mgr = [SDWebImageManager sharedManager];
+    //取消所有下载
+    [mgr cancelAll];
+    //清除内存图片
+    [mgr.imageCache clearMemory];
 }
 
 @end
