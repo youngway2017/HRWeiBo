@@ -27,7 +27,6 @@
 @property (nonatomic, strong) NSMutableArray *statues;
 
 
-
 @end
 
 @implementation HRHomeViewController
@@ -38,14 +37,26 @@
     
 //    [self getNickName];
     
-    [self addRefreshControl];
-    HRLoadMoreFooter *footer = [HRLoadMoreFooter footerView];
-    footer.hidden = YES;
-    self.tableView.tableFooterView = footer;
+    [self setupDownRefresh];
+    
+    [self setupUpRefresh];
+    
+    [self setupUnreadCount];
     
 }
 
-- (void)addRefreshControl {
+- (void)setupUnreadCount {
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(getUnreadStatusCount) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)setupUpRefresh {
+    HRLoadMoreFooter *footer = [HRLoadMoreFooter footerView];
+    footer.hidden = YES;
+    self.tableView.tableFooterView = footer;
+}
+
+- (void)setupDownRefresh {
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     [self.refreshControl beginRefreshing];
@@ -61,6 +72,38 @@
         _statues = [NSMutableArray array];
     }
     return _statues;
+}
+
+- (void)getUnreadStatusCount {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    HRAccount *account = [AccountTool account];
+    
+    if (!account) {
+        return;
+    }
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:account.access_token forKey:@"access_token" ];
+    [dict setObject:account.uid forKey:@"uid"];
+    HRLog(@"-----getUnreadStatusCount------");
+    [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
+        NSLog(@"JSON: %@", userInfo);
+        
+        NSString *count = [userInfo[@"status"] description];
+        if ([count isEqualToString:@"0"]) {
+            [[self navigationController] tabBarItem].badgeValue = nil;
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        } else {
+            [[self navigationController] tabBarItem].badgeValue = count;
+            
+            [UIApplication sharedApplication].applicationIconBadgeNumber = [count integerValue];
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 //获取昵称

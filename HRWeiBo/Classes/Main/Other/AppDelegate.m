@@ -35,6 +35,11 @@
    
     [self.window makeKeyAndVisible];
     
+    //iOS8以后需要设置以下代码
+    UIUserNotificationType type = UIUserNotificationTypeBadge |UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:type categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
     return YES;
 
 }
