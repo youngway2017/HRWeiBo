@@ -12,7 +12,6 @@
 		444C4F391C1530EA00A0208A /* HRStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F381C1530EA00A0208A /* HRStatusFrame.m */; };
 		444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3B1C15353E00A0208A /* HRPhoto.m */; };
 		444C4F3F1C157A5A00A0208A /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3E1C157A5A00A0208A /* NSString+Extension.m */; };
-		444C4F421C15969A00A0208A /* xx.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F411C15969A00A0208A /* xx.m */; };
 		4469B3141C1285A000F6CA68 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3131C1285A000F6CA68 /* Foundation+Log.m */; };
 		4469B3171C128FE800F6CA68 /* HRStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3161C128FE800F6CA68 /* HRStatus.m */; };
 		4469B31A1C12909500F6CA68 /* HRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3191C12909500F6CA68 /* HRUser.m */; };
@@ -118,8 +117,6 @@
 		444C4F3B1C15353E00A0208A /* HRPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPhoto.m; sourceTree = "<group>"; };
 		444C4F3D1C157A5A00A0208A /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		444C4F3E1C157A5A00A0208A /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
-		444C4F401C15969A00A0208A /* xx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xx.h; sourceTree = "<group>"; };
-		444C4F411C15969A00A0208A /* xx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xx.m; sourceTree = "<group>"; };
 		4469B3131C1285A000F6CA68 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		4469B3151C128FE800F6CA68 /* HRStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRStatus.h; path = "HRWeiBo/Classes/Home(首页)/Controller/HRStatus.h"; sourceTree = SOURCE_ROOT; };
 		4469B3161C128FE800F6CA68 /* HRStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRStatus.m; path = "HRWeiBo/Classes/Home(首页)/Controller/HRStatus.m"; sourceTree = SOURCE_ROOT; };
@@ -747,8 +744,6 @@
 				44A66A141C0C3BFC00432DA5 /* Test3ViewController.h */,
 				44A66A151C0C3BFC00432DA5 /* Test3ViewController.m */,
 				44A66A161C0C3BFC00432DA5 /* Test3ViewController.xib */,
-				444C4F401C15969A00A0208A /* xx.h */,
-				444C4F411C15969A00A0208A /* xx.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -986,7 +981,6 @@
 				4469B3361C1298E800F6CA68 /* MJProperty.m in Sources */,
 				4469B3341C1298E800F6CA68 /* MJExtensionConst.m in Sources */,
 				4469B3871C12C25800F6CA68 /* SDWebImageDecoder.m in Sources */,
-				444C4F421C15969A00A0208A /* xx.m in Sources */,
 				4469B3371C1298E800F6CA68 /* MJPropertyKey.m in Sources */,
 				447FA24E1C0F030B0043668B /* AFURLSessionManager.m in Sources */,
 				44BC26AD1C10151600D71126 /* HRAccount.m in Sources */,
