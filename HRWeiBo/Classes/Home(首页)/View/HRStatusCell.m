@@ -166,7 +166,7 @@
     UIView *originalView = [[UIView alloc] init];
     self.originalView = originalView;
     self.originalView.backgroundColor = [UIColor redColor];
-    [self addSubview:self.originalView];
+    [self.contentView addSubview:self.originalView];
     
     UIImageView *headIcon = [[UIImageView alloc] init];
     self.headIcon = headIcon;
@@ -199,7 +199,7 @@
     /**转发微博*/
     UIView *retweetedView = [[UIView alloc] init];
     self.retweetedView = retweetedView;
-    [self addSubview:self.retweetedView];
+    [self.contentView addSubview:self.retweetedView];
     self.retweetedView.backgroundColor = [UIColor blueColor];
     
     UILabel *retweetedContentLabel = [[UILabel alloc] init];
