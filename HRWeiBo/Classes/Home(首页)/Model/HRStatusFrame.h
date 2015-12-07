@@ -14,12 +14,14 @@
 #define StatusCellCreateTimeFont [UIFont systemFontOfSize:10]
 #define StatusCellSourceFont [UIFont systemFontOfSize:10]
 #define StatusCellContentFont [UIFont systemFontOfSize:12]
-
+#define StatusCellRetweetedContentFont [UIFont systemFontOfSize:12]
 @class HRStatus;
 
 @interface HRStatusFrame : NSObject
 
 @property (nonatomic, strong) HRStatus *status;
+
+@property (nonatomic, assign) CGFloat cellHeight;
 
 /**原创微博头像Frame 对应 HRUser profile_image_url*/
 @property (nonatomic, assign) CGRect headIconF;
@@ -45,13 +47,17 @@
 /**原创微博整体*/
 @property (nonatomic, assign) CGRect originalF;
 
-//@property (nonatomic, assign) CGRect F;
-//@property (nonatomic, assign) CGRect F;
-//@property (nonatomic, assign) CGRect F;
-//@property (nonatomic, assign) CGRect F;
-//@property (nonatomic, assign) CGRect F;
-//@property (nonatomic, assign) CGRect F;
-//@property (nonatomic, assign) CGRect F;
+/*********************************************/
+
+/**转发微博正文 对应 HRStatus text*/
+@property (nonatomic, assign) CGRect retweetedContentF;
+
+/**转发微博配图 对应 HRStatus pic_urls*/
+@property (nonatomic, assign) CGRect retweetedPhotoF;
+
+/**转发微博整体*/
+@property (nonatomic, assign) CGRect retweetedF;
+
 
 - (CGFloat)cellHeight;
 

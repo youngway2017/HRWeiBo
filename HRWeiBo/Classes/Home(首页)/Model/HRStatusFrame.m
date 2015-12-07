@@ -15,6 +15,20 @@
 
 - (void)setStatus:(HRStatus *)status {
     _status = status;
+    [self setOriginalStatus:status];
+    
+    if (status.retweeted_status) {
+        [self setRetweetedStatus:status.retweeted_status];
+        
+        self.cellHeight = CGRectGetMaxX(self.retweetedF) + 10;
+    } else {
+        self.cellHeight = CGRectGetMaxX(self.originalF) + 10;
+    }
+    
+    
+}
+
+- (void)setOriginalStatus:(HRStatus *)status {
     HRUser *user = status.user;
     
     CGFloat cellWith = [UIScreen mainScreen].bounds.size.width;
@@ -30,7 +44,7 @@
     CGSize  screenNameSize = [user.screen_name boundingSizeWithSize:CGSizeMake(cellWith, MAXFLOAT) font:StatusCellScreenNameFont];
     
     self.screenNameF = (CGRect){{screenNameX,screenNameY},screenNameSize};
-
+    
     //vipF
     
     if (user.isVip) {
@@ -77,9 +91,30 @@
     self.originalF = CGRectMake(0, 0, cellWith, originalH);
 }
 
-- (CGFloat)cellHeight {
-    return self.originalF.size.height;
-}
+- (void)setRetweetedStatus:(HRStatus *)retweetedStatus {
+    HRUser *retweetedUser = retweetedStatus.user;
+    
+    CGFloat cellWith = [UIScreen mainScreen].bounds.size.width;
 
+    //转发正文
+    CGFloat retweetedContentX = StatusCellMargin;
+    CGFloat retweetedContentY = StatusCellMargin;
+    
+    NSString *retweetedContent = [NSString stringWithFormat:@"%@:%@",retweetedUser.screen_name,retweetedStatus.text];
+    CGSize  retweetedContentSize = [retweetedContent boundingSizeWithSize:CGSizeMake(cellWith - 2*StatusCellMargin, MAXFLOAT) font:StatusCellRetweetedContentFont];
+    
+    self.retweetedContentF = (CGRect){{retweetedContentX,retweetedContentY},retweetedContentSize};
+    
+    CGFloat retweetedH = CGRectGetMaxY(self.retweetedContentF) + StatusCellMargin;
+    if (retweetedStatus.pic_urls.count) {
+        CGFloat photoX = StatusCellMargin;
+        CGFloat photoY = CGRectGetMaxY(self.retweetedContentF) + StatusCellChildMargin;
+        CGFloat photoWH = 100;
+        self.photoF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        retweetedH = CGRectGetMaxY(self.photoF) + StatusCellMargin;
+    }
+    
+    self.originalF = CGRectMake(0, CGRectGetMaxY(self.originalF), cellWith, retweetedH);
+}
 
 @end

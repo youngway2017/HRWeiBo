@@ -29,6 +29,9 @@
 /**原创配图*/
 @property (nonatomic, strong) NSArray *pic_urls;
 
+/**转发微博*/
+@property (nonatomic, strong) HRStatus *retweeted_status;
+
 
 
 @end

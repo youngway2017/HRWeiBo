@@ -41,9 +41,18 @@
 /**原创微博配图 对应 HRStatus pic_urls*/
 @property (nonatomic, strong) UIImageView *photo;
 
-
 /**原创微博整体*/
 @property (nonatomic, strong) UIView *originalView;
+
+/***************************************************/
+/**转发微博正文 对应 HRStatus text*/
+@property (nonatomic, strong) UILabel *retweetedContentLabel;
+
+/**转发微博配图 对应 HRStatus pic_urls*/
+@property (nonatomic, strong) UIImageView *retweetedPhoto;
+
+/**转发微博整体*/
+@property (nonatomic, strong) UIView *retweetedView;
 
 
 @end
@@ -62,6 +71,20 @@
 
 - (void)setStatusFrame:(HRStatusFrame *)statusFrame {
     _statusFrame = statusFrame;
+    
+    //设置原创微博
+    [self setOriginalStatus:statusFrame];
+    if (statusFrame.status.retweeted_status) {
+        //设置转发微博
+        [self setRetweetedStatus:statusFrame];
+        self.retweetedView.hidden = NO;
+    } else {
+        self.retweetedView.hidden = YES;
+    }
+    
+}
+
+- (void)setOriginalStatus:(HRStatusFrame *)statusFrame {
     HRStatus *status = statusFrame.status;
     HRUser *user = status.user;
     
@@ -83,7 +106,6 @@
         self.vipIcon.hidden = YES;
         self.screenNameLabel.textColor = [UIColor blackColor];
     }
-    
     
     //创建时间
     self.createdTimeLabel.text = status.created_at;
@@ -114,7 +136,32 @@
     self.originalView.frame = statusFrame.originalF;
 }
 
+- (void)setRetweetedStatus:(HRStatusFrame *)statusFrame {
+    HRStatus *status = statusFrame.status;
+    HRStatus *retweetedStatus = status.retweeted_status;
+    HRUser *retweetedUser = retweetedStatus.user;
+    
+    //正文
+    self.contentLabel.text = [NSString stringWithFormat:@"%@:%@",retweetedUser.screen_name,retweetedStatus.text];
+    self.contentLabel.numberOfLines = 0;
+    self.contentLabel.font = StatusCellRetweetedContentFont;
+    self.contentLabel.frame = statusFrame.retweetedContentF;
+    
+    if (retweetedStatus.pic_urls.count) {
+        self.retweetedPhoto.hidden = NO;
+        HRPhoto *photo = [retweetedStatus.pic_urls firstObject];
+        [self.retweetedPhoto sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.retweetedPhoto.frame = statusFrame.retweetedPhotoF;
+    } else {
+        self.retweetedPhoto.hidden = YES;
+    }
+    
+    self.retweetedView.frame = statusFrame.retweetedF;
+}
+
+
 - (void)createCellComponent {
+    /**原创微博*/
     UIView *originalView = [[UIView alloc] init];
     self.originalView = originalView;
     [self addSubview:self.originalView];
@@ -147,6 +194,19 @@
     self.photo = photo;
     [self.originalView addSubview:self.photo];
     
+    
+    /**转发微博*/
+    UIView *retweetedView = [[UIView alloc] init];
+    self.retweetedView = retweetedView;
+    [self addSubview:self.retweetedView];
+    
+    UILabel *retweetedContentLabel = [[UILabel alloc] init];
+    self.retweetedContentLabel = retweetedContentLabel;
+    [self.retweetedView addSubview:self.retweetedContentLabel];
+    
+    UIImageView *retweetedPhoto = [[UIImageView alloc] init];
+    self.retweetedPhoto = retweetedPhoto;
+    [self.retweetedView addSubview:self.retweetedPhoto];
 }
 
 @end
