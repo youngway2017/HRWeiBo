@@ -143,7 +143,7 @@
     HRUser *retweetedUser = retweetedStatus.user;
     
     //正文
-    self.retweetedContentLabel.text = [NSString stringWithFormat:@"%@:%@",retweetedUser.screen_name,retweetedStatus.text];
+    self.retweetedContentLabel.text = [NSString stringWithFormat:@"@%@:%@",retweetedUser.screen_name,retweetedStatus.text];
     self.retweetedContentLabel.numberOfLines = 0;
     self.retweetedContentLabel.font = StatusCellRetweetedContentFont;
     self.retweetedContentLabel.frame = statusFrame.retweetedContentF;
@@ -165,7 +165,6 @@
     /**原创微博*/
     UIView *originalView = [[UIView alloc] init];
     self.originalView = originalView;
-    self.originalView.backgroundColor = [UIColor redColor];
     [self.contentView addSubview:self.originalView];
     
     UIImageView *headIcon = [[UIImageView alloc] init];
@@ -199,8 +198,8 @@
     /**转发微博*/
     UIView *retweetedView = [[UIView alloc] init];
     self.retweetedView = retweetedView;
+    self.retweetedView.backgroundColor = HRRgba(230, 230, 230, 0.9);
     [self.contentView addSubview:self.retweetedView];
-    self.retweetedView.backgroundColor = [UIColor blueColor];
     
     UILabel *retweetedContentLabel = [[UILabel alloc] init];
     self.retweetedContentLabel = retweetedContentLabel;

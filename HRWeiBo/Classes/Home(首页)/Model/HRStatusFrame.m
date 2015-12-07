@@ -19,10 +19,10 @@
     
     if (status.retweeted_status) {
         [self setRetweetedStatus:status.retweeted_status];
-        self.cellHeight = CGRectGetMaxX(self.retweetedF) + 10;
-        
+        self.cellHeight = CGRectGetMaxY(self.retweetedF) + 10;
     } else {
-        self.cellHeight = CGRectGetMaxX(self.originalF) + 10;
+        self.cellHeight = CGRectGetMaxY(self.originalF) + 10;
+        
     }
 }
 
@@ -87,6 +87,7 @@
     }
     
     self.originalF = CGRectMake(0, 0, cellWith, originalH);
+    
 }
 
 - (void)setRetweetedStatus:(HRStatus *)retweetedStatus {
@@ -98,7 +99,7 @@
     CGFloat retweetedContentX = StatusCellMargin;
     CGFloat retweetedContentY = StatusCellMargin;
     
-    NSString *retweetedContent = [NSString stringWithFormat:@"%@:%@",retweetedUser.screen_name,retweetedStatus.text];
+    NSString *retweetedContent = [NSString stringWithFormat:@"@%@:%@",retweetedUser.screen_name,retweetedStatus.text];
     CGSize  retweetedContentSize = [retweetedContent boundingSizeWithSize:CGSizeMake(cellWith - 2*StatusCellMargin, MAXFLOAT) font:StatusCellRetweetedContentFont];
     
     self.retweetedContentF = (CGRect){{retweetedContentX,retweetedContentY},retweetedContentSize};
@@ -113,6 +114,8 @@
     }
     
     self.retweetedF = CGRectMake(0, CGRectGetMaxY(self.originalF), cellWith, retweetedH);
+    
+    
 }
 
 @end
