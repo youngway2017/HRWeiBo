@@ -14,18 +14,16 @@
 @implementation HRStatusFrame
 
 - (void)setStatus:(HRStatus *)status {
-    _status = status;
+     _status = status;
     [self setOriginalStatus:status];
     
     if (status.retweeted_status) {
         [self setRetweetedStatus:status.retweeted_status];
-        
         self.cellHeight = CGRectGetMaxX(self.retweetedF) + 10;
+        
     } else {
         self.cellHeight = CGRectGetMaxX(self.originalF) + 10;
     }
-    
-    
 }
 
 - (void)setOriginalStatus:(HRStatus *)status {
@@ -110,11 +108,11 @@
         CGFloat photoX = StatusCellMargin;
         CGFloat photoY = CGRectGetMaxY(self.retweetedContentF) + StatusCellChildMargin;
         CGFloat photoWH = 100;
-        self.photoF = CGRectMake(photoX, photoY, photoWH, photoWH);
-        retweetedH = CGRectGetMaxY(self.photoF) + StatusCellMargin;
+        self.retweetedPhotoF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        retweetedH = CGRectGetMaxY(self.retweetedPhotoF) + StatusCellMargin;
     }
     
-    self.originalF = CGRectMake(0, CGRectGetMaxY(self.originalF), cellWith, retweetedH);
+    self.retweetedF = CGRectMake(0, CGRectGetMaxY(self.originalF), cellWith, retweetedH);
 }
 
 @end

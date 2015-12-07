@@ -75,9 +75,10 @@
     //设置原创微博
     [self setOriginalStatus:statusFrame];
     if (statusFrame.status.retweeted_status) {
-        //设置转发微博
-        [self setRetweetedStatus:statusFrame];
         self.retweetedView.hidden = NO;
+        //设置转发微博        
+        [self setRetweetedStatus:statusFrame];
+        
     } else {
         self.retweetedView.hidden = YES;
     }
@@ -142,10 +143,10 @@
     HRUser *retweetedUser = retweetedStatus.user;
     
     //正文
-    self.contentLabel.text = [NSString stringWithFormat:@"%@:%@",retweetedUser.screen_name,retweetedStatus.text];
-    self.contentLabel.numberOfLines = 0;
-    self.contentLabel.font = StatusCellRetweetedContentFont;
-    self.contentLabel.frame = statusFrame.retweetedContentF;
+    self.retweetedContentLabel.text = [NSString stringWithFormat:@"%@:%@",retweetedUser.screen_name,retweetedStatus.text];
+    self.retweetedContentLabel.numberOfLines = 0;
+    self.retweetedContentLabel.font = StatusCellRetweetedContentFont;
+    self.retweetedContentLabel.frame = statusFrame.retweetedContentF;
     
     if (retweetedStatus.pic_urls.count) {
         self.retweetedPhoto.hidden = NO;
@@ -164,6 +165,7 @@
     /**原创微博*/
     UIView *originalView = [[UIView alloc] init];
     self.originalView = originalView;
+    self.originalView.backgroundColor = [UIColor redColor];
     [self addSubview:self.originalView];
     
     UIImageView *headIcon = [[UIImageView alloc] init];
@@ -194,11 +196,11 @@
     self.photo = photo;
     [self.originalView addSubview:self.photo];
     
-    
     /**转发微博*/
     UIView *retweetedView = [[UIView alloc] init];
     self.retweetedView = retweetedView;
     [self addSubview:self.retweetedView];
+    self.retweetedView.backgroundColor = [UIColor blueColor];
     
     UILabel *retweetedContentLabel = [[UILabel alloc] init];
     self.retweetedContentLabel = retweetedContentLabel;
