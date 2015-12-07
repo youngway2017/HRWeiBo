@@ -10,4 +10,13 @@
 
 @implementation HRUser
 
+- (void)setMbrank:(NSString *)mbrank {
+    _mbrank = mbrank;
+    if ([mbrank intValue] > 2) {
+        _isVip = YES;
+    } else {
+        _isVip = NO;
+    }
+}
+
 @end

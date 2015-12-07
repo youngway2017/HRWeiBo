@@ -18,23 +18,26 @@
 #import "HRStatus.h"
 #import "UIImageView+WebCache.h"
 #import "HRLoadMoreFooter.h"
-
+#import "HRStatusCell.h"
+#import "HRStatusFrame.h"
 
 @interface HRHomeViewController ()<HRDropdownMenuDelegate>
 
 @property (nonatomic, strong) HRDropdownMenu *menu;
 @property (nonatomic, strong) HRTitleButton *btnTitle;
-@property (nonatomic, strong) NSMutableArray *statues;
+@property (nonatomic, strong) NSMutableArray *statusFrames;
 
 
 @end
 
+static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
 @implementation HRHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavigationItem];
     
+    [self.tableView registerClass:[HRStatusCell class] forCellReuseIdentifier:cellReuseIdentifier];
 //    [self getNickName];
     
     [self setupDownRefresh];
@@ -67,11 +70,11 @@
     [self getNewStatues];
 }
 
-- (NSMutableArray *)statues {
-    if (_statues == nil) {
-        _statues = [NSMutableArray array];
+- (NSMutableArray *)statusFrames {
+    if (_statusFrames == nil) {
+        _statusFrames = [NSMutableArray array];
     }
-    return _statues;
+    return _statusFrames;
 }
 
 - (void)getUnreadStatusCount {
@@ -151,16 +154,18 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:account.access_token forKey:@"access_token" ];
     
-    HRStatus *fristStatus = [self.statues firstObject];
+    HRStatus *fristStatus = [[self.statusFrames firstObject] status];
     NSString *since_id = fristStatus.idstr ? fristStatus.idstr : @"0";
     [dict setObject:since_id forKey:@"since_id" ];
     
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
-        
+//        https://api.weibo.com/2/statuses/friends_timeline.json?access_token=2.00SZEWrBB8fKJD244ef9b3f80_w7Hq
         NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
-        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, statuses.count)];
-        [self.statues insertObjects:statuses atIndexes:indexSet];
+        
+        NSMutableArray *statusFrames = [self statusFramesWithStatusArray:statuses];
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, statusFrames.count)];
+        [self.statusFrames insertObjects:statusFrames atIndexes:indexSet];
         
         
         [self.tableView reloadData];
@@ -171,6 +176,21 @@
         [self.refreshControl endRefreshing];
     }];
 }
+/**
+ *  @param statuses statuses数组
+ *
+ *  @return statusFrames
+ */
+- (NSMutableArray *)statusFramesWithStatusArray:(NSArray *)statuses {
+    NSMutableArray *statusFrames = [NSMutableArray array];
+    for (HRStatus *status in statuses) {
+        HRStatusFrame *statusFrame = [[HRStatusFrame alloc] init];
+        statusFrame.status = status;
+        [statusFrames addObject:statusFrame];
+    }
+    return statusFrames;
+}
+
 
 /**
  *  获取当前登录用户及其所关注（授权）用户的最新微博
@@ -192,7 +212,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:account.access_token forKey:@"access_token" ];
     
-    HRStatus *lastStatus = [self.statues lastObject];
+    HRStatus *lastStatus = [[self.statusFrames lastObject] status];
 
     long long maxID = [lastStatus.idstr ? lastStatus.idstr : @"0" longLongValue] - 1;
     NSString *max_id = [NSString stringWithFormat:@"%lld",maxID];
@@ -203,9 +223,10 @@
         
         
         NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
-        [self.statues addObjectsFromArray:statuses];
+        NSMutableArray *statusFrames = [self statusFramesWithStatusArray:statuses];
+        [self.statusFrames addObjectsFromArray:statusFrames];
         
-        [self showStatuesCount:(int)statuses.count];
+        [self showStatuesCount:(int)statusFrames.count];
         
         [self.tableView reloadData];
         self.tableView.tableFooterView.hidden = YES;
@@ -300,7 +321,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    if (self.statues.count <= 0 || (self.tableView.tableFooterView.isHidden == NO)) {
+    if (self.statusFrames.count <= 0 || (self.tableView.tableFooterView.isHidden == NO)) {
         return;
     }
     // 当最后一个cell完全显示在眼前时，contentOffset的y值
@@ -330,27 +351,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return self.statues.count;
+    return self.statusFrames.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    HRStatus *status = self.statues[indexPath.row];
-    HRUser *user = status.user;
     
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]
-                      placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    HRStatusFrame *statusFrame = self.statusFrames[indexPath.row];
     
-    cell.textLabel.text = status.text;
-    
+    HRStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseIdentifier forIndexPath:indexPath];
+    cell.statusFrame = statusFrame;
     
     return cell;
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HRStatusFrame *statusFrame = self.statusFrames[indexPath.row];
+    return statusFrame.cellHeight;
+}
 
 @end
