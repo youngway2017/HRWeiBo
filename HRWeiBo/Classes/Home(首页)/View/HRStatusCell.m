@@ -12,7 +12,8 @@
 #import "HRUser.h"
 #import "UIImageView+WebCache.h"
 #import "HRPhoto.h"
-
+#import "HRStatusToolbar.h"
+#import "HRStatusToolbar.h"
 
 @interface HRStatusCell()
 
@@ -54,6 +55,9 @@
 /**转发微博整体*/
 @property (nonatomic, strong) UIView *retweetedView;
 
+/***************************************************/
+/**toolbarView*/
+@property (nonatomic, strong) HRStatusToolbar *toolbarView;
 
 @end
 
@@ -83,8 +87,11 @@
         self.retweetedView.hidden = YES;
     }
     
+    [self setToolbarStatus:statusFrame];
+    
 }
 
+//设置原创微博Frame
 - (void)setOriginalStatus:(HRStatusFrame *)statusFrame {
     HRStatus *status = statusFrame.status;
     HRUser *user = status.user;
@@ -110,11 +117,13 @@
     
     //创建时间
     self.createdTimeLabel.text = status.created_at;
+    self.contentLabel.numberOfLines = 1;
     self.createdTimeLabel.font = StatusCellCreateTimeFont;
     self.createdTimeLabel.frame = statusFrame.createdTimeF;
     
     //来源
     self.sourceLabel.text = status.source;
+    self.contentLabel.numberOfLines = 1;
     self.sourceLabel.font = StatusCellSourceFont;
     self.sourceLabel.frame = statusFrame.sourceF;
     
@@ -137,6 +146,7 @@
     self.originalView.frame = statusFrame.originalF;
 }
 
+//设置转发微博Frame
 - (void)setRetweetedStatus:(HRStatusFrame *)statusFrame {
     HRStatus *status = statusFrame.status;
     HRStatus *retweetedStatus = status.retweeted_status;
@@ -158,6 +168,13 @@
     }
     
     self.retweetedView.frame = statusFrame.retweetedF;
+}
+
+//设置工具条Frame
+- (void)setToolbarStatus:(HRStatusFrame *)statusFrame {
+    HRStatus *status = statusFrame.status;
+    [self.toolbarView setStatus:status];
+    self.toolbarView.frame = statusFrame.toolbarF;
 }
 
 
@@ -208,6 +225,13 @@
     UIImageView *retweetedPhoto = [[UIImageView alloc] init];
     self.retweetedPhoto = retweetedPhoto;
     [self.retweetedView addSubview:self.retweetedPhoto];
+    
+    /**toolbar*/
+    HRStatusToolbar *toolbarView = [HRStatusToolbar toolbar];
+    self.toolbarView = toolbarView;
+    self.toolbarView.backgroundColor = [UIColor whiteColor];
+    [self.contentView addSubview:self.toolbarView];
+    
 }
 
 @end

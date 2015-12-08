@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 441118F61C0D34C1005035F6 /* HRSeachBar.m */; };
+		4427D95E1C16841400410A96 /* HRStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4427D95D1C16841400410A96 /* HRStatusToolbar.m */; };
 		444C4F361C15309B00A0208A /* HRStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F351C15309B00A0208A /* HRStatusCell.m */; };
 		444C4F391C1530EA00A0208A /* HRStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F381C1530EA00A0208A /* HRStatusFrame.m */; };
 		444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3B1C15353E00A0208A /* HRPhoto.m */; };
@@ -109,6 +110,8 @@
 /* Begin PBXFileReference section */
 		441118F51C0D34C1005035F6 /* HRSeachBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSeachBar.h; sourceTree = "<group>"; };
 		441118F61C0D34C1005035F6 /* HRSeachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSeachBar.m; sourceTree = "<group>"; };
+		4427D95C1C16841400410A96 /* HRStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusToolbar.h; sourceTree = "<group>"; };
+		4427D95D1C16841400410A96 /* HRStatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusToolbar.m; sourceTree = "<group>"; };
 		444C4F341C15309B00A0208A /* HRStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusCell.h; sourceTree = "<group>"; };
 		444C4F351C15309B00A0208A /* HRStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusCell.m; sourceTree = "<group>"; };
 		444C4F371C1530EA00A0208A /* HRStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusFrame.h; sourceTree = "<group>"; };
@@ -586,6 +589,8 @@
 				4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */,
 				444C4F341C15309B00A0208A /* HRStatusCell.h */,
 				444C4F351C15309B00A0208A /* HRStatusCell.m */,
+				4427D95C1C16841400410A96 /* HRStatusToolbar.h */,
+				4427D95D1C16841400410A96 /* HRStatusToolbar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -947,6 +952,7 @@
 				4469B3901C12C25800F6CA68 /* UIImageView+HighlightedWebCache.m in Sources */,
 				44A66A121C0C3BF200432DA5 /* Test2ViewController.m in Sources */,
 				4469B3921C12C25800F6CA68 /* UIView+WebCacheOperation.m in Sources */,
+				4427D95E1C16841400410A96 /* HRStatusToolbar.m in Sources */,
 				444C4F3F1C157A5A00A0208A /* NSString+Extension.m in Sources */,
 				4469B3891C12C25800F6CA68 /* SDWebImageDownloaderOperation.m in Sources */,
 				44BC26A91C0FEEF800D71126 /* UIWindow+Extenstion.m in Sources */,

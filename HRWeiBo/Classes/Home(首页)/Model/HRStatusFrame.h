@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#define cellWith [UIScreen mainScreen].bounds.size.width
 #define StatusCellChildMargin 5
 #define StatusCellMargin 10
 #define StatusCellScreenNameFont [UIFont systemFontOfSize:15]
@@ -57,6 +58,11 @@
 
 /**转发微博整体*/
 @property (nonatomic, assign) CGRect retweetedF;
+
+/*********************************************/
+
+/**工具条*/
+@property (nonatomic, assign) CGRect toolbarF;
 
 
 - (CGFloat)cellHeight;

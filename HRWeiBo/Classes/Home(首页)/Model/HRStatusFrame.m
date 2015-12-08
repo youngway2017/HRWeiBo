@@ -19,17 +19,17 @@
     
     if (status.retweeted_status) {
         [self setRetweetedStatus:status.retweeted_status];
-        self.cellHeight = CGRectGetMaxY(self.retweetedF) + 10;
+        
     } else {
         self.cellHeight = CGRectGetMaxY(self.originalF) + 10;
         
     }
+    
+    [self setToolbar:status];
 }
 
 - (void)setOriginalStatus:(HRStatus *)status {
     HRUser *user = status.user;
-    
-    CGFloat cellWith = [UIScreen mainScreen].bounds.size.width;
     
     CGFloat headIconX = StatusCellMargin;
     CGFloat headIconY = StatusCellMargin;
@@ -60,7 +60,6 @@
     CGSize  createdTimeSize = [status.created_at boundingSizeWithSize:CGSizeMake(cellWith, MAXFLOAT) font:StatusCellCreateTimeFont];
     
     self.createdTimeF = (CGRect){{createdTimeX,createdTimeY},createdTimeSize};
-    
     //来源
     CGFloat sourceX = CGRectGetMaxX(self.createdTimeF) + StatusCellChildMargin;
     CGFloat sourceY = createdTimeY;
@@ -68,7 +67,6 @@
     CGSize  sourceSize = [status.source boundingSizeWithSize:CGSizeMake(cellWith, MAXFLOAT) font:StatusCellSourceFont];
     
     self.sourceF = (CGRect){{sourceX,sourceY},sourceSize};
-    
     //正文
     CGFloat contentX = StatusCellMargin;
     CGFloat contentY = MAX(CGRectGetMaxY(self.headIconF), CGRectGetMaxY(self.createdTimeF)) + StatusCellChildMargin;
@@ -92,8 +90,6 @@
 
 - (void)setRetweetedStatus:(HRStatus *)retweetedStatus {
     HRUser *retweetedUser = retweetedStatus.user;
-    
-    CGFloat cellWith = [UIScreen mainScreen].bounds.size.width;
 
     //转发正文
     CGFloat retweetedContentX = StatusCellMargin;
@@ -116,6 +112,24 @@
     self.retweetedF = CGRectMake(0, CGRectGetMaxY(self.originalF), cellWith, retweetedH);
     
     
+}
+
+- (void)setToolbar:(HRStatus *)status {
+
+    
+    CGFloat toolbarX = 0;
+    CGFloat toolbarY = 0;
+    CGFloat toolbarW = cellWith;
+    CGFloat toolbarH = 35;
+    
+    if (status.retweeted_status) {
+        toolbarY = CGRectGetMaxY(self.retweetedF);
+    } else {
+        toolbarY = CGRectGetMaxY(self.originalF);
+    }
+    
+    self.toolbarF = CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
+    self.cellHeight = CGRectGetMaxY(self.toolbarF) + 10;
 }
 
 @end
