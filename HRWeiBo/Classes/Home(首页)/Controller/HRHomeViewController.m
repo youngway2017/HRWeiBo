@@ -35,10 +35,13 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.backgroundColor = HRRgba(230, 230, 230, 0.9);
+        
     [self setNavigationItem];
     
     [self.tableView registerClass:[HRStatusCell class] forCellReuseIdentifier:cellReuseIdentifier];
-//    [self getNickName];
+    [self getNickName];
     
     [self setupDownRefresh];
     

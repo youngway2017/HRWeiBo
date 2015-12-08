@@ -15,7 +15,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default" id="9TB-62-CpS">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -29,6 +29,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default" width="320" height="480"/>
+        <image name="Default" width="320" height="568"/>
     </resources>
 </document>

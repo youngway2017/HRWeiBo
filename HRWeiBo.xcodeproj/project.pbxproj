@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 441118F61C0D34C1005035F6 /* HRSeachBar.m */; };
 		4427D95E1C16841400410A96 /* HRStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4427D95D1C16841400410A96 /* HRStatusToolbar.m */; };
+		4427D9611C16C93500410A96 /* xx.m in Sources */ = {isa = PBXBuildFile; fileRef = 4427D9601C16C93500410A96 /* xx.m */; };
 		444C4F361C15309B00A0208A /* HRStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F351C15309B00A0208A /* HRStatusCell.m */; };
 		444C4F391C1530EA00A0208A /* HRStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F381C1530EA00A0208A /* HRStatusFrame.m */; };
 		444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3B1C15353E00A0208A /* HRPhoto.m */; };
@@ -112,6 +113,8 @@
 		441118F61C0D34C1005035F6 /* HRSeachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSeachBar.m; sourceTree = "<group>"; };
 		4427D95C1C16841400410A96 /* HRStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusToolbar.h; sourceTree = "<group>"; };
 		4427D95D1C16841400410A96 /* HRStatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusToolbar.m; sourceTree = "<group>"; };
+		4427D95F1C16C93500410A96 /* xx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xx.h; sourceTree = "<group>"; };
+		4427D9601C16C93500410A96 /* xx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xx.m; sourceTree = "<group>"; };
 		444C4F341C15309B00A0208A /* HRStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusCell.h; sourceTree = "<group>"; };
 		444C4F351C15309B00A0208A /* HRStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusCell.m; sourceTree = "<group>"; };
 		444C4F371C1530EA00A0208A /* HRStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusFrame.h; sourceTree = "<group>"; };
@@ -756,6 +759,8 @@
 		44A66A001C0C3A4F00432DA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4427D95F1C16C93500410A96 /* xx.h */,
+				4427D9601C16C93500410A96 /* xx.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -969,6 +974,7 @@
 				4473E9AB1C0D982E00B33F6D /* HRDropdownMenu.m in Sources */,
 				4469B3831C12C25800F6CA68 /* MKAnnotationView+WebCache.m in Sources */,
 				44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */,
+				4427D9611C16C93500410A96 /* xx.m in Sources */,
 				447FA2461C0F030B0043668B /* AFHTTPRequestOperation.m in Sources */,
 				4469B33C1C1298E800F6CA68 /* NSObject+MJProperty.m in Sources */,
 				444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */,

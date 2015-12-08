@@ -67,6 +67,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self createCellComponent];
     }
     
@@ -182,6 +183,7 @@
     /**原创微博*/
     UIView *originalView = [[UIView alloc] init];
     self.originalView = originalView;
+    
     [self.contentView addSubview:self.originalView];
     
     UIImageView *headIcon = [[UIImageView alloc] init];
@@ -215,7 +217,6 @@
     /**转发微博*/
     UIView *retweetedView = [[UIView alloc] init];
     self.retweetedView = retweetedView;
-    self.retweetedView.backgroundColor = HRRgba(230, 230, 230, 0.9);
     [self.contentView addSubview:self.retweetedView];
     
     UILabel *retweetedContentLabel = [[UILabel alloc] init];
@@ -232,6 +233,10 @@
     self.toolbarView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:self.toolbarView];
     
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor clearColor];
+    self.originalView.backgroundColor = [UIColor whiteColor];
+    self.retweetedView.backgroundColor = HRRgba(230, 230, 230, 0.5);
 }
 
 @end
