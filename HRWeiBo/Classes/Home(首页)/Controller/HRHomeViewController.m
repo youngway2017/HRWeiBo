@@ -220,10 +220,9 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
     long long maxID = [lastStatus.idstr ? lastStatus.idstr : @"0" longLongValue] - 1;
     NSString *max_id = [NSString stringWithFormat:@"%lld",maxID];
     [dict setObject:max_id forKey:@"max_id" ];
-    
-    
+   
+//    https://api.weibo.com/2/statuses/friends_timeline.json?access_token=2.00SZEWrBB8fKJD244ef9b3f80_w7Hq&max_id=3918082370051911
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
-        
         
         NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
         NSMutableArray *statusFrames = [self statusFramesWithStatusArray:statuses];

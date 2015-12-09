@@ -116,17 +116,39 @@
         self.screenNameLabel.textColor = [UIColor blackColor];
     }
     
+    NSString *createdTime = status.created_at;
+    
+    //创建时间Frame重新计算
+    CGFloat createdTimeX = CGRectGetMaxX(statusFrame.headIconF) + StatusCellChildMargin;
+    CGFloat createdTimeY = CGRectGetMaxY(statusFrame.screenNameF);
+    CGSize  createdTimeSize = [createdTime boundingSizeWithSize:CGSizeMake(cellWith, MAXFLOAT) font:StatusCellCreateTimeFont];
+    statusFrame.createdTimeF = (CGRect){{createdTimeX,createdTimeY},createdTimeSize};
+    
     //创建时间
-    self.createdTimeLabel.text = status.created_at;
+    self.createdTimeLabel.text = createdTime;
     self.contentLabel.numberOfLines = 1;
     self.createdTimeLabel.font = StatusCellCreateTimeFont;
     self.createdTimeLabel.frame = statusFrame.createdTimeF;
+    
+    //来源Frame重新计算
+    CGFloat sourceX = CGRectGetMaxX(statusFrame.createdTimeF) + StatusCellChildMargin;
+    CGFloat sourceY = createdTimeY;
+    
+    CGSize  sourceSize = [status.source boundingSizeWithSize:CGSizeMake(cellWith, MAXFLOAT) font:StatusCellSourceFont];
+    
+    statusFrame.sourceF = (CGRect){{sourceX,sourceY},sourceSize};
     
     //来源
     self.sourceLabel.text = status.source;
     self.contentLabel.numberOfLines = 1;
     self.sourceLabel.font = StatusCellSourceFont;
     self.sourceLabel.frame = statusFrame.sourceF;
+    
+    
+    
+    
+    
+    
     
     //正文
     self.contentLabel.text = status.text;

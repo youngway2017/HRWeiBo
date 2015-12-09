@@ -17,6 +17,7 @@
 #import "UIView+Extension.h"
 #import "UIWindow+Extenstion.h"
 #import "NSString+Extension.h"
+#import "NSDate+Extension.h"
 
 #ifdef DEBUG
 #   define HRLog(...) NSLog(__VA_ARGS__)
