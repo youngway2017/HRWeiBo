@@ -44,6 +44,8 @@
 		4469B3911C12C25800F6CA68 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3801C12C25800F6CA68 /* UIImageView+WebCache.m */; };
 		4469B3921C12C25800F6CA68 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3821C12C25800F6CA68 /* UIView+WebCacheOperation.m */; };
 		4472A7851C18135800081727 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4472A7841C18135800081727 /* NSDate+Extension.m */; };
+		4472A7881C181BAB00081727 /* HRPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4472A7871C181BAB00081727 /* HRPhotosView.m */; };
+		4472A78B1C182B3100081727 /* HRPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4472A78A1C182B3100081727 /* HRPhotoView.m */; };
 		4473E9A81C0D97B300B33F6D /* HRTitleMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473E9A71C0D97B300B33F6D /* HRTitleMenuController.m */; };
 		4473E9AB1C0D982E00B33F6D /* HRDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473E9AA1C0D982E00B33F6D /* HRDropdownMenu.m */; };
 		4473E9AE1C0DAF7300B33F6D /* HRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473E9AD1C0DAF7300B33F6D /* HRTabBar.m */; };
@@ -184,6 +186,10 @@
 		4469B3821C12C25800F6CA68 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		4472A7831C18135800081727 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Extension.h"; path = "../View/NSDate+Extension.h"; sourceTree = "<group>"; };
 		4472A7841C18135800081727 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Extension.m"; path = "../View/NSDate+Extension.m"; sourceTree = "<group>"; };
+		4472A7861C181BAB00081727 /* HRPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRPhotosView.h; sourceTree = "<group>"; };
+		4472A7871C181BAB00081727 /* HRPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPhotosView.m; sourceTree = "<group>"; };
+		4472A7891C182B3100081727 /* HRPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRPhotoView.h; sourceTree = "<group>"; };
+		4472A78A1C182B3100081727 /* HRPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPhotoView.m; sourceTree = "<group>"; };
 		4473E9A61C0D97B300B33F6D /* HRTitleMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRTitleMenuController.h; sourceTree = "<group>"; };
 		4473E9A71C0D97B300B33F6D /* HRTitleMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTitleMenuController.m; sourceTree = "<group>"; };
 		4473E9A91C0D982E00B33F6D /* HRDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRDropdownMenu.h; sourceTree = "<group>"; };
@@ -594,6 +600,10 @@
 				444C4F351C15309B00A0208A /* HRStatusCell.m */,
 				4427D95C1C16841400410A96 /* HRStatusToolbar.h */,
 				4427D95D1C16841400410A96 /* HRStatusToolbar.m */,
+				4472A7861C181BAB00081727 /* HRPhotosView.h */,
+				4472A7871C181BAB00081727 /* HRPhotosView.m */,
+				4472A7891C182B3100081727 /* HRPhotoView.h */,
+				4472A78A1C182B3100081727 /* HRPhotoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -967,6 +977,7 @@
 				44A66A171C0C3BFC00432DA5 /* Test3ViewController.m in Sources */,
 				447FA24B1C0F030B0043668B /* AFURLConnectionOperation.m in Sources */,
 				4473E9AE1C0DAF7300B33F6D /* HRTabBar.m in Sources */,
+				4472A78B1C182B3100081727 /* HRPhotoView.m in Sources */,
 				44A66A081C0C3A4F00432DA5 /* HRMessageCenterViewController.m in Sources */,
 				44BC26B81C102FBA00D71126 /* MBProgressHUD+MJ.m in Sources */,
 				44A66A041C0C3A4F00432DA5 /* HRNavigationController.m in Sources */,
@@ -999,6 +1010,7 @@
 				4469B3861C12C25800F6CA68 /* SDWebImageCompat.m in Sources */,
 				4469B3331C1298E800F6CA68 /* MJDictionaryCache.m in Sources */,
 				4469B38C1C12C25800F6CA68 /* UIButton+WebCache.m in Sources */,
+				4472A7881C181BAB00081727 /* HRPhotosView.m in Sources */,
 				447FA2471C0F030B0043668B /* AFHTTPRequestOperationManager.m in Sources */,
 				447FA2481C0F030B0043668B /* AFHTTPSessionManager.m in Sources */,
 				447FA2241C0EDD7B0043668B /* NewFeatureViewController.m in Sources */,

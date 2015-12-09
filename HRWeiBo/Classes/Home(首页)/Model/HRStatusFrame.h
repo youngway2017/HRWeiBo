@@ -43,7 +43,7 @@
 @property (nonatomic, assign) CGRect contentF;
 
 /**原创微博配图 对应 HRStatus pic_urls*/
-@property (nonatomic, assign) CGRect photoF;
+@property (nonatomic, assign) CGRect photosViewF;
 
 /**原创微博整体*/
 @property (nonatomic, assign) CGRect originalF;
@@ -54,7 +54,7 @@
 @property (nonatomic, assign) CGRect retweetedContentF;
 
 /**转发微博配图 对应 HRStatus pic_urls*/
-@property (nonatomic, assign) CGRect retweetedPhotoF;
+@property (nonatomic, assign) CGRect retweetedPhotosViewF;
 
 /**转发微博整体*/
 @property (nonatomic, assign) CGRect retweetedF;

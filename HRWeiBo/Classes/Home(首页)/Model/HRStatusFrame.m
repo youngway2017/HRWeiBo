@@ -9,6 +9,7 @@
 #import "HRStatusFrame.h"
 #import "HRStatus.h"
 #import "HRUser.h"
+#import "HRPhotosView.h"
 
 
 @implementation HRStatusFrame
@@ -77,11 +78,11 @@
     
     CGFloat originalH = CGRectGetMaxY(self.contentF) + StatusCellMargin;
     if (status.pic_urls.count) {
-        CGFloat photoX = StatusCellMargin;
-        CGFloat photoY = CGRectGetMaxY(self.contentF) + StatusCellChildMargin;
-        CGFloat photoWH = 100;
-        self.photoF = CGRectMake(photoX, photoY, photoWH, photoWH);
-        originalH = CGRectGetMaxY(self.photoF) + StatusCellMargin;
+        CGFloat photosX = StatusCellMargin;
+        CGFloat photosY = CGRectGetMaxY(self.contentF) + StatusCellChildMargin;
+        CGSize photosSize = [HRPhotosView photosViewSizeWithCount:(int)status.pic_urls.count];
+        self.photosViewF = CGRectMake(photosX, photosY, photosSize.width, photosSize.height);
+        originalH = CGRectGetMaxY(self.photosViewF) + StatusCellMargin;
     }
     
     self.originalF = CGRectMake(0, 0, cellWith, originalH);
@@ -102,11 +103,11 @@
     
     CGFloat retweetedH = CGRectGetMaxY(self.retweetedContentF) + StatusCellMargin;
     if (retweetedStatus.pic_urls.count) {
-        CGFloat photoX = StatusCellMargin;
-        CGFloat photoY = CGRectGetMaxY(self.retweetedContentF) + StatusCellChildMargin;
-        CGFloat photoWH = 100;
-        self.retweetedPhotoF = CGRectMake(photoX, photoY, photoWH, photoWH);
-        retweetedH = CGRectGetMaxY(self.retweetedPhotoF) + StatusCellMargin;
+        CGFloat photosX = StatusCellMargin;
+        CGFloat photosY = CGRectGetMaxY(self.retweetedContentF) + StatusCellChildMargin;
+        CGSize photosSize = [HRPhotosView photosViewSizeWithCount:(int)retweetedStatus.pic_urls.count];
+        self.retweetedPhotosViewF = CGRectMake(photosX, photosY, photosSize.width, photosSize.height);
+        retweetedH = CGRectGetMaxY(self.retweetedPhotosViewF) + StatusCellMargin;
     }
     
     self.retweetedF = CGRectMake(0, CGRectGetMaxY(self.originalF), cellWith, retweetedH);

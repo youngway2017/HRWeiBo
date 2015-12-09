@@ -14,6 +14,7 @@
 #import "HRPhoto.h"
 #import "HRStatusToolbar.h"
 #import "HRStatusToolbar.h"
+#import "HRPhotosView.h"
 
 @interface HRStatusCell()
 
@@ -40,7 +41,7 @@
 @property (nonatomic, strong) UILabel *contentLabel;
 
 /**原创微博配图 对应 HRStatus pic_urls*/
-@property (nonatomic, strong) UIImageView *photo;
+@property (nonatomic, strong) HRPhotosView *photosView;
 
 /**原创微博整体*/
 @property (nonatomic, strong) UIView *originalView;
@@ -50,7 +51,7 @@
 @property (nonatomic, strong) UILabel *retweetedContentLabel;
 
 /**转发微博配图 对应 HRStatus pic_urls*/
-@property (nonatomic, strong) UIImageView *retweetedPhoto;
+@property (nonatomic, strong) HRPhotosView *retweetedPhotosView;
 
 /**转发微博整体*/
 @property (nonatomic, strong) UIView *retweetedView;
@@ -144,12 +145,6 @@
     self.sourceLabel.font = StatusCellSourceFont;
     self.sourceLabel.frame = statusFrame.sourceF;
     
-    
-    
-    
-    
-    
-    
     //正文
     self.contentLabel.text = status.text;
     self.contentLabel.numberOfLines = 0;
@@ -158,12 +153,11 @@
     
     
     if (status.pic_urls.count) {
-        self.photo.hidden = NO;
-        HRPhoto *photo = [status.pic_urls firstObject];
-        [self.photo sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-        self.photo.frame = statusFrame.photoF;
+        self.photosView.hidden = NO;
+        [self.photosView setPhotos:status.pic_urls];
+        self.photosView.frame = statusFrame.photosViewF;
     } else {
-        self.photo.hidden = YES;
+        self.photosView.hidden = YES;
     }
     
     self.originalView.frame = statusFrame.originalF;
@@ -182,12 +176,11 @@
     self.retweetedContentLabel.frame = statusFrame.retweetedContentF;
     
     if (retweetedStatus.pic_urls.count) {
-        self.retweetedPhoto.hidden = NO;
-        HRPhoto *photo = [retweetedStatus.pic_urls firstObject];
-        [self.retweetedPhoto sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-        self.retweetedPhoto.frame = statusFrame.retweetedPhotoF;
+        self.retweetedPhotosView.hidden = NO;
+        [self.retweetedPhotosView setPhotos:retweetedStatus.pic_urls];
+        self.retweetedPhotosView.frame = statusFrame.retweetedPhotosViewF;
     } else {
-        self.retweetedPhoto.hidden = YES;
+        self.retweetedPhotosView.hidden = YES;
     }
     
     self.retweetedView.frame = statusFrame.retweetedF;
@@ -232,9 +225,9 @@
     self.contentLabel = contentLabel;
     [self.originalView addSubview:self.contentLabel];
     
-    UIImageView *photo = [[UIImageView alloc] init];
-    self.photo = photo;
-    [self.originalView addSubview:self.photo];
+    HRPhotosView *photosView = [[HRPhotosView alloc] init];
+    self.photosView = photosView;
+    [self.originalView addSubview:self.photosView];
     
     /**转发微博*/
     UIView *retweetedView = [[UIView alloc] init];
@@ -245,9 +238,9 @@
     self.retweetedContentLabel = retweetedContentLabel;
     [self.retweetedView addSubview:self.retweetedContentLabel];
     
-    UIImageView *retweetedPhoto = [[UIImageView alloc] init];
-    self.retweetedPhoto = retweetedPhoto;
-    [self.retweetedView addSubview:self.retweetedPhoto];
+    HRPhotosView *retweetedPhotosView = [[HRPhotosView alloc] init];
+    self.retweetedPhotosView = retweetedPhotosView;
+    [self.retweetedView addSubview:self.retweetedPhotosView];
     
     /**toolbar*/
     HRStatusToolbar *toolbarView = [HRStatusToolbar toolbar];
