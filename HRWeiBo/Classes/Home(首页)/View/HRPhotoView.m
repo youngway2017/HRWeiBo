@@ -44,6 +44,7 @@
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
     self.gif.x = self.width - self.gif.width;
     self.gif.y = self.height - self.gif.height;
 }

@@ -44,7 +44,7 @@
 }
 
 - (void)layoutSubviews {
-    
+    [super layoutSubviews];
     int cols = 0;
     int rows = 0;
     
