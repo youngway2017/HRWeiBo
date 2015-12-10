@@ -55,6 +55,15 @@
 - (void)addViewController:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage {
     vc.title = title;
     
+    //文字选中颜色
+    NSMutableDictionary *dictSelected = [NSMutableDictionary dictionary];
+    [dictSelected setObject:HRRgba(255, 130, 0,1) forKey:NSForegroundColorAttributeName];
+    [vc.tabBarItem setTitleTextAttributes:dictSelected forState:UIControlStateSelected];
+    //文字正常颜色
+    NSMutableDictionary *dictNormal = [NSMutableDictionary dictionary];
+    [dictNormal setObject:HRRgba(123, 123, 123,1) forKey:NSForegroundColorAttributeName];
+    [vc.tabBarItem setTitleTextAttributes:dictNormal forState:UIControlStateNormal];
+    
     [vc.tabBarItem setImage:[[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [vc.tabBarItem setSelectedImage:[[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     vc.view.backgroundColor = [UIColor whiteColor];
