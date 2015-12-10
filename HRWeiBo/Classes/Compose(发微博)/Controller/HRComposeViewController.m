@@ -11,6 +11,7 @@
 #import "AccountTool.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
+#import "HRStatusWindow.h"
 
 @interface HRComposeViewController ()
 
@@ -25,7 +26,11 @@
     [super viewDidLoad];
     [self setNavigationItem];
     
-    [self setTextView];
+//    [self setTextView];
+    HRStatusWindow *window = [[HRStatusWindow alloc] init];
+    window.frame = CGRectMake(100, 100, 100, 100);
+    window.backgroundColor = [UIColor redColor];
+    [self.view addSubview:window];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -79,18 +84,21 @@
 
 - (void)send {
 //    https://api.weibo.com/2/statuses/update.json发送微博
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:self.account.access_token forKey:@"access_token" ];
-    [dict setObject:self.textView.text forKey:@"status"];
-    
-    
-    [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:dict success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    HRStatusWindow *window = [[HRStatusWindow alloc] init];
+    window.message = @"正在发送...";
+    [window show];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    [dict setObject:self.account.access_token forKey:@"access_token" ];
+//    [dict setObject:self.textView.text forKey:@"status"];
+//    
+//    
+//    [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:dict success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+//        NSLog(@"JSON: %@", responseObject);
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
 }
 
 - (void)textDidChange {

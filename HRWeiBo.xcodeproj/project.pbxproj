@@ -66,6 +66,7 @@
 		44A35E371C194E860026AE8B /* HRIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E361C194E860026AE8B /* HRIconView.m */; };
 		44A35E3C1C195D260026AE8B /* HRComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E3B1C195D260026AE8B /* HRComposeViewController.m */; };
 		44A35E3F1C196AA60026AE8B /* HRPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E3E1C196AA60026AE8B /* HRPlaceholderTextView.m */; };
+		44A35E421C197FBE0026AE8B /* HRStatusWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E411C197FBE0026AE8B /* HRStatusWindow.m */; };
 		44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */; };
 		44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699A1C0BE1E700432DA5 /* Assets.xcassets */; };
 		44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */; };
@@ -233,6 +234,8 @@
 		44A35E3B1C195D260026AE8B /* HRComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRComposeViewController.m; sourceTree = "<group>"; };
 		44A35E3D1C196AA60026AE8B /* HRPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRPlaceholderTextView.h; sourceTree = "<group>"; };
 		44A35E3E1C196AA60026AE8B /* HRPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPlaceholderTextView.m; sourceTree = "<group>"; };
+		44A35E401C197FBE0026AE8B /* HRStatusWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusWindow.h; sourceTree = "<group>"; };
+		44A35E411C197FBE0026AE8B /* HRStatusWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusWindow.m; sourceTree = "<group>"; };
 		44A669881C0BE1E700432DA5 /* HRWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A669981C0BE1E700432DA5 /* HRWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HRWeiBo.xcdatamodel; sourceTree = "<group>"; };
 		44A6699A1C0BE1E700432DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -701,6 +704,8 @@
 				44A35E361C194E860026AE8B /* HRIconView.m */,
 				44A35E3D1C196AA60026AE8B /* HRPlaceholderTextView.h */,
 				44A35E3E1C196AA60026AE8B /* HRPlaceholderTextView.m */,
+				44A35E401C197FBE0026AE8B /* HRStatusWindow.h */,
+				44A35E411C197FBE0026AE8B /* HRStatusWindow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1020,6 +1025,7 @@
 				44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */,
 				447FA2461C0F030B0043668B /* AFHTTPRequestOperation.m in Sources */,
 				4469B33C1C1298E800F6CA68 /* NSObject+MJProperty.m in Sources */,
+				44A35E421C197FBE0026AE8B /* HRStatusWindow.m in Sources */,
 				444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */,
 				4469B33B1C1298E800F6CA68 /* NSObject+MJKeyValue.m in Sources */,
 				4469B3351C1298E800F6CA68 /* MJFoundation.m in Sources */,
