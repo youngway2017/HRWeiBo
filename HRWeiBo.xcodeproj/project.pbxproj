@@ -63,6 +63,7 @@
 		447FA24E1C0F030B0043668B /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447FA2451C0F030B0043668B /* AFURLSessionManager.m */; };
 		4480BE981C14263E003E5DC6 /* HRLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480BE971C14263E003E5DC6 /* HRLoadMoreFooter.m */; };
 		4480BE9A1C142659003E5DC6 /* HRLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */; };
+		44A35E371C194E860026AE8B /* HRIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E361C194E860026AE8B /* HRIconView.m */; };
 		44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */; };
 		44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699A1C0BE1E700432DA5 /* Assets.xcassets */; };
 		44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */; };
@@ -224,6 +225,8 @@
 		4480BE961C14263E003E5DC6 /* HRLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLoadMoreFooter.h; sourceTree = "<group>"; };
 		4480BE971C14263E003E5DC6 /* HRLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRLoadMoreFooter.m; sourceTree = "<group>"; };
 		4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRLoadMoreFooter.xib; sourceTree = "<group>"; };
+		44A35E351C194E860026AE8B /* HRIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRIconView.h; sourceTree = "<group>"; };
+		44A35E361C194E860026AE8B /* HRIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRIconView.m; sourceTree = "<group>"; };
 		44A669881C0BE1E700432DA5 /* HRWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A669981C0BE1E700432DA5 /* HRWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HRWeiBo.xcdatamodel; sourceTree = "<group>"; };
 		44A6699A1C0BE1E700432DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -670,6 +673,8 @@
 				4473E9AA1C0D982E00B33F6D /* HRDropdownMenu.m */,
 				4473E9AC1C0DAF7300B33F6D /* HRTabBar.h */,
 				4473E9AD1C0DAF7300B33F6D /* HRTabBar.m */,
+				44A35E351C194E860026AE8B /* HRIconView.h */,
+				44A35E361C194E860026AE8B /* HRIconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -971,6 +976,7 @@
 				444C4F3F1C157A5A00A0208A /* NSString+Extension.m in Sources */,
 				4469B3891C12C25800F6CA68 /* SDWebImageDownloaderOperation.m in Sources */,
 				44BC26A91C0FEEF800D71126 /* UIWindow+Extenstion.m in Sources */,
+				44A35E371C194E860026AE8B /* HRIconView.m in Sources */,
 				4469B3171C128FE800F6CA68 /* HRStatus.m in Sources */,
 				44A66A031C0C3A4F00432DA5 /* HRHomeViewController.m in Sources */,
 				4480BE981C14263E003E5DC6 /* HRLoadMoreFooter.m in Sources */,

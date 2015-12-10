@@ -15,12 +15,13 @@
 #import "HRStatusToolbar.h"
 #import "HRStatusToolbar.h"
 #import "HRPhotosView.h"
+#import "HRIconView.h"
 
 @interface HRStatusCell()
 
 
 /**原创微博头像 对应 HRUser profile_image_url*/
-@property (nonatomic, strong) UIImageView *headIcon;
+@property (nonatomic, strong) HRIconView *headIcon;
 
 /**原创微博用户昵称 对应 HRUser screen_name*/
 @property (nonatomic, strong) UILabel *screenNameLabel;
@@ -97,8 +98,8 @@
 - (void)setOriginalStatus:(HRStatusFrame *)statusFrame {
     HRStatus *status = statusFrame.status;
     HRUser *user = status.user;
-    
-    [self.headIcon sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    [self.headIcon setUser:user];
+//    [self.headIcon sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     self.headIcon.frame = statusFrame.headIconF;
     //昵称
     self.screenNameLabel.text = user.screen_name;
@@ -201,7 +202,7 @@
     
     [self.contentView addSubview:self.originalView];
     
-    UIImageView *headIcon = [[UIImageView alloc] init];
+    HRIconView *headIcon = [[HRIconView alloc] init];
     self.headIcon = headIcon;
     [self.originalView addSubview:self.headIcon];
     

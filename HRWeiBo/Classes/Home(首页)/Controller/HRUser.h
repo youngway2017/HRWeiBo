@@ -8,7 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    HRUserVerifiedTypeNone = -1, // 没有任何认证
+    
+    HRUserVerifiedTypePersonal = 0,  // 个人认证
+    
+    HRUserVerifiedTypeOrgEnterprice = 2, // 企业官方：CSDN、EOE、搜狐新闻客户端
+    HRUserVerifiedTypeOrgMedia = 3, // 媒体官方：程序员杂志、苹果汇
+    HRUserVerifiedTypeOrgWebsite = 5, // 网站官方：猫扑
+    
+    HWUserVerifiedTypeDaren = 220 // 微博达人
+    
+} HRUserVerifiedType;
+
 @interface HRUser : NSObject
+
 
 /**id字符串*/
 @property (nonatomic, copy) NSString *idstr;
@@ -26,5 +40,8 @@
 @property (nonatomic, copy) NSString *mbrank;
 
 @property (nonatomic, assign,getter=isVip) BOOL isVip;
+
+
+@property (nonatomic, assign) HRUserVerifiedType verified_type;
 
 @end
