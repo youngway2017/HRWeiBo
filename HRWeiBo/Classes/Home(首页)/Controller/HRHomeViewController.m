@@ -41,6 +41,7 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
     [self setNavigationItem];
     
     [self.tableView registerClass:[HRStatusCell class] forCellReuseIdentifier:cellReuseIdentifier];
+    
     [self getNickName];
     
     [self setupDownRefresh];

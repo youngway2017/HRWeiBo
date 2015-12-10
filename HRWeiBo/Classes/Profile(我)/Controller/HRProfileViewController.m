@@ -19,11 +19,6 @@
     [super viewDidLoad];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(btnLeftClick:)];
-    //文字正常颜色
-    NSMutableDictionary *dictNormal = [NSMutableDictionary dictionary];
-    [dictNormal setObject:HRRgba(255, 130, 0,1) forKey:NSForegroundColorAttributeName];
-    [dictNormal setObject:NavButtonItemFont forKey:NSFontAttributeName];
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:dictNormal forState:UIControlStateNormal];
     
 }
 

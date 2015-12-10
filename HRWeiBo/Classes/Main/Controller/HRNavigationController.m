@@ -16,7 +16,19 @@
 @implementation HRNavigationController
 
 + (void)initialize {
+    UIBarButtonItem *bar = [UIBarButtonItem appearance];
     
+    //文字不可用
+    NSMutableDictionary *dictDisabled = [NSMutableDictionary dictionary];
+    [dictDisabled setObject:HRRgba(220, 220, 220,1) forKey:NSForegroundColorAttributeName];
+    [dictDisabled setObject:NavButtonItemFont forKey:NSFontAttributeName];
+    [bar setTitleTextAttributes:dictDisabled forState:UIControlStateDisabled];
+    
+    //文字正常颜色
+    NSMutableDictionary *dictNormal = [NSMutableDictionary dictionary];
+    [dictNormal setObject:HRRgba(255, 130, 0,1) forKey:NSForegroundColorAttributeName];
+    [dictNormal setObject:NavButtonItemFont forKey:NSFontAttributeName];
+    [bar setTitleTextAttributes:dictNormal forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad {

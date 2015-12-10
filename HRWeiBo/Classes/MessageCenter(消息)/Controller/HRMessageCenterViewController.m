@@ -20,17 +20,7 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"写私信" style:UIBarButtonItemStylePlain target:self action:@selector(btnLeftClick:)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    //文字正常颜色
-    NSMutableDictionary *dictNormal = [NSMutableDictionary dictionary];
-    [dictNormal setObject:HRRgba(255, 130, 0,1) forKey:NSForegroundColorAttributeName];
-    [dictNormal setObject:NavButtonItemFont forKey:NSFontAttributeName];
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:dictNormal forState:UIControlStateNormal];
-    
-    //文字不可用颜色
-    NSMutableDictionary *dictSelected = [NSMutableDictionary dictionary];
-    [dictSelected setObject:HRRgba(123, 123, 123,1) forKey:NSForegroundColorAttributeName];
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:dictSelected forState:UIControlStateDisabled];
-    
+   
 }
 
 - (void)btnLeftClick:(UIButton *)sender {

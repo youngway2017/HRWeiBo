@@ -64,6 +64,8 @@
 		4480BE981C14263E003E5DC6 /* HRLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480BE971C14263E003E5DC6 /* HRLoadMoreFooter.m */; };
 		4480BE9A1C142659003E5DC6 /* HRLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */; };
 		44A35E371C194E860026AE8B /* HRIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E361C194E860026AE8B /* HRIconView.m */; };
+		44A35E3C1C195D260026AE8B /* HRComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E3B1C195D260026AE8B /* HRComposeViewController.m */; };
+		44A35E3F1C196AA60026AE8B /* HRPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E3E1C196AA60026AE8B /* HRPlaceholderTextView.m */; };
 		44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */; };
 		44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699A1C0BE1E700432DA5 /* Assets.xcassets */; };
 		44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */; };
@@ -227,6 +229,10 @@
 		4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRLoadMoreFooter.xib; sourceTree = "<group>"; };
 		44A35E351C194E860026AE8B /* HRIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRIconView.h; sourceTree = "<group>"; };
 		44A35E361C194E860026AE8B /* HRIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRIconView.m; sourceTree = "<group>"; };
+		44A35E3A1C195D260026AE8B /* HRComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposeViewController.h; sourceTree = "<group>"; };
+		44A35E3B1C195D260026AE8B /* HRComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRComposeViewController.m; sourceTree = "<group>"; };
+		44A35E3D1C196AA60026AE8B /* HRPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRPlaceholderTextView.h; sourceTree = "<group>"; };
+		44A35E3E1C196AA60026AE8B /* HRPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPlaceholderTextView.m; sourceTree = "<group>"; };
 		44A669881C0BE1E700432DA5 /* HRWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A669981C0BE1E700432DA5 /* HRWeiBo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HRWeiBo.xcdatamodel; sourceTree = "<group>"; };
 		44A6699A1C0BE1E700432DA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -449,6 +455,23 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		44A35E381C195CF30026AE8B /* Compose(发微博) */ = {
+			isa = PBXGroup;
+			children = (
+				44A35E391C195CF30026AE8B /* Controller */,
+			);
+			path = "Compose(发微博)";
+			sourceTree = "<group>";
+		};
+		44A35E391C195CF30026AE8B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44A35E3A1C195D260026AE8B /* HRComposeViewController.h */,
+				44A35E3B1C195D260026AE8B /* HRComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		44A6697F1C0BE1E700432DA5 = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +533,7 @@
 		44A669D81C0C3A4F00432DA5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				44A35E381C195CF30026AE8B /* Compose(发微博) */,
 				447FA2201C0EDD570043668B /* NewFeature(新特性) */,
 				447FA22D1C0EFD6D0043668B /* OAuth(授权) */,
 				44A669D91C0C3A4F00432DA5 /* Discover(发现) */,
@@ -675,6 +699,8 @@
 				4473E9AD1C0DAF7300B33F6D /* HRTabBar.m */,
 				44A35E351C194E860026AE8B /* HRIconView.h */,
 				44A35E361C194E860026AE8B /* HRIconView.m */,
+				44A35E3D1C196AA60026AE8B /* HRPlaceholderTextView.h */,
+				44A35E3E1C196AA60026AE8B /* HRPlaceholderTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -980,6 +1006,7 @@
 				4469B3171C128FE800F6CA68 /* HRStatus.m in Sources */,
 				44A66A031C0C3A4F00432DA5 /* HRHomeViewController.m in Sources */,
 				4480BE981C14263E003E5DC6 /* HRLoadMoreFooter.m in Sources */,
+				44A35E3C1C195D260026AE8B /* HRComposeViewController.m in Sources */,
 				44A66A171C0C3BFC00432DA5 /* Test3ViewController.m in Sources */,
 				447FA24B1C0F030B0043668B /* AFURLConnectionOperation.m in Sources */,
 				4473E9AE1C0DAF7300B33F6D /* HRTabBar.m in Sources */,
@@ -1029,6 +1056,7 @@
 				4469B3851C12C25800F6CA68 /* SDImageCache.m in Sources */,
 				44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */,
 				4469B33A1C1298E800F6CA68 /* NSObject+MJCoding.m in Sources */,
+				44A35E3F1C196AA60026AE8B /* HRPlaceholderTextView.m in Sources */,
 				444C4F361C15309B00A0208A /* HRStatusCell.m in Sources */,
 				44A66A251C0C4DBD00432DA5 /* UIView+Extension.m in Sources */,
 				4469B3841C12C25800F6CA68 /* NSData+ImageContentType.m in Sources */,
