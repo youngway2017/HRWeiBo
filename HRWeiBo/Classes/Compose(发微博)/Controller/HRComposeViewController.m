@@ -15,13 +15,16 @@
 #import "HRComposeKeyboardToolBar.h"
 #import "HRComposePhotosView.h"
 #import "MBProgressHUD+MJ.h"
+#import "HREmotionKeyboard.h"
 
 @interface HRComposeViewController ()<HRComposeKeyboardToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) HRPlaceholderTextView *textView;
 @property (nonatomic, strong) HRComposeKeyboardToolBar *keyboardToolBar;
 @property (nonatomic, strong) HRComposePhotosView *photosView;
+@property (nonatomic, strong) HREmotionKeyboard *emotionKeyboard;
 @property (nonatomic, strong) HRAccount *account;
+
 
 @end
 
@@ -63,6 +66,16 @@
     return _keyboardToolBar;
 }
 
+- (HREmotionKeyboard *)emotionKeyboard {
+    if (_emotionKeyboard == nil) {
+        _emotionKeyboard = [[HREmotionKeyboard alloc] init];
+        _emotionKeyboard.width = self.view.width;
+        _emotionKeyboard.height = 216;
+        _emotionKeyboard.x = 0;
+    }
+    return _emotionKeyboard;
+}
+
 - (HRAccount *)account {
     return [AccountTool account];
 }
@@ -99,6 +112,7 @@
     self.textView.frame = self.view.bounds;
     self.textView.placeholder = @"分享新鲜事...";
     self.textView.alwaysBounceVertical = YES;
+    self.textView.inputView = self.emotionKeyboard;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self.textView];
     
     [self.view addSubview:self.textView];
@@ -227,7 +241,7 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)dealloc {
