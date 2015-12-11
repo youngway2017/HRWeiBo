@@ -93,9 +93,9 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:account.access_token forKey:@"access_token" ];
     [dict setObject:account.uid forKey:@"uid"];
-    HRLog(@"-----getUnreadStatusCount------");
+//    HRLog(@"-----getUnreadStatusCount------");
     [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
-        NSLog(@"JSON: %@", userInfo);
+//        NSLog(@"JSON: %@", userInfo);
         
         NSString *count = [userInfo[@"status"] description];
         if ([count isEqualToString:@"0"]) {

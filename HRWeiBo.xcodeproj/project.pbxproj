@@ -13,6 +13,7 @@
 		444C4F391C1530EA00A0208A /* HRStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F381C1530EA00A0208A /* HRStatusFrame.m */; };
 		444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3B1C15353E00A0208A /* HRPhoto.m */; };
 		444C4F3F1C157A5A00A0208A /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3E1C157A5A00A0208A /* NSString+Extension.m */; };
+		445031CA1C1A6565006B2B24 /* HRComposeKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 445031C91C1A6565006B2B24 /* HRComposeKeyboardToolBar.m */; };
 		4469B3141C1285A000F6CA68 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3131C1285A000F6CA68 /* Foundation+Log.m */; };
 		4469B3171C128FE800F6CA68 /* HRStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3161C128FE800F6CA68 /* HRStatus.m */; };
 		4469B31A1C12909500F6CA68 /* HRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3191C12909500F6CA68 /* HRUser.m */; };
@@ -95,6 +96,7 @@
 		44BC26B91C102FBA00D71126 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44BC26B51C102FBA00D71126 /* MBProgressHUD.bundle */; };
 		44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26B71C102FBA00D71126 /* MBProgressHUD.m */; };
 		44BC26BD1C10327800D71126 /* HRTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26BC1C10327800D71126 /* HRTitleButton.m */; };
+		44E2E2C91C1AADD60009649E /* HRComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		444C4F3B1C15353E00A0208A /* HRPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPhoto.m; sourceTree = "<group>"; };
 		444C4F3D1C157A5A00A0208A /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		444C4F3E1C157A5A00A0208A /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		445031C81C1A6565006B2B24 /* HRComposeKeyboardToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposeKeyboardToolBar.h; sourceTree = "<group>"; };
+		445031C91C1A6565006B2B24 /* HRComposeKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRComposeKeyboardToolBar.m; sourceTree = "<group>"; };
 		4469B3131C1285A000F6CA68 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		4469B3151C128FE800F6CA68 /* HRStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRStatus.h; path = "HRWeiBo/Classes/Home(首页)/Controller/HRStatus.h"; sourceTree = SOURCE_ROOT; };
 		4469B3161C128FE800F6CA68 /* HRStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRStatus.m; path = "HRWeiBo/Classes/Home(首页)/Controller/HRStatus.m"; sourceTree = SOURCE_ROOT; };
@@ -289,6 +293,8 @@
 		44BC26B71C102FBA00D71126 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		44BC26BB1C10327800D71126 /* HRTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRTitleButton.h; sourceTree = "<group>"; };
 		44BC26BC1C10327800D71126 /* HRTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTitleButton.m; sourceTree = "<group>"; };
+		44E2E2C71C1AADD60009649E /* HRComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposePhotosView.h; sourceTree = "<group>"; };
+		44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRComposePhotosView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +322,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		445031C71C1A64E7006B2B24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				445031C81C1A6565006B2B24 /* HRComposeKeyboardToolBar.h */,
+				445031C91C1A6565006B2B24 /* HRComposeKeyboardToolBar.m */,
+				44E2E2C71C1AADD60009649E /* HRComposePhotosView.h */,
+				44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4469B31B1C1298E800F6CA68 /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				44A35E391C195CF30026AE8B /* Controller */,
+				445031C71C1A64E7006B2B24 /* View */,
 			);
 			path = "Compose(发微博)";
 			sourceTree = "<group>";
@@ -1023,6 +1041,7 @@
 				4473E9AB1C0D982E00B33F6D /* HRDropdownMenu.m in Sources */,
 				4469B3831C12C25800F6CA68 /* MKAnnotationView+WebCache.m in Sources */,
 				44A669991C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld in Sources */,
+				445031CA1C1A6565006B2B24 /* HRComposeKeyboardToolBar.m in Sources */,
 				447FA2461C0F030B0043668B /* AFHTTPRequestOperation.m in Sources */,
 				4469B33C1C1298E800F6CA68 /* NSObject+MJProperty.m in Sources */,
 				44A35E421C197FBE0026AE8B /* HRStatusWindow.m in Sources */,
@@ -1077,6 +1096,7 @@
 				44A66A091C0C3A4F00432DA5 /* HRProfileViewController.m in Sources */,
 				4469B33D1C1298E800F6CA68 /* NSString+MJExtension.m in Sources */,
 				44A66A021C0C3A4F00432DA5 /* HRDiscoverViewController.m in Sources */,
+				44E2E2C91C1AADD60009649E /* HRComposePhotosView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
