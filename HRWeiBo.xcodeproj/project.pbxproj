@@ -96,6 +96,7 @@
 		44BC26B91C102FBA00D71126 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44BC26B51C102FBA00D71126 /* MBProgressHUD.bundle */; };
 		44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26B71C102FBA00D71126 /* MBProgressHUD.m */; };
 		44BC26BD1C10327800D71126 /* HRTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26BC1C10327800D71126 /* HRTitleButton.m */; };
+		44BF98E81C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BF98E71C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m */; };
 		44E2E2C91C1AADD60009649E /* HRComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */; };
 		44E2E3201C1AC9850009649E /* HREmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E31F1C1AC9850009649E /* HREmotionKeyboard.m */; };
 		44E2E3231C1AC9A40009649E /* HREmotionKeyboardTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */; };
@@ -296,6 +297,8 @@
 		44BC26B71C102FBA00D71126 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		44BC26BB1C10327800D71126 /* HRTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRTitleButton.h; sourceTree = "<group>"; };
 		44BC26BC1C10327800D71126 /* HRTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTitleButton.m; sourceTree = "<group>"; };
+		44BF98E61C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionKeyboardTabBarButton.h; sourceTree = "<group>"; };
+		44BF98E71C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionKeyboardTabBarButton.m; sourceTree = "<group>"; };
 		44E2E2C71C1AADD60009649E /* HRComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposePhotosView.h; sourceTree = "<group>"; };
 		44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRComposePhotosView.m; sourceTree = "<group>"; };
 		44E2E31E1C1AC9850009649E /* HREmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionKeyboard.h; sourceTree = "<group>"; };
@@ -340,10 +343,12 @@
 				44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */,
 				44E2E31E1C1AC9850009649E /* HREmotionKeyboard.h */,
 				44E2E31F1C1AC9850009649E /* HREmotionKeyboard.m */,
-				44E2E3211C1AC9A40009649E /* HREmotionKeyboardTabBar.h */,
-				44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */,
 				44E2E3241C1ACACC0009649E /* HREmotionKeyboardListView.h */,
 				44E2E3251C1ACACD0009649E /* HREmotionKeyboardListView.m */,
+				44E2E3211C1AC9A40009649E /* HREmotionKeyboardTabBar.h */,
+				44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */,
+				44BF98E61C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.h */,
+				44BF98E71C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1063,6 +1068,7 @@
 				4469B33C1C1298E800F6CA68 /* NSObject+MJProperty.m in Sources */,
 				44A35E421C197FBE0026AE8B /* HRStatusWindow.m in Sources */,
 				444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */,
+				44BF98E81C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m in Sources */,
 				4469B33B1C1298E800F6CA68 /* NSObject+MJKeyValue.m in Sources */,
 				4469B3351C1298E800F6CA68 /* MJFoundation.m in Sources */,
 				4469B38A1C12C25800F6CA68 /* SDWebImageManager.m in Sources */,

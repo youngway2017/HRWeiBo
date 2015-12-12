@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    HREmotionKeyboardTabBarRecent,
+    HREmotionKeyboardTabBarDefault,
+    HREmotionKeyboardTabBarEmojo,
+    HREmotionKeyboardTabBarLxh
+} HREmotionKeyboardTabBarButtonType;
+
+@class HREmotionKeyboardTabBar;
+@protocol HREmotionKeyboardTabBarDelegate <NSObject>
+
+@optional
+
+- (void)emotionKeyboardTabBar:(HREmotionKeyboardTabBar *)toolBar didClickButton:(HREmotionKeyboardTabBarButtonType)buttonType;
+
+@end
+
 @interface HREmotionKeyboardTabBar : UIView
 
+@property (nonatomic, weak) id<HREmotionKeyboardTabBarDelegate> delegate;
 @end
