@@ -23,7 +23,7 @@
         
         [self addButtonWithTitle:@"最近" buttonType:HREmotionKeyboardTabBarRecent];
         [self addButtonWithTitle:@"默认" buttonType:HREmotionKeyboardTabBarDefault];
-        [self addButtonWithTitle:@"Emojo" buttonType:HREmotionKeyboardTabBarEmojo];
+        [self addButtonWithTitle:@"Emoji" buttonType:HREmotionKeyboardTabBarEmoji];
         [self addButtonWithTitle:@"浪小花" buttonType:HREmotionKeyboardTabBarLxh];
         
     }

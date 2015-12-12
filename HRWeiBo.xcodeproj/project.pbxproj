@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 441118F61C0D34C1005035F6 /* HRSeachBar.m */; };
 		4427D95E1C16841400410A96 /* HRStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4427D95D1C16841400410A96 /* HRStatusToolbar.m */; };
+		442D03221C1C180C000B4648 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 442D03211C1C180C000B4648 /* EmotionIcons */; };
+		442D03281C1C18C8000B4648 /* HREmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 442D03271C1C18C8000B4648 /* HREmotion.m */; };
+		442D032B1C1C231C000B4648 /* HREmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 442D032A1C1C231C000B4648 /* HREmotionPageView.m */; };
+		442D032E1C1C3324000B4648 /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 442D032D1C1C3324000B4648 /* NSString+Emoji.m */; };
 		444C4F361C15309B00A0208A /* HRStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F351C15309B00A0208A /* HRStatusCell.m */; };
 		444C4F391C1530EA00A0208A /* HRStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F381C1530EA00A0208A /* HRStatusFrame.m */; };
 		444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3B1C15353E00A0208A /* HRPhoto.m */; };
@@ -125,6 +129,13 @@
 		441118F61C0D34C1005035F6 /* HRSeachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSeachBar.m; sourceTree = "<group>"; };
 		4427D95C1C16841400410A96 /* HRStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusToolbar.h; sourceTree = "<group>"; };
 		4427D95D1C16841400410A96 /* HRStatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusToolbar.m; sourceTree = "<group>"; };
+		442D03211C1C180C000B4648 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
+		442D03261C1C18C8000B4648 /* HREmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotion.h; sourceTree = "<group>"; };
+		442D03271C1C18C8000B4648 /* HREmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotion.m; sourceTree = "<group>"; };
+		442D03291C1C231C000B4648 /* HREmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionPageView.h; sourceTree = "<group>"; };
+		442D032A1C1C231C000B4648 /* HREmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionPageView.m; sourceTree = "<group>"; };
+		442D032C1C1C3324000B4648 /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		442D032D1C1C3324000B4648 /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		444C4F341C15309B00A0208A /* HRStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusCell.h; sourceTree = "<group>"; };
 		444C4F351C15309B00A0208A /* HRStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusCell.m; sourceTree = "<group>"; };
 		444C4F371C1530EA00A0208A /* HRStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusFrame.h; sourceTree = "<group>"; };
@@ -334,6 +345,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		442D03251C1C1890000B4648 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				442D03261C1C18C8000B4648 /* HREmotion.h */,
+				442D03271C1C18C8000B4648 /* HREmotion.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		445031C71C1A64E7006B2B24 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +365,8 @@
 				44E2E31F1C1AC9850009649E /* HREmotionKeyboard.m */,
 				44E2E3241C1ACACC0009649E /* HREmotionKeyboardListView.h */,
 				44E2E3251C1ACACD0009649E /* HREmotionKeyboardListView.m */,
+				442D03291C1C231C000B4648 /* HREmotionPageView.h */,
+				442D032A1C1C231C000B4648 /* HREmotionPageView.m */,
 				44E2E3211C1AC9A40009649E /* HREmotionKeyboardTabBar.h */,
 				44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */,
 				44BF98E61C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.h */,
@@ -500,6 +522,7 @@
 			children = (
 				44A35E391C195CF30026AE8B /* Controller */,
 				445031C71C1A64E7006B2B24 /* View */,
+				442D03251C1C1890000B4648 /* Model */,
 			);
 			path = "Compose(发微博)";
 			sourceTree = "<group>";
@@ -545,6 +568,7 @@
 		44A6698B1C0BE1E700432DA5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				442D03211C1C180C000B4648 /* EmotionIcons */,
 				44A6699F1C0BE1E700432DA5 /* Info.plist */,
 				44A6699A1C0BE1E700432DA5 /* Assets.xcassets */,
 				44A669971C0BE1E700432DA5 /* HRWeiBo.xcdatamodeld */,
@@ -857,6 +881,8 @@
 		44A66A1F1C0C4DBD00432DA5 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				442D032C1C1C3324000B4648 /* NSString+Emoji.h */,
+				442D032D1C1C3324000B4648 /* NSString+Emoji.m */,
 				4472A7831C18135800081727 /* NSDate+Extension.h */,
 				4472A7841C18135800081727 /* NSDate+Extension.m */,
 				4469B3131C1285A000F6CA68 /* Foundation+Log.m */,
@@ -1008,6 +1034,7 @@
 				4480BE9A1C142659003E5DC6 /* HRLoadMoreFooter.xib in Resources */,
 				44A6699E1C0BE1E700432DA5 /* LaunchScreen.storyboard in Resources */,
 				44A66A131C0C3BF200432DA5 /* Test2ViewController.xib in Resources */,
+				442D03221C1C180C000B4648 /* EmotionIcons in Resources */,
 				44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */,
 				44A66A181C0C3BFC00432DA5 /* Test3ViewController.xib in Resources */,
 				44A66A0E1C0C3B6A00432DA5 /* Test1ViewController.xib in Resources */,
@@ -1071,6 +1098,7 @@
 				44BF98E81C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m in Sources */,
 				4469B33B1C1298E800F6CA68 /* NSObject+MJKeyValue.m in Sources */,
 				4469B3351C1298E800F6CA68 /* MJFoundation.m in Sources */,
+				442D03281C1C18C8000B4648 /* HREmotion.m in Sources */,
 				4469B38A1C12C25800F6CA68 /* SDWebImageManager.m in Sources */,
 				44A66A051C0C3A4F00432DA5 /* HRTabBarController.m in Sources */,
 				44BC26B11C1025AD00D71126 /* AccountTool.m in Sources */,
@@ -1093,8 +1121,10 @@
 				4469B38C1C12C25800F6CA68 /* UIButton+WebCache.m in Sources */,
 				4472A7881C181BAB00081727 /* HRPhotosView.m in Sources */,
 				447FA2471C0F030B0043668B /* AFHTTPRequestOperationManager.m in Sources */,
+				442D032E1C1C3324000B4648 /* NSString+Emoji.m in Sources */,
 				447FA2481C0F030B0043668B /* AFHTTPSessionManager.m in Sources */,
 				447FA2241C0EDD7B0043668B /* NewFeatureViewController.m in Sources */,
+				442D032B1C1C231C000B4648 /* HREmotionPageView.m in Sources */,
 				4469B31A1C12909500F6CA68 /* HRUser.m in Sources */,
 				447FA24D1C0F030B0043668B /* AFURLResponseSerialization.m in Sources */,
 				447FA24C1C0F030B0043668B /* AFURLRequestSerialization.m in Sources */,

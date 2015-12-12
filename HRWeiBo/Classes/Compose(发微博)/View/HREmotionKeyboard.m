@@ -9,14 +9,17 @@
 #import "HREmotionKeyboard.h"
 #import "HREmotionKeyboardTabBar.h"
 #import "HREmotionKeyboardListView.h"
+#import "MJExtension.h"
+#import "HREmotion.h"
 
 
 @interface HREmotionKeyboard()<HREmotionKeyboardTabBarDelegate>
 
 @property (nonatomic, strong) HREmotionKeyboardListView *emotionListViewRecent;
 @property (nonatomic, strong) HREmotionKeyboardListView *emotionListViewDefault;
-@property (nonatomic, strong) HREmotionKeyboardListView *emotionListViewEmojo;
+@property (nonatomic, strong) HREmotionKeyboardListView *emotionListViewEmoji;
 @property (nonatomic, strong) HREmotionKeyboardListView *emotionListViewLxh;
+
 
 @property (nonatomic, strong) UIView *showingView;
 
@@ -48,22 +51,30 @@
 - (HREmotionKeyboardListView *)emotionListViewDefault {
     if (_emotionListViewDefault == nil) {
         _emotionListViewDefault = [[HREmotionKeyboardListView alloc] init];
+        _emotionListViewDefault.emotions = [self emotionsArrayWithPath:@"EmotionIcons/default/info.plist"];
     }
     return _emotionListViewDefault;
 }
 
-- (HREmotionKeyboardListView *)emotionListViewEmojo {
-    if (_emotionListViewEmojo == nil) {
-        _emotionListViewEmojo = [[HREmotionKeyboardListView alloc] init];
+- (HREmotionKeyboardListView *)emotionListViewEmoji {
+    if (_emotionListViewEmoji == nil) {
+        _emotionListViewEmoji = [[HREmotionKeyboardListView alloc] init];
+        _emotionListViewEmoji.emotions = [self emotionsArrayWithPath:@"EmotionIcons/emoji/info.plist"];
     }
-    return _emotionListViewEmojo;
+    return _emotionListViewEmoji;
 }
 
 - (HREmotionKeyboardListView *)emotionListViewLxh {
     if (_emotionListViewLxh == nil) {
         _emotionListViewLxh = [[HREmotionKeyboardListView alloc] init];
+        _emotionListViewLxh.emotions = [self emotionsArrayWithPath:@"EmotionIcons/lxh/info.plist"];
     }
     return _emotionListViewLxh;
+}
+
+- (NSArray *)emotionsArrayWithPath:(NSString *)pathStr {
+    NSString *path = [[NSBundle mainBundle] pathForResource:pathStr ofType:nil];
+    return [HREmotion mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
 }
 
 - (void)layoutSubviews {
@@ -91,8 +102,8 @@
             [self addSubview:self.emotionListViewDefault];
             break;
         }
-        case HREmotionKeyboardTabBarEmojo: {
-            [self addSubview:self.emotionListViewEmojo];
+        case HREmotionKeyboardTabBarEmoji: {
+            [self addSubview:self.emotionListViewEmoji];
             break;
         }
         case HREmotionKeyboardTabBarLxh: {

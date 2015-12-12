@@ -11,7 +11,7 @@
 typedef enum {
     HREmotionKeyboardTabBarRecent,
     HREmotionKeyboardTabBarDefault,
-    HREmotionKeyboardTabBarEmojo,
+    HREmotionKeyboardTabBarEmoji,
     HREmotionKeyboardTabBarLxh
 } HREmotionKeyboardTabBarButtonType;
 

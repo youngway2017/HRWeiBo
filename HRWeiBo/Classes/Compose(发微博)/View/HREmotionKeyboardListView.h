@@ -10,4 +10,6 @@
 
 @interface HREmotionKeyboardListView : UIView
 
+@property (nonatomic, strong) NSArray *emotions;
+
 @end
