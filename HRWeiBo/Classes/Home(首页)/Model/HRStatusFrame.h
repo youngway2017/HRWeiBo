@@ -14,8 +14,8 @@
 #define StatusCellScreenNameFont [UIFont systemFontOfSize:15]
 #define StatusCellCreateTimeFont [UIFont systemFontOfSize:10]
 #define StatusCellSourceFont [UIFont systemFontOfSize:10]
-#define StatusCellContentFont [UIFont systemFontOfSize:12]
-#define StatusCellRetweetedContentFont [UIFont systemFontOfSize:12]
+#define StatusCellContentFont [UIFont systemFontOfSize:15]
+#define StatusCellRetweetedContentFont [UIFont systemFontOfSize:15]
 @class HRStatus;
 
 @interface HRStatusFrame : NSObject
