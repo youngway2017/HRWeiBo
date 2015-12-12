@@ -29,4 +29,7 @@ typedef enum {
 
 @property (nonatomic, weak) id<HRComposeKeyboardToolBarDelegate> delegate;
 
+@property (nonatomic, assign,getter=isShowEmotion) BOOL showEmotion;
+
+
 @end

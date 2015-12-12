@@ -18,7 +18,7 @@
         [self addButtonWithImageName:@"compose_camerabutton_background" highlightedImageName:@"compose_camerabutton_background_highlighted" buttonType:HRComposeKeyboardToolBarCamera];
         [self addButtonWithImageName:@"compose_mentionbutton_background" highlightedImageName:@"compose_mentionbutton_background_highlighted" buttonType:HRComposeKeyboardToolBarMention];
         [self addButtonWithImageName:@"compose_trendbutton_background" highlightedImageName:@"compose_trendbutton_background_highlighted" buttonType:HRComposeKeyboardToolBarTrend];
-        [self addButtonWithImageName:@"compose_keyboardbutton_background" highlightedImageName:@"compose_keyboardbutton_background_highlighted" buttonType:HRComposeKeyboardToolBarEmoticon];
+        [self addButtonWithImageName:@"compose_emoticonbutton_background" highlightedImageName:@"compose_emoticonbutton_background_highlighted" buttonType:HRComposeKeyboardToolBarEmoticon];
     }
     return self;
 }
@@ -54,5 +54,19 @@
     }
 }
 
+- (void)setShowEmotion:(BOOL)showEmotion {
+    _showEmotion = showEmotion;
+    UIButton *btn = (UIButton *)[self viewWithTag:HRComposeKeyboardToolBarEmoticon];
+    NSString *imageName = @"compose_emoticonbutton_background";
+    NSString *highlightedImageName = @"compose_emoticonbutton_background_highlighted";
+    if (showEmotion) {
+        imageName = @"compose_keyboardbutton_background";
+        highlightedImageName = @"compose_keyboardbutton_background_highlighted";
+    }
+    
+    [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:highlightedImageName] forState:UIControlStateHighlighted];
+    
+}
 
 @end

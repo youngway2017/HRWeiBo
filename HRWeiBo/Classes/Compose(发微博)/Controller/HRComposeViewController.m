@@ -24,6 +24,8 @@
 @property (nonatomic, strong) HRComposePhotosView *photosView;
 @property (nonatomic, strong) HREmotionKeyboard *emotionKeyboard;
 @property (nonatomic, strong) HRAccount *account;
+@property (nonatomic, assign) BOOL isSwitchingKeyboard;
+
 
 
 @end
@@ -112,7 +114,6 @@
     self.textView.frame = self.view.bounds;
     self.textView.placeholder = @"分享新鲜事...";
     self.textView.alwaysBounceVertical = YES;
-    self.textView.inputView = self.emotionKeyboard;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self.textView];
     
     [self.view addSubview:self.textView];
@@ -190,7 +191,8 @@
 }
 
 - (void)keyboardWillChange:(NSNotification *)info {
-//    HRLog(@"%@",info);
+    if (self.isSwitchingKeyboard) return;
+    
     NSDictionary *dict = info.userInfo;
     CGRect rect = [(NSValue *)dict[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     double durationTime = [dict[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -198,7 +200,6 @@
         self.keyboardToolBar.y = rect.origin.y - self.keyboardToolBar.height;
     }];
     
-//    UIKeyboardFrameEndUserInfoKey = NSRect: {{0, 315}, {320, 253}},
 }
 
 #pragma mark - 键盘toolbar按钮点击代理
@@ -223,9 +224,27 @@
         case HRComposeKeyboardToolBarTrend:
             HRLog(@"#");
             break;
-        case HRComposeKeyboardToolBarEmoticon:
+        case HRComposeKeyboardToolBarEmoticon: {
             HRLog(@"Emoticon表情");
+            toolBar.showEmotion = !toolBar.isShowEmotion;
+            self.isSwitchingKeyboard = YES;
+            if (self.textView.inputView) {
+                self.textView.inputView = nil;
+            } else  {
+                self.textView.inputView = self.emotionKeyboard;
+            }
+            [UIView animateWithDuration:0.25 animations:^{
+                [self.view endEditing:YES];
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.25 animations:^{
+                    
+                    [self.textView becomeFirstResponder];
+                }];
+            }];
+            self.isSwitchingKeyboard = NO;
+            
             break;
+        }
         default:
             break;
     }
