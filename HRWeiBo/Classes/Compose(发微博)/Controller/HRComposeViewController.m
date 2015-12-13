@@ -16,6 +16,8 @@
 #import "HRComposePhotosView.h"
 #import "MBProgressHUD+MJ.h"
 #import "HREmotionKeyboard.h"
+#import "HREmotion.h"
+#import "NSString+Emoji.h"
 
 @interface HRComposeViewController ()<HRComposeKeyboardToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -116,7 +118,28 @@
     self.textView.alwaysBounceVertical = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self.textView];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionButtonDidSelect:) name:HREmotionButtonDidSelectNotification object:nil];
+    
     [self.view addSubview:self.textView];
+}
+
+#pragma mark - textView Notification
+
+- (void)textDidChange {
+    self.navigationItem.rightBarButtonItem.enabled = self.textView.hasText;
+}
+
+- (void)emotionButtonDidSelect:(NSNotification *)noti {
+    NSDictionary *userinfo = noti.userInfo;
+    HREmotion *emotion = (HREmotion *)userinfo[HREmotionButtonDidSelectNotificationKey];
+    
+    if (emotion.code) {
+        [self.textView insertText:emotion.code.emoji];
+    } else if (emotion.png) {
+//        NSAttributedString *att
+        HRLog(@"%@",self.textView.attributedText);
+    }
 }
 
 - (void)setPhotosView{
@@ -185,10 +208,6 @@
     }];
 }
 
-
-- (void)textDidChange {
-    self.navigationItem.rightBarButtonItem.enabled = self.textView.hasText;
-}
 
 - (void)keyboardWillChange:(NSNotification *)info {
     if (self.isSwitchingKeyboard) return;

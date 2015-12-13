@@ -29,3 +29,6 @@
 #define HRRandomColor [UIColor colorWithRed:(arc4random()%255)/255.0 green:(arc4random()%255)/255.0 blue:(arc4random()%255)/255.0 alpha:1]
 
 #define NavButtonItemFont [UIFont systemFontOfSize:13]
+
+#define HREmotionButtonDidSelectNotification @"HREmotionButtonDidSelectNotification"
+#define HREmotionButtonDidSelectNotificationKey @"HREmotionButtonDidSelectNotificationKey"

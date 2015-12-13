@@ -18,6 +18,8 @@
 		444C4F3C1C15353E00A0208A /* HRPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3B1C15353E00A0208A /* HRPhoto.m */; };
 		444C4F3F1C157A5A00A0208A /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 444C4F3E1C157A5A00A0208A /* NSString+Extension.m */; };
 		445031CA1C1A6565006B2B24 /* HRComposeKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 445031C91C1A6565006B2B24 /* HRComposeKeyboardToolBar.m */; };
+		446747BA1C1D4E2800E8918B /* HREmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 446747B91C1D4E2800E8918B /* HREmotionPopView.m */; };
+		446747BC1C1D4E3A00E8918B /* HREmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446747BB1C1D4E3A00E8918B /* HREmotionPopView.xib */; };
 		4469B3141C1285A000F6CA68 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3131C1285A000F6CA68 /* Foundation+Log.m */; };
 		4469B3171C128FE800F6CA68 /* HRStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3161C128FE800F6CA68 /* HRStatus.m */; };
 		4469B31A1C12909500F6CA68 /* HRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4469B3191C12909500F6CA68 /* HRUser.m */; };
@@ -101,6 +103,7 @@
 		44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26B71C102FBA00D71126 /* MBProgressHUD.m */; };
 		44BC26BD1C10327800D71126 /* HRTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26BC1C10327800D71126 /* HRTitleButton.m */; };
 		44BF98E81C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BF98E71C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m */; };
+		44D9A3931C1D6A9B0087ADD6 /* HREmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D9A3921C1D6A9B0087ADD6 /* HREmotionButton.m */; };
 		44E2E2C91C1AADD60009649E /* HRComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */; };
 		44E2E3201C1AC9850009649E /* HREmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E31F1C1AC9850009649E /* HREmotionKeyboard.m */; };
 		44E2E3231C1AC9A40009649E /* HREmotionKeyboardTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */; };
@@ -146,6 +149,9 @@
 		444C4F3E1C157A5A00A0208A /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		445031C81C1A6565006B2B24 /* HRComposeKeyboardToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposeKeyboardToolBar.h; sourceTree = "<group>"; };
 		445031C91C1A6565006B2B24 /* HRComposeKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRComposeKeyboardToolBar.m; sourceTree = "<group>"; };
+		446747B81C1D4E2800E8918B /* HREmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionPopView.h; sourceTree = "<group>"; };
+		446747B91C1D4E2800E8918B /* HREmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionPopView.m; sourceTree = "<group>"; };
+		446747BB1C1D4E3A00E8918B /* HREmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HREmotionPopView.xib; sourceTree = "<group>"; };
 		4469B3131C1285A000F6CA68 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		4469B3151C128FE800F6CA68 /* HRStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRStatus.h; path = "HRWeiBo/Classes/Home(首页)/Controller/HRStatus.h"; sourceTree = SOURCE_ROOT; };
 		4469B3161C128FE800F6CA68 /* HRStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRStatus.m; path = "HRWeiBo/Classes/Home(首页)/Controller/HRStatus.m"; sourceTree = SOURCE_ROOT; };
@@ -310,6 +316,8 @@
 		44BC26BC1C10327800D71126 /* HRTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTitleButton.m; sourceTree = "<group>"; };
 		44BF98E61C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionKeyboardTabBarButton.h; sourceTree = "<group>"; };
 		44BF98E71C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionKeyboardTabBarButton.m; sourceTree = "<group>"; };
+		44D9A3911C1D6A9B0087ADD6 /* HREmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionButton.h; sourceTree = "<group>"; };
+		44D9A3921C1D6A9B0087ADD6 /* HREmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionButton.m; sourceTree = "<group>"; };
 		44E2E2C71C1AADD60009649E /* HRComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposePhotosView.h; sourceTree = "<group>"; };
 		44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRComposePhotosView.m; sourceTree = "<group>"; };
 		44E2E31E1C1AC9850009649E /* HREmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionKeyboard.h; sourceTree = "<group>"; };
@@ -371,6 +379,11 @@
 				44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */,
 				44BF98E61C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.h */,
 				44BF98E71C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m */,
+				446747B81C1D4E2800E8918B /* HREmotionPopView.h */,
+				446747B91C1D4E2800E8918B /* HREmotionPopView.m */,
+				446747BB1C1D4E3A00E8918B /* HREmotionPopView.xib */,
+				44D9A3911C1D6A9B0087ADD6 /* HREmotionButton.h */,
+				44D9A3921C1D6A9B0087ADD6 /* HREmotionButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1037,6 +1050,7 @@
 				442D03221C1C180C000B4648 /* EmotionIcons in Resources */,
 				44A6699B1C0BE1E700432DA5 /* Assets.xcassets in Resources */,
 				44A66A181C0C3BFC00432DA5 /* Test3ViewController.xib in Resources */,
+				446747BC1C1D4E3A00E8918B /* HREmotionPopView.xib in Resources */,
 				44A66A0E1C0C3B6A00432DA5 /* Test1ViewController.xib in Resources */,
 				44BC26B91C102FBA00D71126 /* MBProgressHUD.bundle in Resources */,
 			);
@@ -1111,6 +1125,7 @@
 				44BC26BD1C10327800D71126 /* HRTitleButton.m in Sources */,
 				4469B3361C1298E800F6CA68 /* MJProperty.m in Sources */,
 				4469B3341C1298E800F6CA68 /* MJExtensionConst.m in Sources */,
+				446747BA1C1D4E2800E8918B /* HREmotionPopView.m in Sources */,
 				4469B3871C12C25800F6CA68 /* SDWebImageDecoder.m in Sources */,
 				4469B3371C1298E800F6CA68 /* MJPropertyKey.m in Sources */,
 				447FA24E1C0F030B0043668B /* AFURLSessionManager.m in Sources */,
@@ -1121,6 +1136,7 @@
 				4469B38C1C12C25800F6CA68 /* UIButton+WebCache.m in Sources */,
 				4472A7881C181BAB00081727 /* HRPhotosView.m in Sources */,
 				447FA2471C0F030B0043668B /* AFHTTPRequestOperationManager.m in Sources */,
+				44D9A3931C1D6A9B0087ADD6 /* HREmotionButton.m in Sources */,
 				442D032E1C1C3324000B4648 /* NSString+Emoji.m in Sources */,
 				447FA2481C0F030B0043668B /* AFHTTPSessionManager.m in Sources */,
 				447FA2241C0EDD7B0043668B /* NewFeatureViewController.m in Sources */,

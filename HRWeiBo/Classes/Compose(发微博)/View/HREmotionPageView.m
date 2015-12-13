@@ -9,6 +9,16 @@
 #import "HREmotionPageView.h"
 #import "HREmotion.h"
 #import "NSString+Emoji.h"
+#import "HREmotionPopView.h"
+#import "HREmotionButton.h"
+
+@interface HREmotionPageView()
+
+#define HREmotionButtonDidSelectNotification @"HREmotionButtonDidSelectNotification"
+
+@property (nonatomic, strong) HREmotionPopView *popView;
+
+@end
 
 @implementation HREmotionPageView
 
@@ -19,23 +29,41 @@
     return self;
 }
 
+
+
+- (HREmotionPopView *)popView {
+    if (_popView == nil) {
+        _popView = [HREmotionPopView popView];
+    }
+    return _popView;
+}
+
 - (void)setEmotions:(NSArray *)emotions {
     _emotions = emotions;
     NSUInteger count = emotions.count;
     for (NSUInteger i = 0; i < count; i++) {
         HREmotion *emotion = (HREmotion *)emotions[i];
-        UIButton *btn = [[UIButton alloc] init];
-        if (emotion.code) {
-            [btn setTitle:emotion.code.emoji forState:UIControlStateNormal];
-            btn.titleLabel.font = [UIFont systemFontOfSize:32];
-        } else {
-            [btn setImage:[UIImage imageNamed:emotion.png] forState:UIControlStateNormal];
-        }
+        HREmotionButton *btn = [[HREmotionButton alloc] init];
+        btn.emotion = emotion;
+        [btn addTarget:self action:@selector(emotionButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+        
 //        btn.backgroundColor = HRRandomColor;
         [self addSubview:btn];
     }
 }
 
+
+- (void)emotionButtonDidClick:(HREmotionButton *)sender {
+    [self.popView showFromButton:sender];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.popView removeFromSuperview];
+    });
+
+    NSDictionary *dict = @{HREmotionButtonDidSelectNotificationKey:sender.emotion};
+    [[NSNotificationCenter defaultCenter] postNotificationName:HREmotionButtonDidSelectNotification object:nil userInfo:dict];
+
+}
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -50,7 +78,7 @@
     CGFloat w = btnW;
     CGFloat h = btnH;
     for (int i = 0; i < self.subviews.count; i++) {
-        UIButton *btn = (UIButton *)self.subviews[i];
+        HREmotionButton *btn = (HREmotionButton *)self.subviews[i];
         cols = i % HREmotionMaxCountCols;
         rows = i / HREmotionMaxCountCols;
         x = cols * btnW + HREmotionMargin;
@@ -58,5 +86,6 @@
         btn.frame = CGRectMake(x, y, w, h);
     }
 }
+
 
 @end
