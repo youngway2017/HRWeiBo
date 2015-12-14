@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HRStatusWindow : UIWindow
+@interface HRStatusWindow : UIView
 
 @property (nonatomic, copy) NSString *message;
 

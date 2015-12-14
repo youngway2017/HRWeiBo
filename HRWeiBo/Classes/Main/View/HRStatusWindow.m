@@ -10,7 +10,6 @@
 
 @interface HRStatusWindow()
 
-@property (nonatomic, strong) UILabel *showMsg;
 
 @end
 
@@ -20,30 +19,35 @@
     if (self = [super initWithFrame:frame]) {
         //        <#statements#>
         self.message = @"";
-        self.bounds = CGRectMake(0, 0, 90, 90);
-        self.backgroundColor = [UIColor redColor];
+        self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20);
+        self.backgroundColor = [UIColor blueColor];
     }
     return self;
-}
-
-- (UILabel *)showMsg {
-    if(_showMsg == nil) {
-        _showMsg = [[UILabel alloc] init];
-        _showMsg.bounds = CGRectMake(0, 0, self.width, self.height);
-        [self addSubview:_showMsg];
-    }
-    return _showMsg;
 }
 
 
 - (void)setMessage:(NSString *)message {
     _message = message;
-    self.showMsg.text = message;
+    UILabel *msg = [[UILabel alloc] init];
+    msg.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20);
+    msg.backgroundColor = [UIColor grayColor];
+    msg.textAlignment = NSTextAlignmentCenter;
+    msg.font = [UIFont systemFontOfSize:14];
+    msg.text = message;
+    [self addSubview:msg];
+    
+//    UIButton *btn = [[UIButton alloc] init];
+//    btn.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20);
+//    btn.backgroundColor = [UIColor orangeColor];
+//    [btn setTitle:message forState:UIControlStateNormal];
+//    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [self addSubview:btn];
+    
 }
 
 - (void)show {
     UIWindow *lastWindow = [[UIApplication sharedApplication].windows lastObject];
-    self.frame = lastWindow.frame;
+    
     [lastWindow addSubview:self];
 }
 

@@ -18,10 +18,12 @@
 #import "HREmotionKeyboard.h"
 #import "HREmotion.h"
 #import "NSString+Emoji.h"
+#import "HREmotionAttachment.h"
+#import "HREmotionTextView.h"
 
 @interface HRComposeViewController ()<HRComposeKeyboardToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (nonatomic, strong) HRPlaceholderTextView *textView;
+@property (nonatomic, strong) HREmotionTextView *textView;
 @property (nonatomic, strong) HRComposeKeyboardToolBar *keyboardToolBar;
 @property (nonatomic, strong) HRComposePhotosView *photosView;
 @property (nonatomic, strong) HREmotionKeyboard *emotionKeyboard;
@@ -111,13 +113,12 @@
 }
 
 - (void)setTextView {
-    self.textView = [[HRPlaceholderTextView alloc] init];
+    self.textView = [[HREmotionTextView alloc] init];
     self.textView.font = [UIFont systemFontOfSize:18];
     self.textView.frame = self.view.bounds;
     self.textView.placeholder = @"分享新鲜事...";
     self.textView.alwaysBounceVertical = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self.textView];
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionButtonDidSelect:) name:HREmotionButtonDidSelectNotification object:nil];
     
@@ -137,9 +138,12 @@
     if (emotion.code) {
         [self.textView insertText:emotion.code.emoji];
     } else if (emotion.png) {
-//        NSAttributedString *att
-        HRLog(@"%@",self.textView.attributedText);
+        [self.textView insertEmotion:emotion settingBlock:^(NSMutableAttributedString *content) {
+            NSDictionary *attrDict = @{NSFontAttributeName:self.textView.font,NSBaselineOffsetAttributeName:@-3};
+            [content addAttributes:attrDict range:NSMakeRange(0,content.length)];
+        }];
     }
+    
 }
 
 - (void)setPhotosView{
@@ -165,19 +169,22 @@
 
 - (void)sendComposeWithoutImage {
 //        https://api.weibo.com/2/statuses/update.json发送微博
-//        HRStatusWindow *window = [[HRStatusWindow alloc] init];
-//        window.message = @"正在发送...";
-//        [window show];
+        HRStatusWindow *window = [[HRStatusWindow alloc] init];
+        window.message = @"正在发送...";
+        [window show];
+
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setObject:self.account.access_token forKey:@"access_token" ];
-        [dict setObject:self.textView.text forKey:@"status"];
+        [dict setObject:[self.textView getFullText] forKey:@"status"];
     
         [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:dict success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
             NSLog(@"JSON: %@", responseObject);
+            [window dismiss];
             [MBProgressHUD showSuccess:@"发送成功"];
             [self dismissViewControllerAnimated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [window dismiss];
             [MBProgressHUD showError:@"发送失败"];
             NSLog(@"Error: %@", error);
         }];
@@ -193,7 +200,7 @@
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:self.account.access_token forKey:@"access_token" ];
-    [dict setObject:self.textView.text forKey:@"status"];
+    [dict setObject:[self.textView getFullText] forKey:@"status"];
 //    [dict setObject:data forKey:@"pic"];
     
     [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
