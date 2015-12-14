@@ -52,6 +52,9 @@
 
 - (void)setEmotions:(NSArray *)emotions {
     _emotions = emotions;
+    
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     NSUInteger emotionsCount = emotions.count;
     NSUInteger count = (emotionsCount + HREmotionMaxCountPerPage - 1) / HREmotionMaxCountPerPage;
     self.pageControl.numberOfPages = count;
@@ -64,6 +67,8 @@
         page.emotions = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:page];
     }
+    
+    [self setNeedsLayout];
 }
 
 - (void)layoutSubviews {

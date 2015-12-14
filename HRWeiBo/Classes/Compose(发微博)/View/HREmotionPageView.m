@@ -11,6 +11,7 @@
 #import "NSString+Emoji.h"
 #import "HREmotionPopView.h"
 #import "HREmotionButton.h"
+#import "HREmotionTool.h"
 
 @interface HREmotionPageView()
 
@@ -62,6 +63,7 @@
 
     NSDictionary *dict = @{HREmotionButtonDidSelectNotificationKey:sender.emotion};
     [[NSNotificationCenter defaultCenter] postNotificationName:HREmotionButtonDidSelectNotification object:nil userInfo:dict];
+    [HREmotionTool saveEmotion:sender.emotion];
 
 }
 - (void)layoutSubviews {

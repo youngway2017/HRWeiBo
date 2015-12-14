@@ -11,6 +11,7 @@
 #import "HREmotionKeyboardListView.h"
 #import "MJExtension.h"
 #import "HREmotion.h"
+#import "HREmotionTool.h"
 
 
 @interface HREmotionKeyboard()<HREmotionKeyboardTabBarDelegate>
@@ -44,6 +45,7 @@
 - (HREmotionKeyboardListView *)emotionListViewRecent {
     if (_emotionListViewRecent == nil) {
         _emotionListViewRecent = [[HREmotionKeyboardListView alloc] init];
+        _emotionListViewRecent.emotions = [HREmotionTool emotions];
     }
     return _emotionListViewRecent;
 }
@@ -95,6 +97,7 @@
     [self.showingView removeFromSuperview];
     switch (buttonType) {
         case HREmotionKeyboardTabBarRecent: {
+//            self.emotionListViewRecent.emotions = [HREmotionTool emotions];
             [self addSubview:self.emotionListViewRecent];
             break;
         }
