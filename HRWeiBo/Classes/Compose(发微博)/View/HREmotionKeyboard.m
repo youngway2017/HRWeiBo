@@ -12,7 +12,7 @@
 #import "MJExtension.h"
 #import "HREmotion.h"
 #import "HREmotionTool.h"
-
+#import "HRConst.h"
 
 @interface HREmotionKeyboard()<HREmotionKeyboardTabBarDelegate>
 
@@ -46,6 +46,7 @@
     if (_emotionListViewRecent == nil) {
         _emotionListViewRecent = [[HREmotionKeyboardListView alloc] init];
         _emotionListViewRecent.emotions = [HREmotionTool emotions];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionButtonDidSelect) name:HREmotionButtonDidSelectNotification object:nil];
     }
     return _emotionListViewRecent;
 }
@@ -97,7 +98,6 @@
     [self.showingView removeFromSuperview];
     switch (buttonType) {
         case HREmotionKeyboardTabBarRecent: {
-//            self.emotionListViewRecent.emotions = [HREmotionTool emotions];
             [self addSubview:self.emotionListViewRecent];
             break;
         }
@@ -118,6 +118,17 @@
         
     }
     self.showingView = [self.subviews lastObject];
+    
+}
+
+- (void)emotionButtonDidSelect {
+    self.emotionListViewRecent.emotions = [HREmotionTool emotions];
+    HRLog(@"亲 ，该刷新了");
+}
+
+- (void)dealloc {
+    HRLog(@"亲 ，该销毁了");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 

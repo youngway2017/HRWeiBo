@@ -32,7 +32,7 @@
         // 设置内部的圆点图片
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKeyPath:@"currentPageImage"];
-
+        pageControl.hidesForSinglePage = YES;
         [self addSubview:pageControl];
         self.pageControl = pageControl;
         
@@ -67,7 +67,6 @@
         page.emotions = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:page];
     }
-    
     [self setNeedsLayout];
 }
 

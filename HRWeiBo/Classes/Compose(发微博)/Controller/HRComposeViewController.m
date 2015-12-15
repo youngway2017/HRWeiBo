@@ -20,6 +20,7 @@
 #import "NSString+Emoji.h"
 #import "HREmotionAttachment.h"
 #import "HREmotionTextView.h"
+#import "HRConst.h"
 
 @interface HRComposeViewController ()<HRComposeKeyboardToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -122,6 +123,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionButtonDidSelect:) name:HREmotionButtonDidSelectNotification object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteButtonDidSelect) name:HREmotionButtonDidDeleteNotification object:nil];
+    
+    
     [self.view addSubview:self.textView];
 }
 
@@ -129,6 +133,10 @@
 
 - (void)textDidChange {
     self.navigationItem.rightBarButtonItem.enabled = self.textView.hasText;
+}
+
+- (void)deleteButtonDidSelect {
+    [self.textView deleteBackward];
 }
 
 - (void)emotionButtonDidSelect:(NSNotification *)noti {

@@ -12,25 +12,31 @@
 #import "HREmotionPopView.h"
 #import "HREmotionButton.h"
 #import "HREmotionTool.h"
+#import "HRConst.h"
 
 @interface HREmotionPageView()
 
-#define HREmotionButtonDidSelectNotification @"HREmotionButtonDidSelectNotification"
+//#define HREmotionButtonDidSelectNotification @"HREmotionButtonDidSelectNotification"
+//#define HREmotionButtonDidDeleteNotification @"HREmotionButtonDidDeleteNotification"
 
 @property (nonatomic, strong) HREmotionPopView *popView;
-
+@property (nonatomic, strong) UIButton *deleteButton;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longGesture;
 @end
 
 @implementation HREmotionPageView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-//        <#statements#>
+        self.deleteButton = [[UIButton alloc] init];
+        [self.deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+        [self.deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        
+        self.longGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressClick:)];
+        [self addGestureRecognizer:self.longGesture];
     }
     return self;
 }
-
-
 
 - (HREmotionPopView *)popView {
     if (_popView == nil) {
@@ -51,21 +57,66 @@
 //        btn.backgroundColor = HRRandomColor;
         [self addSubview:btn];
     }
+    //加入最后一个删除按钮
+    [self.deleteButton addTarget:self action:@selector(deleteButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.deleteButton];
+    
 }
 
+- (void)deleteButtonDidClick:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:HREmotionButtonDidDeleteNotification object:nil userInfo:nil];
+    
+}
 
 - (void)emotionButtonDidClick:(HREmotionButton *)sender {
-    [self.popView showFromButton:sender];
+    if(sender) {
+        [HREmotionTool saveEmotion:sender.emotion];
+        [self.popView showFromButton:sender];
+        NSDictionary *dict = @{HREmotionButtonDidSelectNotificationKey:sender.emotion};
+        [[NSNotificationCenter defaultCenter] postNotificationName:HREmotionButtonDidSelectNotification object:nil userInfo:dict];
+        
+    }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.popView removeFromSuperview];
     });
 
-    NSDictionary *dict = @{HREmotionButtonDidSelectNotificationKey:sender.emotion};
-    [[NSNotificationCenter defaultCenter] postNotificationName:HREmotionButtonDidSelectNotification object:nil userInfo:dict];
-    [HREmotionTool saveEmotion:sender.emotion];
+}
+
+- (void)longPressClick:(UILongPressGestureRecognizer *)longGesture {
+    switch (longGesture.state) {
+        
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateChanged: {
+            HREmotionButton *btn = [self emotionButtonContainsPoint];
+            if(btn) {
+                [self.popView showFromButton:btn];
+            }
+            break;
+        }
+        
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled: {
+            [self emotionButtonDidClick:[self emotionButtonContainsPoint]];
+
+            break;
+        }
+    }
 
 }
+
+- (HREmotionButton *) emotionButtonContainsPoint {
+    CGPoint point = [self.longGesture locationInView:self];
+    for (int i = 0; i < self.subviews.count - 1; i++) {
+        HREmotionButton *btn = (HREmotionButton *)self.subviews[i];
+        if(CGRectContainsPoint(btn.frame, point)) {
+            HRLog(@"%@",btn.emotion.chs);
+            return btn;
+        }
+    }
+    return nil;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -87,6 +138,7 @@
         y = rows * btnH + HREmotionMargin;
         btn.frame = CGRectMake(x, y, w, h);
     }
+    self.deleteButton.frame = CGRectMake(self.width - (btnW + HREmotionMargin), self.height - btnH, w, h);
 }
 
 

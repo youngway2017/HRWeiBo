@@ -111,6 +111,7 @@
 		44E2E3201C1AC9850009649E /* HREmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E31F1C1AC9850009649E /* HREmotionKeyboard.m */; };
 		44E2E3231C1AC9A40009649E /* HREmotionKeyboardTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */; };
 		44E2E3261C1ACACD0009649E /* HREmotionKeyboardListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E3251C1ACACD0009649E /* HREmotionKeyboardListView.m */; };
+		44E662A21C1FBF5000F4ED9E /* HRConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E662A11C1FBF5000F4ED9E /* HRConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +336,8 @@
 		44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionKeyboardTabBar.m; sourceTree = "<group>"; };
 		44E2E3241C1ACACC0009649E /* HREmotionKeyboardListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionKeyboardListView.h; sourceTree = "<group>"; };
 		44E2E3251C1ACACD0009649E /* HREmotionKeyboardListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionKeyboardListView.m; sourceTree = "<group>"; };
+		44E662A01C1FBF5000F4ED9E /* HRConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRConst.h; sourceTree = "<group>"; };
+		44E662A11C1FBF5000F4ED9E /* HRConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRConst.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -762,9 +765,11 @@
 			children = (
 				44A669ED1C0C3A4F00432DA5 /* AppDelegate.h */,
 				44A669EE1C0C3A4F00432DA5 /* AppDelegate.m */,
+				44A669F01C0C3A4F00432DA5 /* main.m */,
 				44A6699C1C0BE1E700432DA5 /* LaunchScreen.storyboard */,
 				44A669EF1C0C3A4F00432DA5 /* Lib */,
-				44A669F01C0C3A4F00432DA5 /* main.m */,
+				44E662A01C1FBF5000F4ED9E /* HRConst.h */,
+				44E662A11C1FBF5000F4ED9E /* HRConst.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1138,6 +1143,7 @@
 				4469B3351C1298E800F6CA68 /* MJFoundation.m in Sources */,
 				442D03281C1C18C8000B4648 /* HREmotion.m in Sources */,
 				4469B38A1C12C25800F6CA68 /* SDWebImageManager.m in Sources */,
+				44E662A21C1FBF5000F4ED9E /* HRConst.m in Sources */,
 				44A66A051C0C3A4F00432DA5 /* HRTabBarController.m in Sources */,
 				44BC26B11C1025AD00D71126 /* AccountTool.m in Sources */,
 				4469B38E1C12C25800F6CA68 /* UIImage+MultiFormat.m in Sources */,
