@@ -89,7 +89,12 @@
             case HRPartStatusTypeNormal:
                 [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
                 break;
-            case HRPartStatusTypeAt:
+            case HRPartStatusTypeAt: {
+                [mutableAttributedStr addAttribute:NSForegroundColorAttributeName value:HRRgba(235, 123, 96, 1) range:part.range];
+                [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
+                break;
+
+            }
             case HRPartStatusTypeTopic: {
                 [mutableAttributedStr addAttribute:NSForegroundColorAttributeName value:HRRgba(235, 123, 96, 1) range:part.range];
                 [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
@@ -123,7 +128,7 @@
 }
 
 - (NSMutableArray *)getStatusPartsArrayWithText:(NSString *)text {
-    NSString *atString = @"\\@[^\\s].*?[\\s|:]";
+    NSString *atString = @"@[0-9a-zA-Z\\u4e00-\\u9fa5-_]+";
     NSString *topicString = @"\\#[^\\s].*?\\#";
     NSString *emotionString = @"\\[[^\\s].*?\\]";
     NSString *urlString = @"(http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?";
@@ -173,6 +178,7 @@
         partStatus.text = *capturedStrings;
         partStatus.range = range;
         [parts addObject:partStatus];
+        
         NSLog(@"capturedStrings=%@",*capturedStrings);
         NSLog(@"capturedRanges=%@",NSStringFromRange(*capturedRanges));
         NSLog(@"captureCount=%ld",captureCount);
