@@ -7,12 +7,12 @@
 //
 
 #import "OAuthViewController.h"
-#import "AFNetworking.h"
 #import "NewFeatureTool.h"
 #import "HRTabBarController.h"
 #import "NewFeatureViewController.h"
 #import "AccountTool.h"
 #import "MBProgressHUD+MJ.h"
+#import "HttpTool.h"
 
 @interface OAuthViewController ()<UIWebViewDelegate>
 
@@ -75,7 +75,6 @@
 //  redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
 
 - (void)getAccessTokenWithCode:(NSString *)code {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:@"2883928079" forKey:@"client_id"];
@@ -84,19 +83,17 @@
     [dict setObject:code forKey:@"code"];
     [dict setObject:@"http://www.baidu.com" forKey:@"redirect_uri"];
     
-    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:dict success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        HRAccount *account = [HRAccount accountWithDict:responseObject];
+    [HttpTool post:@"https://api.weibo.com/oauth2/access_token" parameters:dict success:^(id json) {
+        NSLog(@"JSON: %@", json);
+        HRAccount *account = [HRAccount accountWithDict:json];
         [AccountTool saveAccount:account];
         
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
         [MBProgressHUD hideHUD];
         [window switchViewController];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD hideHUD];
         NSLog(@"Error: %@", error);
     }];
-
 }
 @end

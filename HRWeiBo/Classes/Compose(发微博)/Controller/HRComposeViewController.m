@@ -9,7 +9,6 @@
 #import "HRComposeViewController.h"
 #import "HRPlaceholderTextView.h"
 #import "AccountTool.h"
-#import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
 #import "HRStatusWindow.h"
 #import "HRComposeKeyboardToolBar.h"
@@ -21,6 +20,7 @@
 #import "HREmotionAttachment.h"
 #import "HREmotionTextView.h"
 #import "HRConst.h"
+#import "HttpTool.h"
 
 @interface HRComposeViewController ()<HRComposeKeyboardToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -177,30 +177,29 @@
 
 - (void)sendComposeWithoutImage {
 //        https://api.weibo.com/2/statuses/update.json发送微博
-        HRStatusWindow *window = [[HRStatusWindow alloc] init];
-        window.message = @"正在发送...";
-        [window show];
+    HRStatusWindow *window = [[HRStatusWindow alloc] init];
+    window.message = @"正在发送...";
+    [window show];
 
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        [dict setObject:self.account.access_token forKey:@"access_token" ];
-        [dict setObject:[self.textView getFullText] forKey:@"status"];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:self.account.access_token forKey:@"access_token" ];
+    [dict setObject:[self.textView getFullText] forKey:@"status"];
     
-        [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:dict success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-            NSLog(@"JSON: %@", responseObject);
-            [window dismiss];
-            [MBProgressHUD showSuccess:@"发送成功"];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [window dismiss];
-            [MBProgressHUD showError:@"发送失败"];
-            NSLog(@"Error: %@", error);
-        }];
+    [HttpTool post:@"https://api.weibo.com/2/statuses/update.json" parameters:dict success:^(id json) {
+        NSLog(@"JSON: %@", json);
+        [window dismiss];
+        [MBProgressHUD showSuccess:@"发送成功"];
+        [self dismissViewControllerAnimated:YES completion:nil];
+
+    } failure:^(NSError *error) {
+        [window dismiss];
+        [MBProgressHUD showError:@"发送失败"];
+        NSLog(@"Error: %@", error);
+
+    }];
 }
 
 - (void)sendComposeWithImage {
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     UIImage *image = (UIImage *)self.photosView.photos[0];
     
     NSData *data = UIImagePNGRepresentation(image);
@@ -211,14 +210,12 @@
     [dict setObject:[self.textView getFullText] forKey:@"status"];
 //    [dict setObject:data forKey:@"pic"];
     
-    [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        [formData appendPartWithFileData:data name:@"pic" fileName:@"001.png" mimeType:@"image/png"];
-    } success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+    [HttpTool post:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:dict success:^(id json) {
+        NSLog(@"JSON: %@", json);
         [MBProgressHUD showSuccess:@"发送成功"];
         [self dismissViewControllerAnimated:YES completion:nil];
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-         NSLog(@"Error: %@", error);
+    } failure:^(NSError *error) {
+        NSLog(@"Error: %@", error);
         [MBProgressHUD showError:@"发送失败"];
     }];
 }

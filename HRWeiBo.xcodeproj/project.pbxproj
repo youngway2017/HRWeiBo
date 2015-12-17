@@ -106,6 +106,7 @@
 		44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26B71C102FBA00D71126 /* MBProgressHUD.m */; };
 		44BC26BD1C10327800D71126 /* HRTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC26BC1C10327800D71126 /* HRTitleButton.m */; };
 		44BF98E81C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BF98E71C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m */; };
+		44D582BB1C224DC4007E4104 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D582BA1C224DC4007E4104 /* HttpTool.m */; };
 		44D9A3931C1D6A9B0087ADD6 /* HREmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D9A3921C1D6A9B0087ADD6 /* HREmotionButton.m */; };
 		44E2E2C91C1AADD60009649E /* HRComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E2C81C1AADD60009649E /* HRComposePhotosView.m */; };
 		44E2E3201C1AC9850009649E /* HREmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E31F1C1AC9850009649E /* HREmotionKeyboard.m */; };
@@ -326,6 +327,8 @@
 		44BC26BC1C10327800D71126 /* HRTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRTitleButton.m; sourceTree = "<group>"; };
 		44BF98E61C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionKeyboardTabBarButton.h; sourceTree = "<group>"; };
 		44BF98E71C1C022B00F90FBB /* HREmotionKeyboardTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionKeyboardTabBarButton.m; sourceTree = "<group>"; };
+		44D582B91C224DC4007E4104 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
+		44D582BA1C224DC4007E4104 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		44D9A3911C1D6A9B0087ADD6 /* HREmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HREmotionButton.h; sourceTree = "<group>"; };
 		44D9A3921C1D6A9B0087ADD6 /* HREmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionButton.m; sourceTree = "<group>"; };
 		44E2E2C71C1AADD60009649E /* HRComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposePhotosView.h; sourceTree = "<group>"; };
@@ -738,6 +741,7 @@
 				44A669EB1C0C3A4F00432DA5 /* Model */,
 				44A669EC1C0C3A4F00432DA5 /* Other */,
 				44A669F11C0C3A4F00432DA5 /* View */,
+				44D582B81C224DAE007E4104 /* Tool */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -970,6 +974,15 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		44D582B81C224DAE007E4104 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				44D582B91C224DC4007E4104 /* HttpTool.h */,
+				44D582BA1C224DC4007E4104 /* HttpTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1155,6 +1168,7 @@
 				44BC26BD1C10327800D71126 /* HRTitleButton.m in Sources */,
 				4469B3361C1298E800F6CA68 /* MJProperty.m in Sources */,
 				4469B3341C1298E800F6CA68 /* MJExtensionConst.m in Sources */,
+				44D582BB1C224DC4007E4104 /* HttpTool.m in Sources */,
 				446747BA1C1D4E2800E8918B /* HREmotionPopView.m in Sources */,
 				4469B3871C12C25800F6CA68 /* SDWebImageDecoder.m in Sources */,
 				4469B3371C1298E800F6CA68 /* MJPropertyKey.m in Sources */,
@@ -1334,6 +1348,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HRWeiBo/HRWeiBo_Prefix.pch";
 				INFOPLIST_FILE = HRWeiBo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hr.HRWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1347,6 +1362,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HRWeiBo/HRWeiBo_Prefix.pch";
 				INFOPLIST_FILE = HRWeiBo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hr.HRWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

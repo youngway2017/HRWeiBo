@@ -11,7 +11,6 @@
 #import "HRDropdownMenu.h"
 #import "HRTitleMenuController.h"
 #import "HRTitleButton.h"
-#import "AFNetworking.h"
 #import "AccountTool.h"
 #import "MJExtension.h"
 #import "HRUser.h"
@@ -20,6 +19,7 @@
 #import "HRLoadMoreFooter.h"
 #import "HRStatusCell.h"
 #import "HRStatusFrame.h"
+#import "HttpTool.h"
 
 @interface HRHomeViewController ()<HRDropdownMenuDelegate>
 
@@ -82,8 +82,6 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
 }
 
 - (void)getUnreadStatusCount {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     HRAccount *account = [AccountTool account];
     
     if (!account) {
@@ -93,11 +91,9 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:account.access_token forKey:@"access_token" ];
     [dict setObject:account.uid forKey:@"uid"];
-//    HRLog(@"-----getUnreadStatusCount------");
-    [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
-//        NSLog(@"JSON: %@", userInfo);
-        
-        NSString *count = [userInfo[@"status"] description];
+    
+    [HttpTool get:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:dict success:^(id json) {
+        NSString *count = [json[@"status"] description];
         if ([count isEqualToString:@"0"]) {
             [[self navigationController] tabBarItem].badgeValue = nil;
             [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
@@ -106,17 +102,13 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
             
             [UIApplication sharedApplication].applicationIconBadgeNumber = [count integerValue];
         }
-        
-        
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 }
 
 //获取昵称
 - (void)getNickName {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     HRAccount *account = [AccountTool account];
     
     if (!account) {
@@ -127,14 +119,15 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
     [dict setObject:account.access_token forKey:@"access_token" ];
     [dict setObject:account.uid forKey:@"uid"];
     
-    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
-        NSLog(@"JSON: %@", userInfo);
-        account.nick_name = userInfo[@"screen_name"];
+    [HttpTool get:@"https://api.weibo.com/2/users/show.json" parameters:dict success:^(id json) {
+        NSLog(@"JSON: %@", json);
+        account.nick_name = json[@"screen_name"];
         HRTitleButton *btn = (HRTitleButton *)self.navigationItem.titleView;
         [btn setTitle:account.nick_name forState:UIControlStateNormal];
         [AccountTool saveAccount:account];
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        NSLog(@"Error: %@", error);
+
+    } failure:^(NSError *error) {
+         NSLog(@"Error: %@", error);
     }];
 }
 
@@ -147,7 +140,7 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
  *  count               int     单页返回的记录条数，最大不超过100，默认为20。
  */
 - (void)getNewStatues {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     HRAccount *account = [AccountTool account];
     
@@ -162,10 +155,8 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
     NSString *since_id = fristStatus.idstr ? fristStatus.idstr : @"0";
     [dict setObject:since_id forKey:@"since_id" ];
     
-    
-    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
-//        https://api.weibo.com/2/statuses/friends_timeline.json?access_token=2.00SZEWrBB8fKJD244ef9b3f80_w7Hq
-        NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
+    [HttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(id json) {
+        NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:json[@"statuses"]];
         
         NSMutableArray *statusFrames = [self statusFramesWithStatusArray:statuses];
         NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, statusFrames.count)];
@@ -174,11 +165,27 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
         
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
-
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         NSLog(@"Error: %@", error);
         [self.refreshControl endRefreshing];
     }];
+    
+//    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
+//        https://api.weibo.com/2/statuses/friends_timeline.json?access_token=2.00SZEWrBB8fKJD244ef9b3f80_w7Hq
+//        NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
+//        
+//        NSMutableArray *statusFrames = [self statusFramesWithStatusArray:statuses];
+//        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, statusFrames.count)];
+//        [self.statusFrames insertObjects:statusFrames atIndexes:indexSet];
+//        
+//        
+//        [self.tableView reloadData];
+//        [self.refreshControl endRefreshing];
+//
+//    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+//        NSLog(@"Error: %@", error);
+//        [self.refreshControl endRefreshing];
+//    }];
 }
 /**
  *  @param statuses statuses数组
@@ -204,9 +211,6 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
  *  count               int     单页返回的记录条数，最大不超过100，默认为20。
  */
 - (void)loadMoreStatues {
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     HRAccount *account = [AccountTool account];
     
     if (!account) {
@@ -221,11 +225,9 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
     long long maxID = [lastStatus.idstr ? lastStatus.idstr : @"0" longLongValue] - 1;
     NSString *max_id = [NSString stringWithFormat:@"%lld",maxID];
     [dict setObject:max_id forKey:@"max_id" ];
-   
-//    https://api.weibo.com/2/statuses/friends_timeline.json?access_token=2.00SZEWrBB8fKJD244ef9b3f80_w7Hq&max_id=3918082370051911
-    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(AFHTTPRequestOperation * _Nonnull operation, NSDictionary *userInfo) {
-        
-        NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:userInfo[@"statuses"]];
+    
+    [HttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict success:^(id json) {
+        NSArray *statuses = [HRStatus mj_objectArrayWithKeyValuesArray:json[@"statuses"]];
         NSMutableArray *statusFrames = [self statusFramesWithStatusArray:statuses];
         [self.statusFrames addObjectsFromArray:statusFrames];
         
@@ -233,8 +235,7 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
         
         [self.tableView reloadData];
         self.tableView.tableFooterView.hidden = YES;
-        
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         NSLog(@"Error: %@", error);
         self.tableView.tableFooterView.hidden = YES;
     }];
