@@ -13,6 +13,11 @@
 
 + (void)saveEmotion:(HREmotion *)emotion;
 
-+ (NSArray *)emotions;
++ (NSArray *)recentEmotions;
++ (NSArray *)defaultEmotions;
++ (NSArray *)emojiEmotions;
++ (NSArray *)lxhEmotions;
++ (HREmotion *)emotionWithText:(NSString *)text;
+
 
 @end

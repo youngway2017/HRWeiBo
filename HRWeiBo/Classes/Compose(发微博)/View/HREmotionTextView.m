@@ -35,11 +35,8 @@
 
 - (NSString *)getFullText {
     NSMutableString *content = [NSMutableString string];
-    HRLog(@"self.attributedText=%@",self.attributedText);
     [self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
         HREmotionAttachment *emotionAtt = (HREmotionAttachment *)attrs[@"NSAttachment"];
-        HRLog(@"attrs=%@",attrs);
-        HRLog(@"%@",NSStringFromRange(range));
         if(emotionAtt.emotion.png) {
             [content appendString:emotionAtt.emotion.chs];
         } else if(emotionAtt.emotion.code) {

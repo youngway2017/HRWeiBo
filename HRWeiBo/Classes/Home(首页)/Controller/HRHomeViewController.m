@@ -27,7 +27,6 @@
 @property (nonatomic, strong) HRTitleButton *btnTitle;
 @property (nonatomic, strong) NSMutableArray *statusFrames;
 
-
 @end
 
 static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";

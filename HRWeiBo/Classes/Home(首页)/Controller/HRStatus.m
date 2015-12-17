@@ -9,6 +9,10 @@
 #import "HRStatus.h"
 #import "HRPhoto.h"
 #import "MJExtension.h"
+#import "RegexKitLite.h"
+#import "HRPartStatus.h"
+#import "HREmotion.h"
+#import "HREmotionTool.h"
 
 @implementation HRStatus
 
@@ -18,12 +22,17 @@
 
 - (void)setSource:(NSString *)source {
 //    <a href="http://app.weibo.com/t/feed/1tqBja" rel="nofollow">360安全浏览器</a>
-    
     NSRange startRange = [source rangeOfString:@">"];
     NSRange endRange = [source rangeOfString:@"<" options:NSBackwardsSearch];
     NSRange range;
     range.location = startRange.location + 1;
     range.length = endRange.location - range.location;
+    if (range.location > source.length || range.length > source.length) {
+        return;
+    }
+    HRLog(@"length=%ld",source.length);
+    HRLog(@"source=%@",source);
+    HRLog(@"range=%@",NSStringFromRange(range));
     _source = [source substringWithRange:range];
 
 }
@@ -62,6 +71,113 @@
         return [formate stringFromDate:createdDate];
     }
     
+}
+
+- (void)setText:(NSString *)text {
+    _text = text;
+
+    UIFont *font = [UIFont systemFontOfSize:18];
+    NSMutableAttributedString *mutableAttributedStr = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableAttributedString *resultAttributedStr = [[NSMutableAttributedString alloc] initWithString:@""];
+    [mutableAttributedStr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, mutableAttributedStr.length)];
+    NSMutableArray *statusParts = [NSMutableArray array];
+    
+    statusParts = [self getStatusPartsArrayWithText:text];
+   
+    for (HRPartStatus *part in statusParts) {
+        switch (part.partStatusType) {
+            case HRPartStatusTypeNormal:
+                [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
+                break;
+            case HRPartStatusTypeAt:
+            case HRPartStatusTypeTopic: {
+                [mutableAttributedStr addAttribute:NSForegroundColorAttributeName value:HRRgba(235, 123, 96, 1) range:part.range];
+                [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
+                break;
+            }
+            case HRPartStatusTypeEmotion: {
+                HREmotion *emotion = [HREmotionTool emotionWithText:part.text];
+                if (emotion) {
+                    NSTextAttachment *atta = [[NSTextAttachment alloc] init];
+                    atta.bounds = CGRectMake(0, -4,font.lineHeight, font.lineHeight);
+                    atta.image = [UIImage imageNamed:emotion.png];
+                    NSAttributedString *emotion = [NSAttributedString attributedStringWithAttachment:atta];
+                    [resultAttributedStr appendAttributedString:emotion];
+                } else {
+                    [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
+                }
+
+                break;
+            }
+            case HRPartStatusTypeURL:
+                [mutableAttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:part.range];
+                [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
+                break;
+            default:
+                break;
+        }
+        
+    }
+    [resultAttributedStr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, resultAttributedStr.length)];
+    self.AttributedText = resultAttributedStr;
+}
+
+- (NSMutableArray *)getStatusPartsArrayWithText:(NSString *)text {
+    NSString *atString = @"\\@[^\\s].*?[\\s|:]";
+    NSString *topicString = @"\\#[^\\s].*?\\#";
+    NSString *emotionString = @"\\[[^\\s].*?\\]";
+    NSString *urlString = @"(http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?";
+    
+    NSString *normalStr = [NSString stringWithFormat:@"%@|%@|%@|%@",atString,topicString,emotionString,urlString];
+    
+    NSMutableArray *statusParts = [NSMutableArray array];
+    
+    [statusParts addObjectsFromArray:[self text:text regexStr:atString partStatusType:HRPartStatusTypeAt]];
+    [statusParts addObjectsFromArray:[self text:text regexStr:topicString partStatusType:HRPartStatusTypeTopic]];
+    [statusParts addObjectsFromArray:[self text:text regexStr:emotionString partStatusType:HRPartStatusTypeEmotion]];
+    [statusParts addObjectsFromArray:[self text:text regexStr:urlString partStatusType:HRPartStatusTypeURL]];
+    
+    [text enumerateStringsSeparatedByRegex:normalStr usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        NSRange range = *capturedRanges;
+        if (!range.length) {
+            return;
+        }
+        HRPartStatus *part = [[HRPartStatus alloc] init];
+        part.partStatusType = HRPartStatusTypeNormal;
+        part.text = *capturedStrings;
+        part.range = range;
+        [statusParts addObject:part];
+    }];
+    
+    HRLog(@"before=%@",statusParts);
+    [statusParts sortUsingComparator:^NSComparisonResult(HRPartStatus *part1, HRPartStatus *part2) {
+        if (part1.range.location < part2.range.location) {
+            return NSOrderedAscending;
+        }
+        return NSOrderedDescending;
+    }];
+    
+    HRLog(@"after=%@",statusParts);
+    return statusParts;
+}
+
+- (NSMutableArray *)text:(NSString *)text regexStr:(NSString *)regexStr partStatusType:(HRPartStatusType)type {
+    NSMutableArray *parts = [NSMutableArray array];
+    [text enumerateStringsMatchedByRegex:regexStr usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        NSRange range = *capturedRanges;
+        if (!range.length) {
+            return;
+        }
+        HRPartStatus *partStatus = [[HRPartStatus alloc] init];
+        partStatus.partStatusType = type;
+        partStatus.text = *capturedStrings;
+        partStatus.range = range;
+        [parts addObject:partStatus];
+        NSLog(@"capturedStrings=%@",*capturedStrings);
+        NSLog(@"capturedRanges=%@",NSStringFromRange(*capturedRanges));
+        NSLog(@"captureCount=%ld",captureCount);
+    }];
+    return parts;
 }
 
 @end

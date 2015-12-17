@@ -70,6 +70,9 @@
 		447FA24E1C0F030B0043668B /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 447FA2451C0F030B0043668B /* AFURLSessionManager.m */; };
 		4480BE981C14263E003E5DC6 /* HRLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4480BE971C14263E003E5DC6 /* HRLoadMoreFooter.m */; };
 		4480BE9A1C142659003E5DC6 /* HRLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */; };
+		448C584F1C228D7C00549C4F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 448C584E1C228D7C00549C4F /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		448C58511C228DE100549C4F /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 448C58501C228DE100549C4F /* libicucore.tbd */; };
+		448C58711C229D4D00549C4F /* HRPartStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 448C58701C229D4D00549C4F /* HRPartStatus.m */; };
 		44A35E371C194E860026AE8B /* HRIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E361C194E860026AE8B /* HRIconView.m */; };
 		44A35E3C1C195D260026AE8B /* HRComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E3B1C195D260026AE8B /* HRComposeViewController.m */; };
 		44A35E3F1C196AA60026AE8B /* HRPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E3E1C196AA60026AE8B /* HRPlaceholderTextView.m */; };
@@ -258,6 +261,11 @@
 		4480BE961C14263E003E5DC6 /* HRLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLoadMoreFooter.h; sourceTree = "<group>"; };
 		4480BE971C14263E003E5DC6 /* HRLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRLoadMoreFooter.m; sourceTree = "<group>"; };
 		4480BE991C142659003E5DC6 /* HRLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HRLoadMoreFooter.xib; sourceTree = "<group>"; };
+		448C584D1C228D7C00549C4F /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		448C584E1C228D7C00549C4F /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		448C58501C228DE100549C4F /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		448C586F1C229D4D00549C4F /* HRPartStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRPartStatus.h; sourceTree = "<group>"; };
+		448C58701C229D4D00549C4F /* HRPartStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPartStatus.m; sourceTree = "<group>"; };
 		44A35E351C194E860026AE8B /* HRIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRIconView.h; sourceTree = "<group>"; };
 		44A35E361C194E860026AE8B /* HRIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRIconView.m; sourceTree = "<group>"; };
 		44A35E3A1C195D260026AE8B /* HRComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposeViewController.h; sourceTree = "<group>"; };
@@ -348,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448C58511C228DE100549C4F /* libicucore.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +558,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		448C584C1C228D7C00549C4F /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				448C584D1C228D7C00549C4F /* RegexKitLite.h */,
+				448C584E1C228D7C00549C4F /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		44A35E381C195CF30026AE8B /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,6 +590,7 @@
 		44A6697F1C0BE1E700432DA5 = {
 			isa = PBXGroup;
 			children = (
+				448C58501C228DE100549C4F /* libicucore.tbd */,
 				44A6698A1C0BE1E700432DA5 /* HRWeiBo */,
 				44A669A71C0BE1E700432DA5 /* HRWeiBoTests */,
 				44A669B21C0BE1E700432DA5 /* HRWeiBoUITests */,
@@ -703,6 +722,8 @@
 			children = (
 				4469B3151C128FE800F6CA68 /* HRStatus.h */,
 				4469B3161C128FE800F6CA68 /* HRStatus.m */,
+				448C586F1C229D4D00549C4F /* HRPartStatus.h */,
+				448C58701C229D4D00549C4F /* HRPartStatus.m */,
 				444C4F371C1530EA00A0208A /* HRStatusFrame.h */,
 				444C4F381C1530EA00A0208A /* HRStatusFrame.m */,
 				4469B3181C12909500F6CA68 /* HRUser.h */,
@@ -781,6 +802,7 @@
 		44A669EF1C0C3A4F00432DA5 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				448C584C1C228D7C00549C4F /* RegexKitLite */,
 				4469B3611C12C25800F6CA68 /* SDWebImage */,
 				4469B31B1C1298E800F6CA68 /* MJExtension */,
 				44BC26B21C102FBA00D71126 /* MBProgressHUD */,
@@ -1209,10 +1231,12 @@
 				4473E9A81C0D97B300B33F6D /* HRTitleMenuController.m in Sources */,
 				4469B3391C1298E800F6CA68 /* NSObject+MJClass.m in Sources */,
 				4472A7851C18135800081727 /* NSDate+Extension.m in Sources */,
+				448C584F1C228D7C00549C4F /* RegexKitLite.m in Sources */,
 				44B68BA81C1EB10600AF190B /* HREmotionTextView.m in Sources */,
 				44A66A091C0C3A4F00432DA5 /* HRProfileViewController.m in Sources */,
 				4469B33D1C1298E800F6CA68 /* NSString+MJExtension.m in Sources */,
 				44A66A021C0C3A4F00432DA5 /* HRDiscoverViewController.m in Sources */,
+				448C58711C229D4D00549C4F /* HRPartStatus.m in Sources */,
 				44E2E2C91C1AADD60009649E /* HRComposePhotosView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1348,7 +1372,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HRWeiBo/HRWeiBo_Prefix.pch";
 				INFOPLIST_FILE = HRWeiBo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hr.HRWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1362,7 +1386,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HRWeiBo/HRWeiBo_Prefix.pch";
 				INFOPLIST_FILE = HRWeiBo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hr.HRWeiBo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

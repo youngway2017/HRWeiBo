@@ -45,7 +45,7 @@
 - (HREmotionKeyboardListView *)emotionListViewRecent {
     if (_emotionListViewRecent == nil) {
         _emotionListViewRecent = [[HREmotionKeyboardListView alloc] init];
-        _emotionListViewRecent.emotions = [HREmotionTool emotions];
+        _emotionListViewRecent.emotions = [HREmotionTool recentEmotions];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionButtonDidSelect) name:HREmotionButtonDidSelectNotification object:nil];
     }
     return _emotionListViewRecent;
@@ -54,7 +54,7 @@
 - (HREmotionKeyboardListView *)emotionListViewDefault {
     if (_emotionListViewDefault == nil) {
         _emotionListViewDefault = [[HREmotionKeyboardListView alloc] init];
-        _emotionListViewDefault.emotions = [self emotionsArrayWithPath:@"EmotionIcons/default/info.plist"];
+        _emotionListViewDefault.emotions = [HREmotionTool defaultEmotions];
     }
     return _emotionListViewDefault;
 }
@@ -62,7 +62,7 @@
 - (HREmotionKeyboardListView *)emotionListViewEmoji {
     if (_emotionListViewEmoji == nil) {
         _emotionListViewEmoji = [[HREmotionKeyboardListView alloc] init];
-        _emotionListViewEmoji.emotions = [self emotionsArrayWithPath:@"EmotionIcons/emoji/info.plist"];
+        _emotionListViewEmoji.emotions = [HREmotionTool emojiEmotions];
     }
     return _emotionListViewEmoji;
 }
@@ -70,15 +70,11 @@
 - (HREmotionKeyboardListView *)emotionListViewLxh {
     if (_emotionListViewLxh == nil) {
         _emotionListViewLxh = [[HREmotionKeyboardListView alloc] init];
-        _emotionListViewLxh.emotions = [self emotionsArrayWithPath:@"EmotionIcons/lxh/info.plist"];
+        _emotionListViewLxh.emotions = [HREmotionTool lxhEmotions];
     }
     return _emotionListViewLxh;
 }
 
-- (NSArray *)emotionsArrayWithPath:(NSString *)pathStr {
-    NSString *path = [[NSBundle mainBundle] pathForResource:pathStr ofType:nil];
-    return [HREmotion mj_objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-}
 
 - (void)layoutSubviews {
     self.keyboardTabBar.width = self.width;
@@ -122,7 +118,7 @@
 }
 
 - (void)emotionButtonDidSelect {
-    self.emotionListViewRecent.emotions = [HREmotionTool emotions];
+    self.emotionListViewRecent.emotions = [HREmotionTool recentEmotions];
     HRLog(@"亲 ，该刷新了");
 }
 

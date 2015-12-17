@@ -147,9 +147,10 @@
     self.sourceLabel.frame = statusFrame.sourceF;
     
     //正文
-    self.contentLabel.text = status.text;
+    self.contentLabel.attributedText = status.AttributedText;
+    HRLog(@"%@",status.AttributedText);
     self.contentLabel.numberOfLines = 0;
-    self.contentLabel.font = StatusCellContentFont;
+//    self.contentLabel.font = StatusCellContentFont;
     self.contentLabel.frame = statusFrame.contentF;
     
     
@@ -171,9 +172,9 @@
     HRUser *retweetedUser = retweetedStatus.user;
     
     //正文
-    self.retweetedContentLabel.text = [NSString stringWithFormat:@"@%@:%@",retweetedUser.screen_name,retweetedStatus.text];
+    self.retweetedContentLabel.attributedText = retweetedStatus.AttributedText;
     self.retweetedContentLabel.numberOfLines = 0;
-    self.retweetedContentLabel.font = StatusCellRetweetedContentFont;
+    
     self.retweetedContentLabel.frame = statusFrame.retweetedContentF;
     
     if (retweetedStatus.pic_urls.count) {

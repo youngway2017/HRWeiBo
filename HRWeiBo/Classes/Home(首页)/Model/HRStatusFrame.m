@@ -72,7 +72,7 @@
     CGFloat contentX = StatusCellMargin;
     CGFloat contentY = MAX(CGRectGetMaxY(self.headIconF), CGRectGetMaxY(self.createdTimeF)) + StatusCellChildMargin;
     
-    CGSize  contentSize = [status.text boundingSizeWithSize:CGSizeMake(cellWith - 2*StatusCellMargin, MAXFLOAT) font:StatusCellContentFont];
+    CGSize  contentSize = [status.AttributedText boundingRectWithSize:CGSizeMake(cellWith - 2*StatusCellMargin, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
     
     self.contentF = (CGRect){{contentX,contentY},contentSize};
     
@@ -96,9 +96,9 @@
     CGFloat retweetedContentX = StatusCellMargin;
     CGFloat retweetedContentY = StatusCellMargin;
     
-    NSString *retweetedContent = [NSString stringWithFormat:@"@%@:%@",retweetedUser.screen_name,retweetedStatus.text];
-    CGSize  retweetedContentSize = [retweetedContent boundingSizeWithSize:CGSizeMake(cellWith - 2*StatusCellMargin, MAXFLOAT) font:StatusCellRetweetedContentFont];
-    
+    retweetedStatus.text = [NSString stringWithFormat:@"@%@:%@",retweetedUser.screen_name,retweetedStatus.text];
+    CGSize  retweetedContentSize = [retweetedStatus.AttributedText boundingRectWithSize:CGSizeMake(cellWith - 2 * StatusCellMargin, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+
     self.retweetedContentF = (CGRect){{retweetedContentX,retweetedContentY},retweetedContentSize};
     
     CGFloat retweetedH = CGRectGetMaxY(self.retweetedContentF) + StatusCellMargin;

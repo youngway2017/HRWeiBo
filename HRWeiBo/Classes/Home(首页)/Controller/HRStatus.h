@@ -23,6 +23,9 @@
 /**内容*/
 @property (nonatomic, copy) NSString *text;
 
+/**内容*/
+@property (nonatomic, strong) NSAttributedString *AttributedText;
+
 /**用户*/
 @property (nonatomic, strong) HRUser *user;
 
