@@ -28,7 +28,6 @@
         settingBlock(contentAtt);
     }
 
-    
     self.attributedText = contentAtt;
     [self setNeedsDisplay];
     [[NSNotificationCenter defaultCenter] postNotificationName:UITextViewTextDidChangeNotification object:self];
@@ -36,12 +35,17 @@
 
 - (NSString *)getFullText {
     NSMutableString *content = [NSMutableString string];
+    HRLog(@"self.attributedText=%@",self.attributedText);
     [self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
         HREmotionAttachment *emotionAtt = (HREmotionAttachment *)attrs[@"NSAttachment"];
+        HRLog(@"attrs=%@",attrs);
+        HRLog(@"%@",NSStringFromRange(range));
         if(emotionAtt.emotion.png) {
             [content appendString:emotionAtt.emotion.chs];
         } else if(emotionAtt.emotion.code) {
             [content appendString:emotionAtt.emotion.code.emoji];
+        } else {
+            [content appendString:[self.attributedText attributedSubstringFromRange:range].string];
         }
     }];
     return content;

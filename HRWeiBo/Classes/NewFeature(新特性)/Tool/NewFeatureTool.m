@@ -12,8 +12,8 @@
 
 + (BOOL)isShowNewFeature {
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Info.plist" ofType:nil];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSDictionary *dict  = [NSBundle mainBundle].infoDictionary;
+   
     NSString *currentVersion = dict[@"CFBundleVersion"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
