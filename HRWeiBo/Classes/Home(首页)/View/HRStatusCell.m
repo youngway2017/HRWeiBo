@@ -16,6 +16,7 @@
 #import "HRStatusToolbar.h"
 #import "HRPhotosView.h"
 #import "HRIconView.h"
+#import "HRStatusTextView.h"
 
 @interface HRStatusCell()
 
@@ -39,7 +40,7 @@
 
 
 /**原创微博正文 对应 HRStatus text*/
-@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) HRStatusTextView *contentLabel;
 
 /**原创微博配图 对应 HRStatus pic_urls*/
 @property (nonatomic, strong) HRPhotosView *photosView;
@@ -49,7 +50,7 @@
 
 /***************************************************/
 /**转发微博正文 对应 HRStatus text*/
-@property (nonatomic, strong) UILabel *retweetedContentLabel;
+@property (nonatomic, strong) HRStatusTextView *retweetedContentLabel;
 
 /**转发微博配图 对应 HRStatus pic_urls*/
 @property (nonatomic, strong) HRPhotosView *retweetedPhotosView;
@@ -128,7 +129,6 @@
     
     //创建时间
     self.createdTimeLabel.text = createdTime;
-    self.contentLabel.numberOfLines = 1;
     self.createdTimeLabel.font = StatusCellCreateTimeFont;
     self.createdTimeLabel.frame = statusFrame.createdTimeF;
     
@@ -142,15 +142,11 @@
     
     //来源
     self.sourceLabel.text = status.source;
-    self.contentLabel.numberOfLines = 1;
     self.sourceLabel.font = StatusCellSourceFont;
     self.sourceLabel.frame = statusFrame.sourceF;
     
     //正文
     self.contentLabel.attributedText = status.AttributedText;
-    HRLog(@"%@",status.AttributedText);
-    self.contentLabel.numberOfLines = 0;
-//    self.contentLabel.font = StatusCellContentFont;
     self.contentLabel.frame = statusFrame.contentF;
     
     
@@ -173,7 +169,6 @@
     
     //正文
     self.retweetedContentLabel.attributedText = retweetedStatus.AttributedText;
-    self.retweetedContentLabel.numberOfLines = 0;
     
     self.retweetedContentLabel.frame = statusFrame.retweetedContentF;
     
@@ -223,7 +218,7 @@
     self.sourceLabel = sourceLabel;
     [self.originalView addSubview:self.sourceLabel];
     
-    UILabel *contentLabel = [[UILabel alloc] init];
+    HRStatusTextView *contentLabel = [[HRStatusTextView alloc] init];
     self.contentLabel = contentLabel;
     [self.originalView addSubview:self.contentLabel];
     
@@ -236,7 +231,7 @@
     self.retweetedView = retweetedView;
     [self.contentView addSubview:self.retweetedView];
     
-    UILabel *retweetedContentLabel = [[UILabel alloc] init];
+    HRStatusTextView *retweetedContentLabel = [[HRStatusTextView alloc] init];
     self.retweetedContentLabel = retweetedContentLabel;
     [self.retweetedView addSubview:self.retweetedContentLabel];
     

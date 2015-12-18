@@ -374,4 +374,8 @@ static NSString *const cellReuseIdentifier = @"StatusCellIdentifier";
     return statusFrame.cellHeight;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HRLog(@"tableView--didSelectRowAtIndexPath");
+}
+
 @end

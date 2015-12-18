@@ -73,6 +73,7 @@
 		448C584F1C228D7C00549C4F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 448C584E1C228D7C00549C4F /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		448C58511C228DE100549C4F /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 448C58501C228DE100549C4F /* libicucore.tbd */; };
 		448C58711C229D4D00549C4F /* HRPartStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 448C58701C229D4D00549C4F /* HRPartStatus.m */; };
+		449DD8061C23AB4800CF00EC /* HRStatusTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 449DD8051C23AB4800CF00EC /* HRStatusTextView.m */; };
 		44A35E371C194E860026AE8B /* HRIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E361C194E860026AE8B /* HRIconView.m */; };
 		44A35E3C1C195D260026AE8B /* HRComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E3B1C195D260026AE8B /* HRComposeViewController.m */; };
 		44A35E3F1C196AA60026AE8B /* HRPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A35E3E1C196AA60026AE8B /* HRPlaceholderTextView.m */; };
@@ -266,6 +267,8 @@
 		448C58501C228DE100549C4F /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		448C586F1C229D4D00549C4F /* HRPartStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRPartStatus.h; sourceTree = "<group>"; };
 		448C58701C229D4D00549C4F /* HRPartStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRPartStatus.m; sourceTree = "<group>"; };
+		449DD8041C23AB4800CF00EC /* HRStatusTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusTextView.h; sourceTree = "<group>"; };
+		449DD8051C23AB4800CF00EC /* HRStatusTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusTextView.m; sourceTree = "<group>"; };
 		44A35E351C194E860026AE8B /* HRIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRIconView.h; sourceTree = "<group>"; };
 		44A35E361C194E860026AE8B /* HRIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRIconView.m; sourceTree = "<group>"; };
 		44A35E3A1C195D260026AE8B /* HRComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRComposeViewController.h; sourceTree = "<group>"; };
@@ -750,6 +753,8 @@
 				4472A7871C181BAB00081727 /* HRPhotosView.m */,
 				4472A7891C182B3100081727 /* HRPhotoView.h */,
 				4472A78A1C182B3100081727 /* HRPhotoView.m */,
+				449DD8041C23AB4800CF00EC /* HRStatusTextView.h */,
+				449DD8051C23AB4800CF00EC /* HRStatusTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1226,6 +1231,7 @@
 				4469B3141C1285A000F6CA68 /* Foundation+Log.m in Sources */,
 				44B68BA51C1E64A600AF190B /* HREmotionAttachment.m in Sources */,
 				44A66A241C0C4DBD00432DA5 /* UIBarButtonItem+Extension.m in Sources */,
+				449DD8061C23AB4800CF00EC /* HRStatusTextView.m in Sources */,
 				44E2E3261C1ACACD0009649E /* HREmotionKeyboardListView.m in Sources */,
 				447FA24A1C0F030B0043668B /* AFSecurityPolicy.m in Sources */,
 				4473E9A81C0D97B300B33F6D /* HRTitleMenuController.m in Sources */,

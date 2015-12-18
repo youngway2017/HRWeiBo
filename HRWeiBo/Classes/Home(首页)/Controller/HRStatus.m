@@ -85,15 +85,17 @@
     statusParts = [self getStatusPartsArrayWithText:text];
    
     for (HRPartStatus *part in statusParts) {
+        NSRange showRange;
+        showRange.location = resultAttributedStr.length;
         switch (part.partStatusType) {
-            case HRPartStatusTypeNormal:
+            case HRPartStatusTypeNormal: {
                 [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
                 break;
+            }
             case HRPartStatusTypeAt: {
                 [mutableAttributedStr addAttribute:NSForegroundColorAttributeName value:HRRgba(235, 123, 96, 1) range:part.range];
                 [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
                 break;
-
             }
             case HRPartStatusTypeTopic: {
                 [mutableAttributedStr addAttribute:NSForegroundColorAttributeName value:HRRgba(235, 123, 96, 1) range:part.range];
@@ -111,20 +113,23 @@
                 } else {
                     [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
                 }
-
                 break;
             }
-            case HRPartStatusTypeURL:
+            case HRPartStatusTypeURL: {
                 [mutableAttributedStr addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:part.range];
                 [resultAttributedStr appendAttributedString:[mutableAttributedStr attributedSubstringFromRange:part.range]];
                 break;
+            }
             default:
                 break;
         }
-        
+        showRange.length = resultAttributedStr.length - showRange.location;
+        part.showRange = showRange;
     }
     [resultAttributedStr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, resultAttributedStr.length)];
+    [resultAttributedStr addAttribute:@"StatusParts" value:statusParts range:NSMakeRange(0, 1)];
     self.AttributedText = resultAttributedStr;
+    HRLog(@"++%@",self.AttributedText);
 }
 
 - (NSMutableArray *)getStatusPartsArrayWithText:(NSString *)text {
@@ -154,7 +159,6 @@
         [statusParts addObject:part];
     }];
     
-    HRLog(@"before=%@",statusParts);
     [statusParts sortUsingComparator:^NSComparisonResult(HRPartStatus *part1, HRPartStatus *part2) {
         if (part1.range.location < part2.range.location) {
             return NSOrderedAscending;
@@ -162,7 +166,6 @@
         return NSOrderedDescending;
     }];
     
-    HRLog(@"after=%@",statusParts);
     return statusParts;
 }
 
@@ -179,9 +182,6 @@
         partStatus.range = range;
         [parts addObject:partStatus];
         
-        NSLog(@"capturedStrings=%@",*capturedStrings);
-        NSLog(@"capturedRanges=%@",NSStringFromRange(*capturedRanges));
-        NSLog(@"captureCount=%ld",captureCount);
     }];
     return parts;
 }
