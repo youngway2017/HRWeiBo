@@ -165,7 +165,6 @@
 - (void)setRetweetedStatus:(HRStatusFrame *)statusFrame {
     HRStatus *status = statusFrame.status;
     HRStatus *retweetedStatus = status.retweeted_status;
-    HRUser *retweetedUser = retweetedStatus.user;
     
     //正文
     self.retweetedContentLabel.attributedText = retweetedStatus.AttributedText;
