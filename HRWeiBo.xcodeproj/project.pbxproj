@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4409EA9B1C278F020033FC64 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EA911C278F020033FC64 /* FMDatabase.m */; };
+		4409EA9C1C278F020033FC64 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EA931C278F020033FC64 /* FMDatabaseAdditions.m */; };
+		4409EA9D1C278F020033FC64 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EA951C278F020033FC64 /* FMDatabasePool.m */; };
+		4409EA9E1C278F020033FC64 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EA971C278F020033FC64 /* FMDatabaseQueue.m */; };
+		4409EA9F1C278F020033FC64 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EA9A1C278F020033FC64 /* FMResultSet.m */; };
+		4409EAA11C2792B80033FC64 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4409EAA01C2792B80033FC64 /* libsqlite3.0.tbd */; };
+		4409EAA51C2794F50033FC64 /* HRStatusesTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EAA41C2794F50033FC64 /* HRStatusesTool.m */; };
 		441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 441118F61C0D34C1005035F6 /* HRSeachBar.m */; };
 		4427D95E1C16841400410A96 /* HRStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4427D95D1C16841400410A96 /* HRStatusToolbar.m */; };
 		442D03221C1C180C000B4648 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 442D03211C1C180C000B4648 /* EmotionIcons */; };
@@ -137,6 +144,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4409EA901C278F020033FC64 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		4409EA911C278F020033FC64 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		4409EA921C278F020033FC64 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		4409EA931C278F020033FC64 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		4409EA941C278F020033FC64 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		4409EA951C278F020033FC64 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		4409EA961C278F020033FC64 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		4409EA971C278F020033FC64 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		4409EA981C278F020033FC64 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		4409EA991C278F020033FC64 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		4409EA9A1C278F020033FC64 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		4409EAA01C2792B80033FC64 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		4409EAA31C2794F50033FC64 /* HRStatusesTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusesTool.h; sourceTree = "<group>"; };
+		4409EAA41C2794F50033FC64 /* HRStatusesTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusesTool.m; sourceTree = "<group>"; };
 		441118F51C0D34C1005035F6 /* HRSeachBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSeachBar.h; sourceTree = "<group>"; };
 		441118F61C0D34C1005035F6 /* HRSeachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSeachBar.m; sourceTree = "<group>"; };
 		4427D95C1C16841400410A96 /* HRStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusToolbar.h; sourceTree = "<group>"; };
@@ -359,6 +380,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4409EAA11C2792B80033FC64 /* libsqlite3.0.tbd in Frameworks */,
 				448C58511C228DE100549C4F /* libicucore.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +402,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4409EA8F1C278F020033FC64 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				4409EA901C278F020033FC64 /* FMDatabase.h */,
+				4409EA911C278F020033FC64 /* FMDatabase.m */,
+				4409EA921C278F020033FC64 /* FMDatabaseAdditions.h */,
+				4409EA931C278F020033FC64 /* FMDatabaseAdditions.m */,
+				4409EA941C278F020033FC64 /* FMDatabasePool.h */,
+				4409EA951C278F020033FC64 /* FMDatabasePool.m */,
+				4409EA961C278F020033FC64 /* FMDatabaseQueue.h */,
+				4409EA971C278F020033FC64 /* FMDatabaseQueue.m */,
+				4409EA981C278F020033FC64 /* FMDB.h */,
+				4409EA991C278F020033FC64 /* FMResultSet.h */,
+				4409EA9A1C278F020033FC64 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		4409EAA21C2794CB0033FC64 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				4409EAA31C2794F50033FC64 /* HRStatusesTool.h */,
+				4409EAA41C2794F50033FC64 /* HRStatusesTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		442D03251C1C1890000B4648 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +642,7 @@
 		44A6697F1C0BE1E700432DA5 = {
 			isa = PBXGroup;
 			children = (
+				4409EAA01C2792B80033FC64 /* libsqlite3.0.tbd */,
 				448C58501C228DE100549C4F /* libicucore.tbd */,
 				44A6698A1C0BE1E700432DA5 /* HRWeiBo */,
 				44A669A71C0BE1E700432DA5 /* HRWeiBoTests */,
@@ -702,6 +752,7 @@
 		44A669DF1C0C3A4F00432DA5 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				4409EAA21C2794CB0033FC64 /* Tool */,
 				44A669E01C0C3A4F00432DA5 /* Controller */,
 				44A669E31C0C3A4F00432DA5 /* Model */,
 				44A669E41C0C3A4F00432DA5 /* View */,
@@ -807,6 +858,7 @@
 		44A669EF1C0C3A4F00432DA5 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				4409EA8F1C278F020033FC64 /* fmdb */,
 				448C584C1C228D7C00549C4F /* RegexKitLite */,
 				4469B3611C12C25800F6CA68 /* SDWebImage */,
 				4469B31B1C1298E800F6CA68 /* MJExtension */,
@@ -1155,6 +1207,7 @@
 				44E2E3201C1AC9850009649E /* HREmotionKeyboard.m in Sources */,
 				444C4F3F1C157A5A00A0208A /* NSString+Extension.m in Sources */,
 				4469B3891C12C25800F6CA68 /* SDWebImageDownloaderOperation.m in Sources */,
+				4409EA9F1C278F020033FC64 /* FMResultSet.m in Sources */,
 				44BC26A91C0FEEF800D71126 /* UIWindow+Extenstion.m in Sources */,
 				44A35E371C194E860026AE8B /* HRIconView.m in Sources */,
 				4469B3171C128FE800F6CA68 /* HRStatus.m in Sources */,
@@ -1184,6 +1237,7 @@
 				442D03281C1C18C8000B4648 /* HREmotion.m in Sources */,
 				4469B38A1C12C25800F6CA68 /* SDWebImageManager.m in Sources */,
 				44E662A21C1FBF5000F4ED9E /* HRConst.m in Sources */,
+				4409EAA51C2794F50033FC64 /* HRStatusesTool.m in Sources */,
 				44A66A051C0C3A4F00432DA5 /* HRTabBarController.m in Sources */,
 				44BC26B11C1025AD00D71126 /* AccountTool.m in Sources */,
 				4469B38E1C12C25800F6CA68 /* UIImage+MultiFormat.m in Sources */,
@@ -1211,6 +1265,7 @@
 				44B68BAC1C1EC30700AF190B /* HREmotionTool.m in Sources */,
 				442D032E1C1C3324000B4648 /* NSString+Emoji.m in Sources */,
 				447FA2481C0F030B0043668B /* AFHTTPSessionManager.m in Sources */,
+				4409EA9E1C278F020033FC64 /* FMDatabaseQueue.m in Sources */,
 				447FA2241C0EDD7B0043668B /* NewFeatureViewController.m in Sources */,
 				442D032B1C1C231C000B4648 /* HREmotionPageView.m in Sources */,
 				4469B31A1C12909500F6CA68 /* HRUser.m in Sources */,
@@ -1221,9 +1276,12 @@
 				44A66A071C0C3A4F00432DA5 /* main.m in Sources */,
 				4469B3851C12C25800F6CA68 /* SDImageCache.m in Sources */,
 				44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */,
+				4409EA9B1C278F020033FC64 /* FMDatabase.m in Sources */,
 				4469B33A1C1298E800F6CA68 /* NSObject+MJCoding.m in Sources */,
 				44A35E3F1C196AA60026AE8B /* HRPlaceholderTextView.m in Sources */,
 				444C4F361C15309B00A0208A /* HRStatusCell.m in Sources */,
+				4409EA9D1C278F020033FC64 /* FMDatabasePool.m in Sources */,
+				4409EA9C1C278F020033FC64 /* FMDatabaseAdditions.m in Sources */,
 				44A66A251C0C4DBD00432DA5 /* UIView+Extension.m in Sources */,
 				4469B3841C12C25800F6CA68 /* NSData+ImageContentType.m in Sources */,
 				447FA2281C0EF67E0043668B /* NewFeatureTool.m in Sources */,
