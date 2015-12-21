@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HRSettingParentController.h"
 
-@interface HRProfileViewController : UITableViewController
+@interface HRProfileViewController : HRSettingParentController
 
 @end

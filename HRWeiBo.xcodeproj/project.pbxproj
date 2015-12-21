@@ -14,6 +14,14 @@
 		4409EA9F1C278F020033FC64 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EA9A1C278F020033FC64 /* FMResultSet.m */; };
 		4409EAA11C2792B80033FC64 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4409EAA01C2792B80033FC64 /* libsqlite3.0.tbd */; };
 		4409EAA51C2794F50033FC64 /* HRStatusesTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EAA41C2794F50033FC64 /* HRStatusesTool.m */; };
+		4409EAAE1C27FA0C0033FC64 /* HRSettingParentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EAAD1C27FA0C0033FC64 /* HRSettingParentController.m */; };
+		4409EAB11C27FAB00033FC64 /* HRSettingItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EAB01C27FAB00033FC64 /* HRSettingItemCell.m */; };
+		4409EAB41C27FAF10033FC64 /* HRSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EAB31C27FAF10033FC64 /* HRSettingItem.m */; };
+		4409EABD1C27FB410033FC64 /* HRArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EAB61C27FB410033FC64 /* HRArrowItem.m */; };
+		4409EABE1C27FB410033FC64 /* HRLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EAB81C27FB410033FC64 /* HRLabelItem.m */; };
+		4409EABF1C27FB410033FC64 /* HRSettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EABA1C27FB410033FC64 /* HRSettingGroup.m */; };
+		4409EAC01C27FB410033FC64 /* HRSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EABC1C27FB410033FC64 /* HRSwitchItem.m */; };
+		4409EAC41C27FBB30033FC64 /* HRSettingDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4409EAC31C27FBB30033FC64 /* HRSettingDataTool.m */; };
 		441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 441118F61C0D34C1005035F6 /* HRSeachBar.m */; };
 		4427D95E1C16841400410A96 /* HRStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4427D95D1C16841400410A96 /* HRStatusToolbar.m */; };
 		442D03221C1C180C000B4648 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 442D03211C1C180C000B4648 /* EmotionIcons */; };
@@ -158,6 +166,22 @@
 		4409EAA01C2792B80033FC64 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		4409EAA31C2794F50033FC64 /* HRStatusesTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusesTool.h; sourceTree = "<group>"; };
 		4409EAA41C2794F50033FC64 /* HRStatusesTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRStatusesTool.m; sourceTree = "<group>"; };
+		4409EAAC1C27FA0C0033FC64 /* HRSettingParentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSettingParentController.h; sourceTree = "<group>"; };
+		4409EAAD1C27FA0C0033FC64 /* HRSettingParentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSettingParentController.m; sourceTree = "<group>"; };
+		4409EAAF1C27FAB00033FC64 /* HRSettingItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HRSettingItemCell.h; path = ../Model/HRSettingItemCell.h; sourceTree = "<group>"; };
+		4409EAB01C27FAB00033FC64 /* HRSettingItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HRSettingItemCell.m; path = ../Model/HRSettingItemCell.m; sourceTree = "<group>"; };
+		4409EAB21C27FAF10033FC64 /* HRSettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSettingItem.h; sourceTree = "<group>"; };
+		4409EAB31C27FAF10033FC64 /* HRSettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSettingItem.m; sourceTree = "<group>"; };
+		4409EAB51C27FB410033FC64 /* HRArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRArrowItem.h; sourceTree = "<group>"; };
+		4409EAB61C27FB410033FC64 /* HRArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRArrowItem.m; sourceTree = "<group>"; };
+		4409EAB71C27FB410033FC64 /* HRLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLabelItem.h; sourceTree = "<group>"; };
+		4409EAB81C27FB410033FC64 /* HRLabelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRLabelItem.m; sourceTree = "<group>"; };
+		4409EAB91C27FB410033FC64 /* HRSettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSettingGroup.h; sourceTree = "<group>"; };
+		4409EABA1C27FB410033FC64 /* HRSettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSettingGroup.m; sourceTree = "<group>"; };
+		4409EABB1C27FB410033FC64 /* HRSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSwitchItem.h; sourceTree = "<group>"; };
+		4409EABC1C27FB410033FC64 /* HRSwitchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSwitchItem.m; sourceTree = "<group>"; };
+		4409EAC21C27FBB30033FC64 /* HRSettingDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSettingDataTool.h; sourceTree = "<group>"; };
+		4409EAC31C27FBB30033FC64 /* HRSettingDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSettingDataTool.m; sourceTree = "<group>"; };
 		441118F51C0D34C1005035F6 /* HRSeachBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRSeachBar.h; sourceTree = "<group>"; };
 		441118F61C0D34C1005035F6 /* HRSeachBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRSeachBar.m; sourceTree = "<group>"; };
 		4427D95C1C16841400410A96 /* HRStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRStatusToolbar.h; sourceTree = "<group>"; };
@@ -425,6 +449,15 @@
 			children = (
 				4409EAA31C2794F50033FC64 /* HRStatusesTool.h */,
 				4409EAA41C2794F50033FC64 /* HRStatusesTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		4409EAC11C27FBAC0033FC64 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				4409EAC21C27FBB30033FC64 /* HRSettingDataTool.h */,
+				4409EAC31C27FBB30033FC64 /* HRSettingDataTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -923,6 +956,7 @@
 		44A669F81C0C3A4F00432DA5 /* Profile(我) */ = {
 			isa = PBXGroup;
 			children = (
+				4409EAC11C27FBAC0033FC64 /* Tool */,
 				44A669F91C0C3A4F00432DA5 /* Controller */,
 				44A669FC1C0C3A4F00432DA5 /* Model */,
 				44A669FD1C0C3A4F00432DA5 /* View */,
@@ -935,6 +969,8 @@
 			children = (
 				44A669FA1C0C3A4F00432DA5 /* HRProfileViewController.h */,
 				44A669FB1C0C3A4F00432DA5 /* HRProfileViewController.m */,
+				4409EAAC1C27FA0C0033FC64 /* HRSettingParentController.h */,
+				4409EAAD1C27FA0C0033FC64 /* HRSettingParentController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -942,6 +978,16 @@
 		44A669FC1C0C3A4F00432DA5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4409EAB51C27FB410033FC64 /* HRArrowItem.h */,
+				4409EAB61C27FB410033FC64 /* HRArrowItem.m */,
+				4409EAB71C27FB410033FC64 /* HRLabelItem.h */,
+				4409EAB81C27FB410033FC64 /* HRLabelItem.m */,
+				4409EAB91C27FB410033FC64 /* HRSettingGroup.h */,
+				4409EABA1C27FB410033FC64 /* HRSettingGroup.m */,
+				4409EABB1C27FB410033FC64 /* HRSwitchItem.h */,
+				4409EABC1C27FB410033FC64 /* HRSwitchItem.m */,
+				4409EAB21C27FAF10033FC64 /* HRSettingItem.h */,
+				4409EAB31C27FAF10033FC64 /* HRSettingItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -949,6 +995,8 @@
 		44A669FD1C0C3A4F00432DA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4409EAAF1C27FAB00033FC64 /* HRSettingItemCell.h */,
+				4409EAB01C27FAB00033FC64 /* HRSettingItemCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1241,8 +1289,10 @@
 				44A66A051C0C3A4F00432DA5 /* HRTabBarController.m in Sources */,
 				44BC26B11C1025AD00D71126 /* AccountTool.m in Sources */,
 				4469B38E1C12C25800F6CA68 /* UIImage+MultiFormat.m in Sources */,
+				4409EAAE1C27FA0C0033FC64 /* HRSettingParentController.m in Sources */,
 				4469B38B1C12C25800F6CA68 /* SDWebImagePrefetcher.m in Sources */,
 				444C4F391C1530EA00A0208A /* HRStatusFrame.m in Sources */,
+				4409EAC01C27FB410033FC64 /* HRSwitchItem.m in Sources */,
 				4469B3911C12C25800F6CA68 /* UIImageView+WebCache.m in Sources */,
 				447FA2491C0F030B0043668B /* AFNetworkReachabilityManager.m in Sources */,
 				441118F71C0D34C1005035F6 /* HRSeachBar.m in Sources */,
@@ -1264,19 +1314,25 @@
 				44D9A3931C1D6A9B0087ADD6 /* HREmotionButton.m in Sources */,
 				44B68BAC1C1EC30700AF190B /* HREmotionTool.m in Sources */,
 				442D032E1C1C3324000B4648 /* NSString+Emoji.m in Sources */,
+				4409EAB11C27FAB00033FC64 /* HRSettingItemCell.m in Sources */,
 				447FA2481C0F030B0043668B /* AFHTTPSessionManager.m in Sources */,
+				4409EAB41C27FAF10033FC64 /* HRSettingItem.m in Sources */,
+				4409EABE1C27FB410033FC64 /* HRLabelItem.m in Sources */,
 				4409EA9E1C278F020033FC64 /* FMDatabaseQueue.m in Sources */,
 				447FA2241C0EDD7B0043668B /* NewFeatureViewController.m in Sources */,
 				442D032B1C1C231C000B4648 /* HREmotionPageView.m in Sources */,
 				4469B31A1C12909500F6CA68 /* HRUser.m in Sources */,
 				447FA24D1C0F030B0043668B /* AFURLResponseSerialization.m in Sources */,
+				4409EAC41C27FBB30033FC64 /* HRSettingDataTool.m in Sources */,
 				447FA24C1C0F030B0043668B /* AFURLRequestSerialization.m in Sources */,
 				4469B3881C12C25800F6CA68 /* SDWebImageDownloader.m in Sources */,
 				4469B38F1C12C25800F6CA68 /* UIImage+WebP.m in Sources */,
 				44A66A071C0C3A4F00432DA5 /* main.m in Sources */,
 				4469B3851C12C25800F6CA68 /* SDImageCache.m in Sources */,
+				4409EABD1C27FB410033FC64 /* HRArrowItem.m in Sources */,
 				44BC26BA1C102FBA00D71126 /* MBProgressHUD.m in Sources */,
 				4409EA9B1C278F020033FC64 /* FMDatabase.m in Sources */,
+				4409EABF1C27FB410033FC64 /* HRSettingGroup.m in Sources */,
 				4469B33A1C1298E800F6CA68 /* NSObject+MJCoding.m in Sources */,
 				44A35E3F1C196AA60026AE8B /* HRPlaceholderTextView.m in Sources */,
 				444C4F361C15309B00A0208A /* HRStatusCell.m in Sources */,

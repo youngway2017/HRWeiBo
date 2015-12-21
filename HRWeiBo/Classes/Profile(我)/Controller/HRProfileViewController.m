@@ -8,9 +8,13 @@
 
 #import "HRProfileViewController.h"
 #import "Test1ViewController.h"
+#import "HRArrowItem.h"
+#import "HRSettingGroup.h"
+#import "SDImageCache.h"
 
-@interface HRProfileViewController ()
+@interface HRProfileViewController ()<UIAlertViewDelegate>
 
+@property (nonatomic, strong) HRArrowItem *cache;
 @end
 
 @implementation HRProfileViewController
@@ -19,8 +23,37 @@
     [super viewDidLoad];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(btnLeftClick:)];
-    
+    [self addGroup01];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSUInteger size = [[SDImageCache sharedImageCache] getSize];
+    double cacheSize = size / 1000.0 / 1000.0;
+    self.cache.subTitle = [NSString stringWithFormat:@"%.1fMB",cacheSize];
+    [self.tableView reloadData];
+}
+
+- (void)addGroup01 {
+    HRArrowItem *cache = [HRArrowItem arrowItemWithIcon:@"" title:@"清除缓存" descVC:nil];
+    NSUInteger size = [[SDImageCache sharedImageCache] getSize];
+    double cacheSize = size / 1000.0 / 1000.0;
+    cache.option = ^ (HRSettingItem *cache){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"确认清除缓存？" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alertView show];
+    };
+    
+    cache.subTitle = [NSString stringWithFormat:@"%.1fMB",cacheSize];
+    self.cache = cache;
+    HRSettingGroup *group1 = [[HRSettingGroup alloc] init];
+    NSMutableArray *items = [NSMutableArray array];
+    
+    [items addObject:cache];
+    
+    group1.items = items;
+    [self.settingGroups addObject:group1];
+}
+
 
 - (void)btnLeftClick:(UIButton *)sender {
     HRLog(@"profile leftclick!");
@@ -29,76 +62,26 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 1: {
+            [[SDImageCache sharedImageCache] clearDisk];
+            self.cache.subTitle = @"0.0MB";
+            [self.tableView reloadData];
+            break;
+        }
+        default:
+            break;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
