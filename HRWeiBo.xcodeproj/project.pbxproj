@@ -132,6 +132,7 @@
 		44E2E3231C1AC9A40009649E /* HREmotionKeyboardTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E3221C1AC9A40009649E /* HREmotionKeyboardTabBar.m */; };
 		44E2E3261C1ACACD0009649E /* HREmotionKeyboardListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2E3251C1ACACD0009649E /* HREmotionKeyboardListView.m */; };
 		44E662A21C1FBF5000F4ED9E /* HRConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E662A11C1FBF5000F4ED9E /* HRConst.m */; };
+		44F192891C30D36A00F2C426 /* 备忘录.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F192881C30D36A00F2C426 /* 备忘录.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -397,6 +398,7 @@
 		44E2E3251C1ACACD0009649E /* HREmotionKeyboardListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HREmotionKeyboardListView.m; sourceTree = "<group>"; };
 		44E662A01C1FBF5000F4ED9E /* HRConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRConst.h; sourceTree = "<group>"; };
 		44E662A11C1FBF5000F4ED9E /* HRConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRConst.m; sourceTree = "<group>"; };
+		44F192881C30D36A00F2C426 /* 备忘录.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "备忘录.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1007,6 +1009,7 @@
 				44A669FF1C0C3A4F00432DA5 /* Controller */,
 				44A66A001C0C3A4F00432DA5 /* Model */,
 				44A66A011C0C3A4F00432DA5 /* View */,
+				44F192881C30D36A00F2C426 /* 备忘录.m */,
 			);
 			path = Temp;
 			sourceTree = "<group>";
@@ -1335,6 +1338,7 @@
 				4409EABF1C27FB410033FC64 /* HRSettingGroup.m in Sources */,
 				4469B33A1C1298E800F6CA68 /* NSObject+MJCoding.m in Sources */,
 				44A35E3F1C196AA60026AE8B /* HRPlaceholderTextView.m in Sources */,
+				44F192891C30D36A00F2C426 /* 备忘录.m in Sources */,
 				444C4F361C15309B00A0208A /* HRStatusCell.m in Sources */,
 				4409EA9D1C278F020033FC64 /* FMDatabasePool.m in Sources */,
 				4409EA9C1C278F020033FC64 /* FMDatabaseAdditions.m in Sources */,
